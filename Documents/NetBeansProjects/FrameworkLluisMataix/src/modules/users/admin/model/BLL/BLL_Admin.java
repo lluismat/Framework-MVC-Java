@@ -81,10 +81,10 @@ public class BLL_Admin {
             ChangeAdmin.optionState.setText("No");
         }
 
-        //ChangeAdmin.birthdayField.setDateFormatString(Config.getInstance().getFormatDate());
+        
         ChangeAdmin.birthdayField.setCalendar(admin.getDate_birthday().StringtoCalendar());
         ChangeAdmin.activityField.setText(String.valueOf(admin.getActivity()));
-        //ChangeAdmin.HiringDateField.setDateFormatString(Config.getInstance().getFormatDate());
+        
         ChangeAdmin.HiringDateField.setCalendar(admin.getHiring_date().StringtoCalendar());
 
     }
