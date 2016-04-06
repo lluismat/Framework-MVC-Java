@@ -124,7 +124,7 @@ public class controller_menu implements ActionListener, MouseListener {
                     break;
             }
             
-            //MONEDA
+            //FORMATO MONEDA
             switch (Config.getInstance().getCurrency()) {
                 case "€":
                     config.optEuros.setSelected(true);
