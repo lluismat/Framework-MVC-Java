@@ -68,7 +68,7 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
 
     public enum Action {
 
-        //MENU Client
+        //MENU Cliente
         CreateClient,
         modifyClient,
         deleteClient,
