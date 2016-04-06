@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="encoding"?>
+<list>
+  <Registered__user>
+    <DNI>21695921K</DNI>
+    <Name>Lluis</Name>
+    <Surname>Mataix</Surname>
+    <Mobile>656197251</Mobile>
+    <Email>mataix@gmail.com</Email>
+    <User>lluismat</User>
+    <Pass>123465</Pass>
+    <Avatar>C:\Users\lluis\Documents\NetBeansProjects\FrameworkLluisMataix/src/modules/users/admin/model/utils/avatars/avatar21799_2.gif</Avatar>
+    <State>Si</State>
+    <Date__Birthday>
+      <Date>15/4/1994</Date>
+      <Day>15</Day>
+      <Month>4</Month>
+      <Year>1994</Year>
+    </Date__Birthday>
+    <Age>21</Age>
+    <Benefits>154.0</Benefits>
+    <Activity>54</Activity>
+    <karma>Low</karma>
+  </Registered__user>
+</list>
