@@ -13,7 +13,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 import modules.Config.model.Config;
 import modules.Config.model.files_Config;
 import modules.Config.view.Config_jFrame;
@@ -215,7 +214,8 @@ public class controller_menu implements ActionListener, MouseListener {
                 Config.getInstance().setFiles("JSON");
                 Config.getInstance().setTheme("Windows");
                 files_Config.SaveConfig();
-                Themes.themes();
+                config.dispose();
+                new controller_menu(new Menu(),0).start(0);
                 break;
             case btnVolver:
                 config.dispose();
@@ -230,7 +230,7 @@ public class controller_menu implements ActionListener, MouseListener {
         switch (Action.valueOf(e.getComponent().getName())) {
             case etiAdmin:
                 menu.dispose();
-                new controller_Admin(new Admin(), 0).start(0);//cerramos ventana actual
+                new controller_Admin(new Admin(), 0).start(0);
                 break;
             case etiClient:
                 menu.dispose();
