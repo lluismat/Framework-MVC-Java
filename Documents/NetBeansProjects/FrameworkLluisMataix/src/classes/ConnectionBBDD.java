@@ -22,7 +22,7 @@ public class ConnectionBBDD {
      * @return
      * */
     
-    public Connection OpenConnection() {
+    public Connection OpenConnection54() {
 
         Connection connect = null;
         try {
