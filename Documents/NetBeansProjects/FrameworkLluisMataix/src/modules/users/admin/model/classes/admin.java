@@ -36,7 +36,7 @@ public class admin extends users implements Serializable {
 
 	// Constructor per defecte
 	public admin(String dni, String name, String surname, String mobile, String email, String user, String pass,
-			String avatar, boolean state, date date_birthday, String antiquity2, String activity2, date hiring_date2) {
+			String avatar, boolean state, date date_birthday, String antiquity, String activity, date hiring_date) {
 		super();
 	}
 
@@ -44,6 +44,10 @@ public class admin extends users implements Serializable {
 	public admin(String dni) {
 		super(dni);
 	}
+        
+        public admin(){
+            
+        }
 
 	// Constructor a peticio del usuari
 	public admin(Object election, int i) {

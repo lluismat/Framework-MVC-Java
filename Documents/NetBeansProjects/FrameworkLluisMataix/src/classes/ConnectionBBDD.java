@@ -22,17 +22,17 @@ public class ConnectionBBDD {
      * @return
      * */
     
-    public Connection OpenConnection54() {
+    public Connection OpenConnection() {
 
         Connection connect = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String urlOdbc = "jdbc:mysql://127.0.0.1:3306/Framework_BBDD";
+            String urlOdbc = "jdbc:mysql://127.0.0.1:3306/bbdd_admin";
             connect = (java.sql.DriverManager.getConnection(urlOdbc, "root", ""));
             
         } catch (Exception e) {
 
-            JOptionPane.showMessageDialog(null, "Ha sido imposible establecer la conexion!");
+            JOptionPane.showMessageDialog(null, "Ha sido imposible establecer la conexion");
         }
         return connect;
     }
@@ -41,7 +41,7 @@ public class ConnectionBBDD {
     /**
      * cerramos la conexion en la BBDD
      *
-     * @param con
+     * @param connect
      */
     public void CloseConnection(Connection connect) {
         try {

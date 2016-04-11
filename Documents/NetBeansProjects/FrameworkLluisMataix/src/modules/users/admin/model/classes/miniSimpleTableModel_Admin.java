@@ -124,7 +124,7 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel {
 
         admin admin = null;
         for (int i = 0; i <= (singleton.useradmin.size() - 1); i++) {
-            admin = singleton.useradmin.get(i);
+            singleton.admin = singleton.useradmin.get(i);
             addRow(admin);
             auxdates.add(admin);
 

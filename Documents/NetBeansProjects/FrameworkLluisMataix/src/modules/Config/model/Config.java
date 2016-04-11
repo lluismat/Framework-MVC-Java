@@ -50,16 +50,7 @@ public class Config implements Serializable {
 			singleton.useradmin = new ArrayList<admin>();
 			singleton.userclient = new ArrayList<client>();
 			singleton.userreg = new ArrayList<registered_user>();
-/*
-			String[] type = { Language.getInstance().getProperty("dummies"),
-					Language.getInstance().getProperty("filetitle") };
-			int menu = menus.menu(Language.getInstance().getProperty("work"),
-					Language.getInstance().getProperty("worktitle"), type);
-			if (menu == 0) {
-				Dummies.LoadDummies();
-			} else
-				Functions_OpenAuto.openAuto();
-*/
+                        
 		}
 		return Instance;
 
