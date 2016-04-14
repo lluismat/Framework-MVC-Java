@@ -38,7 +38,6 @@ public class BLL_Admin {
     public static boolean create_admin() {
         int location;
         boolean checker = false;
-        admin admin;
         location = searchAdminDNI();
         if (location != -1) {
             JOptionPane.showMessageDialog(null, Language.getInstance().getProperty("erroradminexist"));
@@ -47,8 +46,10 @@ public class BLL_Admin {
                 && (askAdmin("mobile") == true) && (askAdmin("email") == true) && (askAdmin("user")) && (askAdmin("pass") == true)
                 && (askAdmin("birthday") == true) && (askAdmin("activity") == true) && (askAdmin("hiringdate") == true)) {
 
-            admin = DAO_Admin.pideAdmin();
-            singleton.useradmin.add(admin);
+            DAO_Admin.pideAdmin();
+            singleton.useradmin.add(singleton.admin);
+            BLL_BBDD.NewAdmin();
+            
             checker = true;
         }
         return checker;
@@ -56,72 +57,70 @@ public class BLL_Admin {
 
     public static void viewAdmin() {
         int location;
-        admin admin;
         location = searchAdminModifyDNI();
-        admin = singleton.useradmin.get(location);
+        singleton.admin = singleton.useradmin.get(location);
 
-        ChangeAdmin.nameField.setText(admin.getName());
-        etiTitle.setText("Administrador: " + admin.getName() + " " + admin.getSurname());
-        ChangeAdmin.surnameField.setText(admin.getSurname());
-        ChangeAdmin.mobileField.setText(admin.getMobile());
-        ChangeAdmin.emailField.setText(admin.getEmail());
-        ChangeAdmin.userField.setText(admin.getUser());
+        ChangeAdmin.nameField.setText(singleton.admin.getName());
+        etiTitle.setText("Administrador: " + singleton.admin.getName() + " " + singleton.admin.getSurname());
+        ChangeAdmin.surnameField.setText(singleton.admin.getSurname());
+        ChangeAdmin.mobileField.setText(singleton.admin.getMobile());
+        ChangeAdmin.emailField.setText(singleton.admin.getEmail());
+        ChangeAdmin.userField.setText(singleton.admin.getUser());
 
-        ImageIcon avatar = new ImageIcon(admin.getAvatar());
+        ImageIcon avatar = new ImageIcon(singleton.admin.getAvatar());
         ChangeAdmin.img.setIcon(new ImageIcon(avatar.getImage().getScaledInstance(125, 125, Image.SCALE_SMOOTH)));
-        ChangeAdmin.imgPath.setText(admin.getAvatar());
+        ChangeAdmin.imgPath.setText(singleton.admin.getAvatar());
 
-        ChangeAdmin.passField.setText(admin.getPass());
+        ChangeAdmin.passField.setText(singleton.admin.getPass());
 
-        if ("Si".equals(admin.getState())) {
+        if ("Si".equals(singleton.admin.getState())) {
             ChangeAdmin.optYes.setSelected(true);
             ChangeAdmin.optionState.setText("Si");
-        } else if ("No".equals(admin.getState())) {
+        } else if ("No".equals(singleton.admin.getState())) {
             ChangeAdmin.optNo.setSelected(true);
             ChangeAdmin.optionState.setText("No");
         }
 
         
-        ChangeAdmin.birthdayField.setCalendar(admin.getDate_birthday().StringtoCalendar());
-        ChangeAdmin.activityField.setText(String.valueOf(admin.getActivity()));
+        ChangeAdmin.birthdayField.setCalendar(singleton.admin.getDate_birthday().StringtoCalendar());
+        ChangeAdmin.activityField.setText(String.valueOf(singleton.admin.getActivity()));
         
-        ChangeAdmin.HiringDateField.setCalendar(admin.getHiring_date().StringtoCalendar());
+        ChangeAdmin.HiringDateField.setCalendar(singleton.admin.getHiring_date().StringtoCalendar());
 
     }
 
     public static void viewJTableAdmin(String dni) {
         int location;
-        admin admin;
-        admin = new admin(dni);
-        location = searchAdmin(admin);
-        admin = singleton.useradmin.get(location);
+        singleton.admin = new admin(dni);
+        location = searchAdmin(singleton.admin);
+        singleton.admin = singleton.useradmin.get(location);
 
-        ChangeAdmin.dniField.setText(admin.getDni());
-        ChangeAdmin.nameField.setText(admin.getName());
-        etiTitle.setText("Administrador: " + admin.getName() + " " + admin.getSurname());
-        ChangeAdmin.surnameField.setText(admin.getSurname());
-        ChangeAdmin.mobileField.setText(admin.getMobile());
-        ChangeAdmin.emailField.setText(admin.getEmail());
-        ChangeAdmin.userField.setText(admin.getUser());
+        ChangeAdmin.dniField.setText(singleton.admin.getDni());
+        ChangeAdmin.nameField.setText(singleton.admin.getName());
+        etiTitle.setText("Administrador: " + singleton.admin.getName() + " " + singleton.admin.getSurname());
+        ChangeAdmin.surnameField.setText(singleton.admin.getSurname());
+        ChangeAdmin.mobileField.setText(singleton.admin.getMobile());
+        ChangeAdmin.emailField.setText(singleton.admin.getEmail());
+        ChangeAdmin.userField.setText(singleton.admin.getUser());
 
-        ImageIcon avatar = new ImageIcon(admin.getAvatar());
+        ImageIcon avatar = new ImageIcon(singleton.admin.getAvatar());
         ChangeAdmin.img.setIcon(new ImageIcon(avatar.getImage().getScaledInstance(125, 125, Image.SCALE_SMOOTH)));
-        ChangeAdmin.imgPath.setText(admin.getAvatar());
+        ChangeAdmin.imgPath.setText(singleton.admin.getAvatar());
 
-        ChangeAdmin.passField.setText(admin.getPass());
+        ChangeAdmin.passField.setText(singleton.admin.getPass());
 
-        if ("Si".equals(admin.getState())) {
+        if ("Si".equals(singleton.admin.getState())) {
             ChangeAdmin.optYes.setSelected(true);
             ChangeAdmin.optionState.setText("Si");
-        } else if ("No".equals(admin.getState())) {
+        } else if ("No".equals(singleton.admin.getState())) {
             ChangeAdmin.optNo.setSelected(true);
         }
         ChangeAdmin.optionState.setText("No");
         ChangeAdmin.birthdayField.setDateFormatString(Config.getInstance().getFormatDate());
-        ChangeAdmin.birthdayField.setCalendar(admin.getDate_birthday().StringtoCalendar());
-        ChangeAdmin.activityField.setText(String.valueOf(admin.getActivity()));
+        ChangeAdmin.birthdayField.setCalendar(singleton.admin.getDate_birthday().StringtoCalendar());
+        ChangeAdmin.activityField.setText(String.valueOf(singleton.admin.getActivity()));
         ChangeAdmin.HiringDateField.setDateFormatString(Config.getInstance().getFormatDate());
-        ChangeAdmin.HiringDateField.setCalendar(admin.getHiring_date().StringtoCalendar());
+        ChangeAdmin.HiringDateField.setCalendar(singleton.admin.getHiring_date().StringtoCalendar());
 
     }
 
@@ -129,16 +128,16 @@ public class BLL_Admin {
     public static boolean update_admin() {
         int location;
         boolean checker = false;
-        admin admin;
         if ((changeAdmin("name") == true) && (changeAdmin("surname") == true)
                 && (changeAdmin("mobile") == true) && (changeAdmin("email") == true) && (changeAdmin("user") == true)
                 && (changeAdmin("pass") == true)
                 && (changeAdmin("birthday") == true) && (changeAdmin("activity") == true) && (changeAdmin("hiringdate") == true)) {
 
             location = searchAdminModifyDNI();
-            admin = singleton.useradmin.get(location);
-            admin = DAO_Admin.changeAdmin();
-            singleton.useradmin.set(location, admin);
+            singleton.admin = singleton.useradmin.get(location);
+            DAO_Admin.changeAdmin();
+            singleton.useradmin.set(location, singleton.admin);
+            BLL_BBDD.modifyAdminBLL();
             checker = true;
         }
         return checker;
@@ -163,8 +162,9 @@ public class BLL_Admin {
                 singleton.admin = new admin(dni);
                 int location = searchAdmin(singleton.admin);
                 singleton.admin = singleton.useradmin.get(location);
-                new controller_Admin(new ChangeAdmin(singleton.admin, Admin.jTable), 2).start(2);
-                singleton.admin = null;
+                singleton.adminPager=singleton.admin;
+                new controller_Admin(new ChangeAdmin(singleton.adminPager, Admin.jTable), 2).start(2);
+                
                 correcto = true;
 
             }
@@ -186,7 +186,7 @@ public class BLL_Admin {
         } else {
             Create_Admin.confirm.setText("El Administrador ha sido creado con exito");
             Create_Admin.confirm.setBackground(Color.green);
-            saveAutoAdmin();
+            
         }
 
         return checker;
@@ -206,7 +206,7 @@ public class BLL_Admin {
             dispose = true;
             ChangeAdmin.confirm.setText("El Administrador se ha modificado con exito");
             ChangeAdmin.confirm.setBackground(Color.green);
-            saveAutoAdmin();
+            
         }
 
         return dispose;
@@ -220,31 +220,30 @@ public class BLL_Admin {
 
         int n = ((miniSimpleTableModel_Admin) Admin.jTable.getModel()).getRowCount();
         if (n != 0) {
-            int selec = Admin.jTable.getSelectedRow();
+            
             int inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
+            int selec = Admin.jTable.getSelectedRow();
             int selec1 = inicio + selec; //nos situamos en la fila correspondiente de esa página
 
             if (selec1 == -1) {
                 JOptionPane.showMessageDialog(null, "No se ha seleccionado a ningun administrador", "Error!", 2);
             } else {
                 dni = (String) Admin.jTable.getModel().getValueAt(selec1, 0);
-                admin admin = new admin(dni);
-                location = searchAdmin(admin);
+                singleton.admin = new admin(dni);
+                location = searchAdmin(singleton.admin);
 
                 int opc = JOptionPane.showConfirmDialog(null, "Estas seguro que quieres eliminar al Admin: " + dni,
                         "Info", JOptionPane.WARNING_MESSAGE);
                 if (opc == 0) {
 
                     ((miniSimpleTableModel_Admin) Admin.jTable.getModel()).removeRow(selec1);
-                    admin = singleton.useradmin.get(location);
+                    singleton.admin = singleton.useradmin.get(location);
+                    singleton.useradmin.remove(singleton.admin);
+                    BLL_BBDD.DeleteAdminBLL();
+                    miniSimpleTableModel_Admin.auxdates.remove(singleton.admin);
 
-                    singleton.useradmin.remove(admin);
-                    miniSimpleTableModel_Admin.auxdates.remove(admin);
-
-                    saveAutoAdmin();
-
+                    //saveAutoAdmin();
                 }
-
                 if (((miniSimpleTableModel_Admin) Admin.jTable.getModel()).getRowCount() == 0) {
                     if (((miniSimpleTableModel_Admin) Admin.jTable.getModel()).getRowCount() != 0) {
                     }

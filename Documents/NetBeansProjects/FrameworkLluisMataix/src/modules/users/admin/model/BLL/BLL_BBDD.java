@@ -22,7 +22,7 @@ public class BLL_BBDD {
     public static int NewAdmin() {
 
         int correct;
-        Connection con = null;
+        Connection con;
 
         ConnectionBBDD connectionbd = new ConnectionBBDD();
 
@@ -62,9 +62,11 @@ public class BLL_BBDD {
         ConnectionBBDD connectionBD = new ConnectionBBDD();
 
         con = connectionBD.OpenConnection();
-        DAO_BBDD DAOBD=new DAO_BBDD();
+        
+        //DAO_BBDD DAOBD=new DAO_BBDD();
 
-        DAOBD.modifyAdminDAO(con);
+        DAO_BBDD.modifyAdminDAO(con);
+        
         connectionBD.CloseConnection(con);
 
     }

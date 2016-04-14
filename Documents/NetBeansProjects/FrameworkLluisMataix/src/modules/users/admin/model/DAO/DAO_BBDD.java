@@ -21,6 +21,7 @@ import modules.users.users.singleton;
  */
 public class DAO_BBDD {
 
+    //añadir administrador a la Bases de Datos
     public static int NewAdmin(Connection connect) {
         int correct = 0;
         PreparedStatement stmt = null;
@@ -49,10 +50,10 @@ public class DAO_BBDD {
             stmt.setString(16, singleton.admin.getHiring_date().toString());
 
             correct = stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null, "El usuario ha sido dado de alta correctamente");
+            JOptionPane.showMessageDialog(null, "El administrador ha sido dado de alta correctamente");
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Ha habido un problema al insertar un nuevo usuario");
+            JOptionPane.showMessageDialog(null, "Ha habido un problema al insertar un nuevo administrador");
         } finally {
             if (stmt != null) {
                 try {
@@ -65,7 +66,7 @@ public class DAO_BBDD {
         return correct;
     }
 
-    //Listamos todos los empleados y los metemos en su array
+    //Listamos todos los administrador y los metemos en su array
     public void ViewAdminDAO(Connection con) {
 
         ResultSet rs = null;
@@ -113,34 +114,37 @@ public class DAO_BBDD {
         }
     }
 
-    //Modificamos un empleado
-    public void modifyAdminDAO(Connection con) {
+    //Modificamos un administrador
+    public static int modifyAdminDAO(Connection con) {
+        int correct = 0;
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("UPDATE bbdd_admin.admin SET Dni=?,Name=?,Surname=?,"
+            stmt = con.prepareStatement("UPDATE bbdd_admin.admin SET Name=?,Surname=?,"
                     + "Mobile=?,Email=?,User=?,Pass=?,Avatar=?,State=?,"
-                    + "Date_Birthday=?,Age=?,Benefits=?,Antiquity=?,Salary=?,Activity=?,Hiring_Date=?");
+                    + "Date_Birthday=?,Age=?,Benefits=?,Antiquity=?,Salary=?,Activity=?,Hiring_Date=? "
+                    + "WHERE dni=?");
 
-            stmt.setString(1, singleton.admin.getDni());
-            stmt.setString(2, singleton.admin.getName());
-            stmt.setString(3, singleton.admin.getSurname());
-            stmt.setString(4, singleton.admin.getMobile());
-            stmt.setString(5, singleton.admin.getEmail());
-            stmt.setString(6, singleton.admin.getUser());
-            stmt.setString(7, singleton.admin.getPass());
-            stmt.setString(8, singleton.admin.getAvatar());
-            stmt.setString(9, singleton.admin.getState());
-            stmt.setString(10, singleton.admin.getDate_birthday().toString());
-            stmt.setInt(11, singleton.admin.getAge());
-            stmt.setFloat(12, singleton.admin.getBenefits());
-            stmt.setInt(13, singleton.admin.getAntiquity());
-            stmt.setFloat(14, singleton.admin.getSalary());
-            stmt.setInt(15, singleton.admin.getActivity());
-            stmt.setString(16, singleton.admin.getHiring_date().toString());
-            stmt.executeUpdate();
+            
+            stmt.setString(1, singleton.admin.getName());
+            stmt.setString(2, singleton.admin.getSurname());
+            stmt.setString(3, singleton.admin.getMobile());
+            stmt.setString(4, singleton.admin.getEmail());
+            stmt.setString(5, singleton.admin.getUser());
+            stmt.setString(6, singleton.admin.getPass());
+            stmt.setString(7, singleton.admin.getAvatar());
+            stmt.setString(8, singleton.admin.getState());
+            stmt.setString(9, singleton.admin.getDate_birthday().toString());
+            stmt.setInt(10, singleton.admin.getAge());
+            stmt.setFloat(11, singleton.admin.getBenefits());
+            stmt.setInt(12, singleton.admin.getAntiquity());
+            stmt.setFloat(13, singleton.admin.getSalary());
+            stmt.setInt(14, singleton.admin.getActivity());
+            stmt.setString(15, singleton.admin.getHiring_date().toString());
+            stmt.setString(16, singleton.admin.getDni());
 
-            JOptionPane.showMessageDialog(null, "El administrador ha sido modificado correctamente!");
+            correct = stmt.executeUpdate();
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un problema al actualizar el administrador");
         } finally {
@@ -152,10 +156,10 @@ public class DAO_BBDD {
                 }
             }
         }
-
+        return correct;
     }
 
-    //Borramos un empleado
+    //Borramos un administrador
     public boolean DeleteAdminDAO(Connection con) {
 
         PreparedStatement stmt = null;

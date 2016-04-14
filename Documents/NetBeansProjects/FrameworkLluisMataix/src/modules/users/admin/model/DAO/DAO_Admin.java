@@ -20,7 +20,7 @@ import utils.validate;
 public class DAO_Admin {
 
     // funcion crear admin
-    public static admin pideAdmin() {
+    public static void pideAdmin() {
 
         String dni = "", name = "", surname = "", mobile = "", email = "", user = "", pass = "", avatar = "",
                 state = "";
@@ -40,14 +40,13 @@ public class DAO_Admin {
         activity = Integer.parseInt(Create_Admin.activityField.getText());
         hiring_date = new date(((JTextFieldDateEditor) Create_Admin.HiringDateField.getDateEditor()).getText());
 
-        admin admin = new admin(dni, name, surname, mobile, email, user, pass, avatar, state, date_birthday, activity,
+       singleton.admin = new admin(dni, name, surname, mobile, email, user, pass, avatar, state, date_birthday, activity,
                 hiring_date);
 
-        return admin;
     }
 
     // funcion modificar admin
-    public static admin changeAdmin() {
+    public static void changeAdmin() {
 
         String dni = "", name = "", surname = "", mobile = "", email = "", user = "", pass = "", avatar = "",
                 state = "";
@@ -67,10 +66,9 @@ public class DAO_Admin {
         activity = Integer.parseInt(ChangeAdmin.activityField.getText());
         hiring_date = new date(((JTextFieldDateEditor) ChangeAdmin.HiringDateField.getDateEditor()).getText());
 
-        admin admin = new admin(dni, name, surname, mobile, email, user, pass, avatar, state, date_birthday, activity,
+        singleton.admin = new admin(dni, name, surname, mobile, email, user, pass, avatar, state, date_birthday, activity,
                 hiring_date);
 
-        return admin;
     }
     // pide dni
     public static boolean askdni() {

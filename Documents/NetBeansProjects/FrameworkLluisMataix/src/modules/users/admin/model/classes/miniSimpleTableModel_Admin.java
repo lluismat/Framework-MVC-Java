@@ -11,6 +11,7 @@ import modules.users.admin.model.utils.pagina;
 import modules.users.admin.view.Admin;
 import utils.format;
 import modules.Config.model.Config;
+import modules.users.admin.model.BLL.BLL_BBDD;
 
 public class miniSimpleTableModel_Admin extends AbstractTableModel {
 
@@ -111,20 +112,21 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel {
     }
 
     public void removeRow(int fila) {
-        dates.remove(fila-1);
+        dates.remove(fila);
         fireTableDataChanged();
-        Admin.jLabel3.setText(String.valueOf(String.valueOf(dates.size())));
-        pagina.initLinkBox();
+        //Admin.jLabel3.setText(String.valueOf(String.valueOf(dates.size())));
+        //pagina.initLinkBox();
         
     }
 
     public void load() {
         dates.clear();
         auxdates.clear();
+        BLL_BBDD.ViewAdmin();
 
         admin admin = null;
         for (int i = 0; i <= (singleton.useradmin.size() - 1); i++) {
-            singleton.admin = singleton.useradmin.get(i);
+            admin = singleton.useradmin.get(i);
             addRow(admin);
             auxdates.add(admin);
 

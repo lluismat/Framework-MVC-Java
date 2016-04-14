@@ -28,6 +28,7 @@ import modules.menu.controller.controller_menu;
 import modules.menu.view.Menu;
 import static modules.users.admin.controller.controller_Admin.menuAdmin;
 import modules.users.admin.model.BLL.BLL_Admin;
+import modules.users.admin.model.classes.admin;
 import modules.users.admin.model.classes.miniSimpleTableModel_Admin;
 import modules.users.admin.model.utils.autocomplete_admin.AutocompleteJComboBox;
 import modules.users.admin.model.utils.autocomplete_admin.StringSearchable;
@@ -78,7 +79,6 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
         iconMenu,
         open,
         save,
-  
         //JTABLE
         jTable,
         primero,
@@ -280,7 +280,6 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
                 createAdmin.HiringDateField.setDateFormatString(Config.getInstance().getFormatDate());
                 Themes.themes();
                 this.createAdmin.setVisible(true);
-                
 
                 this.createAdmin.addWindowListener(new WindowAdapter() {
                     @Override
@@ -374,7 +373,6 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
             //MODIFICAR ADMINISTRADOR
             case 2:
 
-                
                 this.changeAdmin.etiDNI.setVisible(false);
                 this.changeAdmin.dniField.setVisible(false);
                 this.changeAdmin.dniField.setEditable(false);
@@ -382,13 +380,13 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
                 this.changeAdmin.HiringDateField.setDateFormatString(Config.getInstance().getFormatDate());
                 Themes.themes();
 
-                if (singleton.admin != null) {
+                if (singleton.adminPager != null) {
                     this.changeAdmin.etiDNI.setVisible(true);
                     this.changeAdmin.dniField.setVisible(true);
                     this.changeAdmin.etiDNI1.setVisible(false);
                     this.changeAdmin.comboDni.setVisible(false);
                     this.changeAdmin.comboDni.setEnabled(true);
-                    BLL_Admin.viewJTableAdmin(singleton.admin.getDni());
+                    BLL_Admin.viewJTableAdmin(singleton.adminPager.getDni());
                 }
 
                 this.changeAdmin.setSize(942, 720);
@@ -611,18 +609,8 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
                 new controller_Admin(new Create_Admin(), 1).start(1);
                 break;
             case modifyAdmin:
-
-                int selec = Admin.jTable.getSelectedRow();
-                if (selec == -1) {
-                    menuAdmin.dispose();
-                    new controller_Admin(new ChangeAdmin(singleton.admin, table), 2).start(2);
-                } else {
-                    boolean modify = BLL_Admin.modify_row();
-                    if (modify == true) {
-                        menuAdmin.dispose();
-                    }
-                }
-
+                menuAdmin.dispose();
+                new controller_Admin(new ChangeAdmin(singleton.admin, table), 2).start(2);
                 break;
             case deleteAdmin:
                 BLL_Admin.deleteAdmin();
@@ -632,6 +620,15 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
             case iconMenu:
                 menuAdmin.dispose();
                 new controller_menu(new Menu(), 0).start(0);
+                break;
+            case jTable:
+               if (e.getClickCount() == 2) {
+                boolean modify = BLL_Admin.modify_row();
+                if(modify==true){
+                    menuAdmin.dispose();
+                }
+                }
+
                 break;
 
             //CREAR ADMIN

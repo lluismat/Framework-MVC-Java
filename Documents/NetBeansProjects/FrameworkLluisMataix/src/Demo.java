@@ -49,13 +49,15 @@ public class Demo {
         //</editor-fold>
 
         /* Create and display the form */
-        Config.getInstance();
-        BLL_Admin.openAuto();
+        
+        //BLL_Admin.openAuto();
         BLL_Client.openAuto();
         BLL_Userreg.openAuto();
+        Config.getInstance();
+        
 
         
-        //Proba_BBDD.loadDates();
+        //Proba_BBDD.NewAdmin();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Timer_Class().setVisible(true);

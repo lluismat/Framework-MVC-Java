@@ -11,7 +11,6 @@ import modules.users.client.model.classes.client;
 import modules.users.userreg.model.classes.registered_user;
 import modules.users.users.singleton;
 import utils.Themes;
-import utils.menus;
 
 @XStreamAlias("Config")
 public class Config implements Serializable {

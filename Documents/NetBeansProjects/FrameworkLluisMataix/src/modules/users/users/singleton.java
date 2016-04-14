@@ -11,6 +11,7 @@ public class singleton {
     public static ArrayList<client> userclient;
     public static ArrayList<registered_user> userreg;
     public static admin admin;
+    public static admin adminPager;
     public static client client;
     public static registered_user registered_user;
     public static String DNI;
