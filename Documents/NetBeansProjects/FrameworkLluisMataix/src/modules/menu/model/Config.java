@@ -1,4 +1,4 @@
-package modules.Config.model;
+package modules.menu.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -45,6 +45,7 @@ public class Config implements Serializable {
 			Instance = new Config();
 			files_Config.OpenConfig();
 			Themes.themes();
+                        Language.getInstance();
 
 			singleton.useradmin = new ArrayList<admin>();
 			singleton.userclient = new ArrayList<client>();
@@ -93,6 +94,7 @@ public class Config implements Serializable {
 
 	public void setLanguage(String language) {
 		this.language = language;
+                Language.getInstance().setLanguage();
 	}
 
 	public String getFiles() {

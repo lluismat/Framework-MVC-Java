@@ -332,7 +332,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel iconDelete;
     public static javax.swing.JLabel iconMenu;
     private javax.swing.JLabel iconModify;
-    private javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     public static javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar1;

@@ -48,7 +48,7 @@ public class BLL_BBDD {
             DAOBD.ViewAdminDAO(con);
 
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Ha habido un error Logger2!");
+            JOptionPane.showMessageDialog(null, "Ha habido un error Logger");
         }
         connectionBD.CloseConnection(con);
 

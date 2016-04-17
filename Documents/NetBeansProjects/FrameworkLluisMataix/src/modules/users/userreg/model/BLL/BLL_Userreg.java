@@ -9,7 +9,7 @@ import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import modules.Config.model.Language;
+import modules.menu.model.Language;
 import modules.users.userreg.controller.controller_Userreg;
 import modules.users.userreg.model.DAO.DAO_Userreg;
 import modules.users.userreg.model.classes.miniSimpleTableModel_Userreg;

@@ -5,12 +5,12 @@
  */
 package modules.users.admin.model.BLL;
 
-import modules.Config.model.Language;
+import modules.menu.model.Language;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import modules.Config.view.Config_jFrame;
+import modules.menu.view.Config_jFrame;
 import modules.users.admin.controller.controller_Admin;
 import modules.users.admin.model.DAO.DAO_Admin;
 import modules.users.admin.model.classes.admin;
@@ -26,7 +26,7 @@ import modules.users.admin.view.Create_Admin;
 import modules.users.admin.model.classes.miniSimpleTableModel_Admin;
 import modules.users.admin.model.utils.pagina;
 import utils.menus;
-import modules.Config.model.Config;
+import modules.menu.model.Config;
 import utils.Themes;
 
 /**
@@ -49,7 +49,7 @@ public class BLL_Admin {
             DAO_Admin.pideAdmin();
             singleton.useradmin.add(singleton.admin);
             BLL_BBDD.NewAdmin();
-            
+
             checker = true;
         }
         return checker;
@@ -61,7 +61,7 @@ public class BLL_Admin {
         singleton.admin = singleton.useradmin.get(location);
 
         ChangeAdmin.nameField.setText(singleton.admin.getName());
-        etiTitle.setText("Administrador: " + singleton.admin.getName() + " " + singleton.admin.getSurname());
+        etiTitle.setText(Language.getInstance().getProperty("admin")+": " + singleton.admin.getName() + " " + singleton.admin.getSurname());
         ChangeAdmin.surnameField.setText(singleton.admin.getSurname());
         ChangeAdmin.mobileField.setText(singleton.admin.getMobile());
         ChangeAdmin.emailField.setText(singleton.admin.getEmail());
@@ -81,10 +81,9 @@ public class BLL_Admin {
             ChangeAdmin.optionState.setText("No");
         }
 
-        
         ChangeAdmin.birthdayField.setCalendar(singleton.admin.getDate_birthday().StringtoCalendar());
         ChangeAdmin.activityField.setText(String.valueOf(singleton.admin.getActivity()));
-        
+
         ChangeAdmin.HiringDateField.setCalendar(singleton.admin.getHiring_date().StringtoCalendar());
 
     }
@@ -97,7 +96,7 @@ public class BLL_Admin {
 
         ChangeAdmin.dniField.setText(singleton.admin.getDni());
         ChangeAdmin.nameField.setText(singleton.admin.getName());
-        etiTitle.setText("Administrador: " + singleton.admin.getName() + " " + singleton.admin.getSurname());
+        etiTitle.setText(Language.getInstance().getProperty("admin")+": " + singleton.admin.getName() + " " + singleton.admin.getSurname());
         ChangeAdmin.surnameField.setText(singleton.admin.getSurname());
         ChangeAdmin.mobileField.setText(singleton.admin.getMobile());
         ChangeAdmin.emailField.setText(singleton.admin.getEmail());
@@ -162,11 +161,11 @@ public class BLL_Admin {
                 singleton.admin = new admin(dni);
                 int location = searchAdmin(singleton.admin);
                 singleton.admin = singleton.useradmin.get(location);
-                singleton.adminPager=singleton.admin;
+                singleton.adminPager = singleton.admin;
                 new controller_Admin(new ChangeAdmin(singleton.adminPager, Admin.jTable), 2).start(2);
-                
-                correcto = true;
 
+                correcto = true;
+                singleton.adminPager = null;
             }
         } else {
             JOptionPane.showMessageDialog(null, "lista vacía", "Error!", 2);
@@ -186,7 +185,7 @@ public class BLL_Admin {
         } else {
             Create_Admin.confirm.setText("El Administrador ha sido creado con exito");
             Create_Admin.confirm.setBackground(Color.green);
-            
+
         }
 
         return checker;
@@ -206,7 +205,7 @@ public class BLL_Admin {
             dispose = true;
             ChangeAdmin.confirm.setText("El Administrador se ha modificado con exito");
             ChangeAdmin.confirm.setBackground(Color.green);
-            
+
         }
 
         return dispose;
@@ -220,7 +219,7 @@ public class BLL_Admin {
 
         int n = ((miniSimpleTableModel_Admin) Admin.jTable.getModel()).getRowCount();
         if (n != 0) {
-            
+
             int inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
             int selec = Admin.jTable.getSelectedRow();
             int selec1 = inicio + selec; //nos situamos en la fila correspondiente de esa página
@@ -239,8 +238,8 @@ public class BLL_Admin {
                     ((miniSimpleTableModel_Admin) Admin.jTable.getModel()).removeRow(selec1);
                     singleton.admin = singleton.useradmin.get(location);
                     singleton.useradmin.remove(singleton.admin);
-                    BLL_BBDD.DeleteAdminBLL();
                     miniSimpleTableModel_Admin.auxdates.remove(singleton.admin);
+                    BLL_BBDD.DeleteAdminBLL();
 
                     //saveAutoAdmin();
                 }
@@ -471,8 +470,8 @@ public class BLL_Admin {
 
     public static void changeConfig() {
 
-        String dateformat = "", themes = "", files="", currency="",language="";
-        int decimals=0;
+        String dateformat = "", themes = "", files = "", currency = "", language = "";
+        int decimals = 0;
 
         //DATES
         if (Config_jFrame.optDate1.isSelected()) {
@@ -487,7 +486,7 @@ public class BLL_Admin {
         Config.getInstance().setFormatDate(dateformat);
 
         //THEMES
-       if (Config_jFrame.optMetal.isSelected()) {
+        if (Config_jFrame.optMetal.isSelected()) {
             themes = "Metal";
         } else if (Config_jFrame.optWindows.isSelected()) {
             themes = "Windows";
@@ -501,21 +500,21 @@ public class BLL_Admin {
 
         //DECIMALS
         if (Config_jFrame.optDecimals1.isSelected()) {
-            decimals=1;
+            decimals = 1;
         } else if (Config_jFrame.optDecimals2.isSelected()) {
-            decimals=2;
+            decimals = 2;
         } else if (Config_jFrame.optDecimals3.isSelected()) {
-            decimals =3;
+            decimals = 3;
         }
         Config.getInstance().setDecimals(decimals);
-         
+
         //MONEDAS
         if (Config_jFrame.optEuros.isSelected()) {
-            currency ="€";
+            currency = "€";
         } else if (Config_jFrame.optDolars.isSelected()) {
-            currency ="$";
+            currency = "$";
         } else if (Config_jFrame.optLibras.isSelected()) {
-            currency ="⁭£";
+            currency = "⁭£";
         }
         Config.getInstance().setCurrency(currency);
 
@@ -523,19 +522,19 @@ public class BLL_Admin {
         if (Config_jFrame.optJson.isSelected()) {
             files = "JSON";
         } else if (Config_jFrame.optXml.isSelected()) {
-            files ="XML";
+            files = "XML";
         } else if (Config_jFrame.optTxt.isSelected()) {
-            files ="TXT";
+            files = "TXT";
         }
         Config.getInstance().setFiles(files);
 
         //IDIOMA
-        if(Config_jFrame.optEn.isSelected()){
-            language="EN";
-        }else if(Config_jFrame.optEsp.isSelected()){
-            language="ES";
-        }else if(Config_jFrame.optVal.isSelected()){
-            language="VAL";
+        if (Config_jFrame.optEn.isSelected()) {
+            language = "EN";
+        } else if (Config_jFrame.optEsp.isSelected()) {
+            language = "ES";
+        } else if (Config_jFrame.optVal.isSelected()) {
+            language = "VAL";
         }
         Config.getInstance().setLanguage(language);
     }

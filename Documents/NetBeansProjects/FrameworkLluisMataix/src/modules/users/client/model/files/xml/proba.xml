@@ -116,33 +116,4 @@
     </Discharge__date>
     <Premium>No</Premium>
   </Clients>
-  <Clients>
-    <DNI>21695921K</DNI>
-    <Name>Lluis</Name>
-    <Surname>Mataix</Surname>
-    <Mobile>656197251</Mobile>
-    <Email>lluis@gmail.com</Email>
-    <User>lluis</User>
-    <Pass>123456</Pass>
-    <Avatar>C:\Users\lluis\Documents\NetBeansProjects\FrameworkLluisMataix/src/modules/users/client/model/utils/avatars/avatar924947_1.gif</Avatar>
-    <State>No</State>
-    <Date__Birthday>
-      <Date>15/4/1994</Date>
-      <Day>15</Day>
-      <Month>4</Month>
-      <Year>1994</Year>
-    </Date__Birthday>
-    <Age>21</Age>
-    <Benefits>4003.0</Benefits>
-    <Purchases>4000.0</Purchases>
-    <Client__Type>lluis</Client__Type>
-    <Antiquity>3</Antiquity>
-    <Discharge__date>
-      <Date>17/10/2012</Date>
-      <Day>17</Day>
-      <Month>10</Month>
-      <Year>2012</Year>
-    </Discharge__date>
-    <Premium>Si</Premium>
-  </Clients>
 </list>

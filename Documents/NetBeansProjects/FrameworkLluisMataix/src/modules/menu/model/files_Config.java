@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modules.Config.model;
+package modules.menu.model;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -25,7 +25,7 @@ public class files_Config {
     public static void SaveConfig() {
         String PATH = null;
         try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/modules/Config/model/ConfigFiles/config.json";
+            PATH = new java.io.File(".").getCanonicalPath() + "/src/modules/menu/model/ConfigFiles/config.json";
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -50,7 +50,7 @@ public class files_Config {
         String PATH = null;
         Config c = null;
         try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/modules/Config/model/ConfigFiles/config.json";
+            PATH = new java.io.File(".").getCanonicalPath() + "/src/modules/menu/model/ConfigFiles/config.json";
             
         } catch (IOException e) {
             e.printStackTrace();

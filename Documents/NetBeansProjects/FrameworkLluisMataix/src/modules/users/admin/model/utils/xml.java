@@ -15,8 +15,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.Annotations;
 import static java.util.Collections.singleton;
-import modules.Config.model.Config;
-import modules.Config.model.Language;
+import modules.menu.model.Config;
+import modules.menu.model.Language;
 import modules.users.admin.model.classes.admin;
 import modules.users.users.singleton;
 

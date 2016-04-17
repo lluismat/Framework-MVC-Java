@@ -3,7 +3,7 @@ package utils;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
-import modules.Config.model.Config;
+import modules.menu.model.Config;
 
 public class Themes {
 

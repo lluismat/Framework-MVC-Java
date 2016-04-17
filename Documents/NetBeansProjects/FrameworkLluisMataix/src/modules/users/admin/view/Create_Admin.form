@@ -324,6 +324,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="DNI: "/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="dniField">
           <Properties>
@@ -348,6 +351,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Nombre"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="surnameField">
           <Properties>
@@ -364,6 +370,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Apellido"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="mobileField">
           <Properties>
@@ -380,6 +389,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Telefono"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="emailField">
           <Properties>
@@ -396,6 +408,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Correo"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="userField">
           <Properties>
@@ -412,6 +427,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Usuario:"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
@@ -420,6 +438,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
@@ -428,6 +449,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Fecha de Nacimiento"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
@@ -436,6 +460,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Actividad"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="activityField">
           <Properties>
@@ -452,6 +479,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Fecha de Contratacion"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JPasswordField" name="passField">
           <Properties>
@@ -515,6 +545,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Avatar"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
@@ -641,6 +674,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Estado"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
@@ -693,6 +729,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xbf;Estas conectado?"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="optYes">
               <Properties>
@@ -737,6 +776,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Nuevo Administrador"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="optionState">
           <Properties>

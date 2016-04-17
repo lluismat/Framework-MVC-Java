@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-import modules.Config.model.Language;
+import modules.menu.model.Language;
 import classes.date;
 import modules.users.users.users;
 

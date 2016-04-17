@@ -1,6 +1,6 @@
 package utils;
 
-import modules.Config.model.Config;
+import modules.menu.model.Config;
 
 public class validate {
 

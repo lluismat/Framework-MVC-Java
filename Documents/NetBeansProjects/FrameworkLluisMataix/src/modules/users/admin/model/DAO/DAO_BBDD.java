@@ -5,7 +5,6 @@
  */
 package modules.users.admin.model.DAO;
 
-import classes.ConnectionBBDD;
 import classes.date;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -41,13 +40,13 @@ public class DAO_BBDD {
             stmt.setString(7, singleton.admin.getPass());
             stmt.setString(8, singleton.admin.getAvatar());
             stmt.setString(9, singleton.admin.getState());
-            stmt.setString(10, singleton.admin.getDate_birthday().toString());
+            stmt.setString(10, singleton.admin.getDate_birthday().toString("dd/MM/yyyy"));
             stmt.setInt(11, singleton.admin.getAge());
             stmt.setFloat(12, singleton.admin.getBenefits());
             stmt.setInt(13, singleton.admin.getAntiquity());
             stmt.setFloat(14, singleton.admin.getSalary());
             stmt.setInt(15, singleton.admin.getActivity());
-            stmt.setString(16, singleton.admin.getHiring_date().toString());
+            stmt.setString(16, singleton.admin.getHiring_date().toString("dd/MM/yyyy"));
 
             correct = stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "El administrador ha sido dado de alta correctamente");
@@ -134,13 +133,13 @@ public class DAO_BBDD {
             stmt.setString(6, singleton.admin.getPass());
             stmt.setString(7, singleton.admin.getAvatar());
             stmt.setString(8, singleton.admin.getState());
-            stmt.setString(9, singleton.admin.getDate_birthday().toString());
+            stmt.setString(9, singleton.admin.getDate_birthday().toString("dd/MM/yyyy"));
             stmt.setInt(10, singleton.admin.getAge());
             stmt.setFloat(11, singleton.admin.getBenefits());
             stmt.setInt(12, singleton.admin.getAntiquity());
             stmt.setFloat(13, singleton.admin.getSalary());
             stmt.setInt(14, singleton.admin.getActivity());
-            stmt.setString(15, singleton.admin.getHiring_date().toString());
+            stmt.setString(15, singleton.admin.getHiring_date().toString("dd/MM/yyyy"));
             stmt.setString(16, singleton.admin.getDni());
 
             correct = stmt.executeUpdate();

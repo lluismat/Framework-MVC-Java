@@ -11,7 +11,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import modules.Config.model.Language;
+import modules.menu.model.Language;
 import modules.users.admin.model.classes.admin;
 import modules.users.users.singleton;
 

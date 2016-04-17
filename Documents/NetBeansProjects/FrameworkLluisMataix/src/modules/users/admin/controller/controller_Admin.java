@@ -23,12 +23,12 @@ import javax.swing.JTable;
 import javax.swing.Timer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import modules.Config.model.Config;
+import modules.menu.model.Config;
 import modules.menu.controller.controller_menu;
+import modules.menu.model.Language;
 import modules.menu.view.Menu;
 import static modules.users.admin.controller.controller_Admin.menuAdmin;
 import modules.users.admin.model.BLL.BLL_Admin;
-import modules.users.admin.model.classes.admin;
 import modules.users.admin.model.classes.miniSimpleTableModel_Admin;
 import modules.users.admin.model.utils.autocomplete_admin.AutocompleteJComboBox;
 import modules.users.admin.model.utils.autocomplete_admin.StringSearchable;
@@ -172,8 +172,17 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
 
                 menuAdmin.setSize(1150, 600);
                 menuAdmin.setResizable(false);
-                menuAdmin.setTitle("Menu Administrador");
+                menuAdmin.setTitle(Language.getInstance().getProperty("menuadmin"));
                 menuAdmin.setVisible(true);
+                menuAdmin.CreateAdmin.setText(Language.getInstance().getProperty("createadmin"));
+                menuAdmin.modifyAdmin.setText(Language.getInstance().getProperty("modifyadmin"));
+                menuAdmin.deleteAdmin.setText(Language.getInstance().getProperty("deleteadmin"));
+                menuAdmin.openAdmin.setText(Language.getInstance().getProperty("open"));
+                menuAdmin.Open.setText(Language.getInstance().getProperty("open"));
+                menuAdmin.saveAdmin.setText(Language.getInstance().getProperty("save"));
+                menuAdmin.Save.setText(Language.getInstance().getProperty("save"));
+                menuAdmin.CreateAdmin.setText(Language.getInstance().getProperty("createadmin"));
+                menuAdmin.jLabel1.setText(Language.getInstance().getProperty("filter"));
                 Themes.themes();
                 menuAdmin.jTable.setModel(new miniSimpleTableModel_Admin());
 
@@ -275,10 +284,37 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
 
                 this.createAdmin.setSize(942, 720);
                 this.createAdmin.setResizable(false);
-                this.createAdmin.setTitle("Nuevo Administrador");
+                this.createAdmin.setTitle(Language.getInstance().getProperty("createadmin"));
                 createAdmin.birthdayField.setDateFormatString(Config.getInstance().getFormatDate());
                 createAdmin.HiringDateField.setDateFormatString(Config.getInstance().getFormatDate());
                 Themes.themes();
+
+                this.createAdmin.btnAceptar.setText(Language.getInstance().getProperty("modify"));
+                this.createAdmin.btnCancelar.setText(Language.getInstance().getProperty("cancel"));
+                this.createAdmin.dniField.setText(Language.getInstance().getProperty("dnim"));
+                this.createAdmin.nameField.setText(Language.getInstance().getProperty("namem"));
+                this.createAdmin.surnameField.setText(Language.getInstance().getProperty("surnamem"));
+                this.createAdmin.mobileField.setText(Language.getInstance().getProperty("mobilem"));
+                this.createAdmin.emailField.setText(Language.getInstance().getProperty("emailm"));
+                this.createAdmin.userField.setText(Language.getInstance().getProperty("userm"));
+                this.createAdmin.jLabel14.setText(Language.getInstance().getProperty("statem"));
+                this.createAdmin.optYes.setText(Language.getInstance().getProperty("yes"));
+                this.createAdmin.optNo.setText(Language.getInstance().getProperty("no"));
+                this.createAdmin.activityField.setText(Language.getInstance().getProperty("activitym"));
+                this.createAdmin.jLabel2.setText(Language.getInstance().getProperty("dni"));
+                this.createAdmin.jLabel3.setText(Language.getInstance().getProperty("user"));
+                this.createAdmin.jLabel4.setText(Language.getInstance().getProperty("name"));
+                this.createAdmin.jLabel5.setText(Language.getInstance().getProperty("surname"));
+                this.createAdmin.jLabel6.setText(Language.getInstance().getProperty("mobile"));
+                this.createAdmin.jLabel7.setText(Language.getInstance().getProperty("email"));
+                this.createAdmin.jLabel8.setText(Language.getInstance().getProperty("pass"));
+                this.createAdmin.jLabel9.setText(Language.getInstance().getProperty("birthday"));
+                this.createAdmin.jLabel13.setText(Language.getInstance().getProperty("state"));
+                this.createAdmin.jLabel10.setText(Language.getInstance().getProperty("activity"));
+                this.createAdmin.jLabel11.setText(Language.getInstance().getProperty("hiringdate"));
+                this.createAdmin.jLabel15.setText(Language.getInstance().getProperty("createadmin"));
+                this.createAdmin.jLabel1.setText(Language.getInstance().getProperty("avatar"));
+
                 this.createAdmin.setVisible(true);
 
                 this.createAdmin.addWindowListener(new WindowAdapter() {
@@ -380,6 +416,32 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
                 this.changeAdmin.HiringDateField.setDateFormatString(Config.getInstance().getFormatDate());
                 Themes.themes();
 
+                this.changeAdmin.btnAceptar.setText(Language.getInstance().getProperty("create"));
+                this.changeAdmin.btnCancelar.setText(Language.getInstance().getProperty("cancel"));
+                this.changeAdmin.dniField.setText(Language.getInstance().getProperty("dnim"));
+                this.changeAdmin.nameField.setText(Language.getInstance().getProperty("namem"));
+                this.changeAdmin.surnameField.setText(Language.getInstance().getProperty("surnamem"));
+                this.changeAdmin.mobileField.setText(Language.getInstance().getProperty("mobilem"));
+                this.changeAdmin.emailField.setText(Language.getInstance().getProperty("emailm"));
+                this.changeAdmin.userField.setText(Language.getInstance().getProperty("userm"));
+                this.changeAdmin.jLabel14.setText(Language.getInstance().getProperty("statem"));
+                this.changeAdmin.optYes.setText(Language.getInstance().getProperty("yes"));
+                this.changeAdmin.optNo.setText(Language.getInstance().getProperty("no"));
+                this.changeAdmin.activityField.setText(Language.getInstance().getProperty("activitym"));
+                this.changeAdmin.etiDNI.setText(Language.getInstance().getProperty("dni"));
+                this.changeAdmin.etiDNI1.setText(Language.getInstance().getProperty("dni"));
+                this.changeAdmin.jLabel3.setText(Language.getInstance().getProperty("user"));
+                this.changeAdmin.jLabel4.setText(Language.getInstance().getProperty("name"));
+                this.changeAdmin.jLabel5.setText(Language.getInstance().getProperty("surname"));
+                this.changeAdmin.jLabel6.setText(Language.getInstance().getProperty("mobile"));
+                this.changeAdmin.jLabel7.setText(Language.getInstance().getProperty("email"));
+                this.changeAdmin.jLabel8.setText(Language.getInstance().getProperty("pass"));
+                this.changeAdmin.jLabel9.setText(Language.getInstance().getProperty("birthday"));
+                this.changeAdmin.jLabel13.setText(Language.getInstance().getProperty("state"));
+                this.changeAdmin.jLabel10.setText(Language.getInstance().getProperty("activity"));
+                this.changeAdmin.jLabel11.setText(Language.getInstance().getProperty("hiringdate"));
+                this.changeAdmin.jLabel1.setText(Language.getInstance().getProperty("avatar"));
+
                 if (singleton.adminPager != null) {
                     this.changeAdmin.etiDNI.setVisible(true);
                     this.changeAdmin.dniField.setVisible(true);
@@ -391,7 +453,7 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
 
                 this.changeAdmin.setSize(942, 720);
                 this.changeAdmin.setResizable(false);
-                this.changeAdmin.setTitle("Modificar Administrador");
+                this.changeAdmin.setTitle(Language.getInstance().getProperty("modifyadmin"));
                 this.changeAdmin.setVisible(true);
 
                 this.changeAdmin.comboDni.setModel(PlenaComboBox());
@@ -622,11 +684,11 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
                 new controller_menu(new Menu(), 0).start(0);
                 break;
             case jTable:
-               if (e.getClickCount() == 2) {
-                boolean modify = BLL_Admin.modify_row();
-                if(modify==true){
-                    menuAdmin.dispose();
-                }
+                if (e.getClickCount() == 2) {
+                    boolean modify = BLL_Admin.modify_row();
+                    if (modify == true) {
+                        menuAdmin.dispose();
+                    }
                 }
 
                 break;
@@ -723,13 +785,13 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
     public void mouseEntered(MouseEvent e) {
         switch (Action.valueOf(e.getComponent().getName())) {
             case CreateAdmin:
-                menuAdmin.CreateAdmin.setText("<html><font color=red>Crear Administrador</font></html>");
+                menuAdmin.CreateAdmin.setForeground(java.awt.Color.red);
                 break;
             case modifyAdmin:
-                menuAdmin.modifyAdmin.setText("<html><font color=red>Modificar Administrador</font></html>");
+                menuAdmin.modifyAdmin.setForeground(java.awt.Color.red);
                 break;
             case deleteAdmin:
-                menuAdmin.deleteAdmin.setText("<html><font color=red>Borrar Administrador</font></html>");
+                menuAdmin.deleteAdmin.setForeground(java.awt.Color.red);
                 break;
             case iconMenu:
                 this.menuAdmin.iconMenu.setIcon(new ImageIcon("src/img/homered.png"));
@@ -742,13 +804,13 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
 
         switch (Action.valueOf(e.getComponent().getName())) {
             case CreateAdmin:
-                menuAdmin.CreateAdmin.setText("<html><font color=black>Crear Administrador</font></html>");
+                menuAdmin.CreateAdmin.setForeground(java.awt.Color.black);
                 break;
             case modifyAdmin:
-                menuAdmin.modifyAdmin.setText("<html><font color=black>Modificar Administrador</font></html>");
+                menuAdmin.modifyAdmin.setForeground(java.awt.Color.black);
                 break;
             case deleteAdmin:
-                menuAdmin.deleteAdmin.setText("<html><font color=black>Borrar Administrador</font></html>");
+                menuAdmin.deleteAdmin.setForeground(java.awt.Color.black);
                 break;
             case iconMenu:
                 this.menuAdmin.iconMenu.setIcon(new ImageIcon("src/img/home_32.png"));

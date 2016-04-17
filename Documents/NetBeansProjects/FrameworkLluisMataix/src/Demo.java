@@ -5,15 +5,10 @@
  */
 
 import java.sql.SQLException;
-import modules.Config.model.Config;
-import modules.users.admin.model.BLL.BLL_Admin;
+import modules.menu.model.Config;
 import modules.menu.view.Timer_Class;
-import static modules.users.admin.model.BLL.BLL_Admin.searchAdmin;
-import modules.users.admin.model.BLL.BLL_BBDD;
-import modules.users.admin.model.BLL.Proba_BBDD;
 import modules.users.client.model.BLL.BLL_Client;
 import modules.users.userreg.model.BLL.BLL_Userreg;
-import modules.users.users.singleton;
 
 /**
  *
@@ -50,10 +45,11 @@ public class Demo {
 
         /* Create and display the form */
         
-        //BLL_Admin.openAuto();
+        
+        Config.getInstance();
         BLL_Client.openAuto();
         BLL_Userreg.openAuto();
-        Config.getInstance();
+        
         
 
         

@@ -10,7 +10,7 @@ import modules.users.admin.model.classes.admin;
 import modules.users.admin.model.utils.pagina;
 import modules.users.admin.view.Admin;
 import utils.format;
-import modules.Config.model.Config;
+import modules.menu.model.Config;
 import modules.users.admin.model.BLL.BLL_BBDD;
 
 public class miniSimpleTableModel_Admin extends AbstractTableModel {

@@ -13,10 +13,11 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import modules.Config.model.Config;
-import modules.Config.model.files_Config;
-import modules.Config.view.Config_jFrame;
+import modules.menu.model.Config;
+import modules.menu.model.files_Config;
+import modules.menu.view.Config_jFrame;
 import static modules.menu.controller.controller_menu.config;
+import modules.menu.model.Language;
 import modules.menu.view.Menu;
 import modules.users.admin.controller.controller_Admin;
 import modules.users.admin.model.BLL.BLL_Admin;
@@ -62,12 +63,19 @@ public class controller_menu implements ActionListener, MouseListener {
 
     public void start(int i) {
         if (i == 0) {
+            
             menu.setSize(660, 450);//ancho x alto
             menu.setResizable(false);
-            menu.setTitle("Menu Principal");
+            menu.setTitle(Language.getInstance().getProperty("mainmenu"));
             menu.setVisible(true);
+            
             Themes.themes();
+            
 
+            
+            this.menu.etiAdmin.setText(Language.getInstance().getProperty("admin"));
+            this.menu.etiClient.setText(Language.getInstance().getProperty("client"));
+            this.menu.etiUserreg.setText(Language.getInstance().getProperty("userreg"));
             this.menu.etiAdmin.setName("etiAdmin");
             this.menu.etiAdmin.addMouseListener(this);
             this.menu.etiClient.setName("etiClient");
@@ -87,9 +95,22 @@ public class controller_menu implements ActionListener, MouseListener {
             });
         } else if (i == 1) {
 
+            this.config.optConfig.setTitleAt(0,Language.getInstance().getProperty("dateformat"));
+            this.config.optConfig.setTitleAt(1,Language.getInstance().getProperty("decimals"));
+            this.config.optConfig.setTitleAt(2,Language.getInstance().getProperty("currency"));
+            this.config.optConfig.setTitleAt(3,Language.getInstance().getProperty("language"));
+            this.config.optConfig.setTitleAt(4,Language.getInstance().getProperty("files"));
+            this.config.optConfig.setTitleAt(5,Language.getInstance().getProperty("themes"));
+            this.config.optEn.setText(Language.getInstance().getProperty("english"));
+            this.config.optEsp.setText(Language.getInstance().getProperty("spanish"));
+            this.config.optVal.setText(Language.getInstance().getProperty("valencian"));
+            this.config.btnSave.setText(Language.getInstance().getProperty("saveconfig"));
+            this.config.btnDefault.setText(Language.getInstance().getProperty("defaultconfig"));
+            this.config.btnVolver.setText(Language.getInstance().getProperty("return"));
+            
             config.setSize(660, 450);
             config.setResizable(false);
-            config.setTitle("Menu Configuracion");
+            config.setTitle(Language.getInstance().getProperty("config"));
             config.setVisible(true);
             Themes.themes();
 
@@ -265,13 +286,13 @@ public class controller_menu implements ActionListener, MouseListener {
         switch (Action.valueOf(e1.getComponent().getName())) {
 
             case etiAdmin:
-                this.menu.etiAdmin.setText("<html><font color=red>Administrador</font></html>");
+                this.menu.etiAdmin.setForeground(java.awt.Color.red);
                 break;
             case etiClient:
-                this.menu.etiClient.setText("<html><font color=red>Cliente</font></html>");
+                this.menu.etiClient.setForeground(java.awt.Color.red);
                 break;
             case etiUserreg:
-                this.menu.etiUserreg.setText("<html><font color=red>Usuario Registrado</font></html>");
+                this.menu.etiUserreg.setForeground(java.awt.Color.red);
                 break;
             case etiConfig:
                 this.menu.etiConfig.setIcon(new ImageIcon("src/img/setings.png"));
@@ -289,13 +310,13 @@ public class controller_menu implements ActionListener, MouseListener {
         switch (Action.valueOf(e2.getComponent().getName())) {
 
             case etiAdmin:
-                menu.etiAdmin.setText("<html><font color=black>Administrador</font></html>");
+                menu.etiAdmin.setForeground(java.awt.Color.black);
                 break;
             case etiClient:
-                menu.etiClient.setText("<html><font color=black>Cliente</font></html>");
+                menu.etiClient.setForeground(java.awt.Color.black);
                 break;
             case etiUserreg:
-                menu.etiUserreg.setText("<html><font color=black>Usuario Registrado</font></html>");
+                menu.etiUserreg.setForeground(java.awt.Color.black);
                 break;
             case etiConfig:
                 menu.etiConfig.setIcon(new ImageIcon("src/img/settings.png"));
