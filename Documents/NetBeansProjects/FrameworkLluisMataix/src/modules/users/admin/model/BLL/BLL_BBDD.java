@@ -6,6 +6,7 @@
 package modules.users.admin.model.BLL;
 
 import classes.ConnectionBBDD;
+import classes.connectionPool;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import modules.users.admin.model.DAO.DAO_BBDD;
@@ -24,13 +25,13 @@ public class BLL_BBDD {
         int correct;
         Connection con;
 
-        ConnectionBBDD connectionbd = new ConnectionBBDD();
+        //ConnectionBBDD connectionbd = new ConnectionBBDD();
 
-        con = connectionbd.OpenConnection();
+        con = connectionPool.getConexion();
 
         correct = DAO_BBDD.NewAdmin(con);
 
-        connectionbd.CloseConnection(con);
+        connectionPool.connectionRelease(con);
         
         return correct;
     }
@@ -39,9 +40,9 @@ public class BLL_BBDD {
     public static void ViewAdmin() {
 
         Connection con = null;
-        ConnectionBBDD connectionBD = new ConnectionBBDD();
+        //ConnectionBBDD connectionBD = new ConnectionBBDD();
 
-        con = connectionBD.OpenConnection();
+        con = connectionPool.getConexion();
         DAO_BBDD DAOBD=new DAO_BBDD();
 
         try {
@@ -50,7 +51,7 @@ public class BLL_BBDD {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un error Logger");
         }
-        connectionBD.CloseConnection(con);
+        connectionPool.connectionRelease(con);
 
     }
 
@@ -59,15 +60,15 @@ public class BLL_BBDD {
 
         Connection con;
 
-        ConnectionBBDD connectionBD = new ConnectionBBDD();
+        //ConnectionBBDD connectionBD = new ConnectionBBDD();
 
-        con = connectionBD.OpenConnection();
+        con = connectionPool.getConexion();
         
         //DAO_BBDD DAOBD=new DAO_BBDD();
 
         DAO_BBDD.modifyAdminDAO(con);
         
-        connectionBD.CloseConnection(con);
+        connectionPool.connectionRelease(con);
 
     }
 
@@ -77,13 +78,13 @@ public class BLL_BBDD {
         Connection con;
         boolean correcto;
 
-        ConnectionBBDD connectionBD = new ConnectionBBDD();
+        //ConnectionBBDD connectionBD = new ConnectionBBDD();
 
-        con = connectionBD.OpenConnection();
+        con = connectionPool.getConexion();
         DAO_BBDD DAOBD=new DAO_BBDD(); 
 
         correcto = DAOBD.DeleteAdminDAO(con);
-        connectionBD.CloseConnection(con);
+       connectionPool.connectionRelease(con);
 
         return correcto;
     }

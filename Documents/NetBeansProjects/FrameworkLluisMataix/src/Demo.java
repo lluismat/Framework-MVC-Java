@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import classes.connectionPool;
 import java.sql.SQLException;
 import modules.menu.model.Config;
 import modules.menu.view.Timer_Class;
@@ -49,7 +50,7 @@ public class Demo {
         Config.getInstance();
         BLL_Client.openAuto();
         BLL_Userreg.openAuto();
-        
+        connectionPool.start_BasicDataSourceFactory();
         
 
         
