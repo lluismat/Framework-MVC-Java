@@ -62,6 +62,49 @@ public class date implements Serializable {
         }
         this.date = formatdate;
     }
+    
+    public date(String date, int format) {
+        String[] introducefecha = null;
+        String formatdate = "";
+
+        switch (format) {
+
+            case 0:
+                introducefecha = date.split("/");
+
+                this.day = Integer.parseInt(introducefecha[0]);
+                this.month = Integer.parseInt(introducefecha[1]);
+                this.year = Integer.parseInt(introducefecha[2]);
+                formatdate = this.day + "/" + this.month + "/" + this.year;
+                break;
+
+            case 1:
+                introducefecha = date.split("-");
+
+                this.day = Integer.parseInt(introducefecha[0]);
+                this.month = Integer.parseInt(introducefecha[1]);
+                this.year = Integer.parseInt(introducefecha[2]);
+                formatdate = this.day + "-" + this.month + "-" + this.year;
+                break;
+            case 2:
+                introducefecha = date.split("/");
+
+                this.day = Integer.parseInt(introducefecha[2]);
+                this.month = Integer.parseInt(introducefecha[1]);
+                this.year = Integer.parseInt(introducefecha[0]);
+                formatdate = this.year + "/" + this.month + "/" + this.day;
+                break;
+            case 3:
+                introducefecha = date.split("-");
+
+                this.day = Integer.parseInt(introducefecha[2]);
+                this.month = Integer.parseInt(introducefecha[1]);
+                this.year = Integer.parseInt(introducefecha[0]);
+                formatdate = this.year + "-" + this.month + "-" + this.day;
+                break;
+        }
+        this.date = formatdate;
+    }
 
     // comprobar dia y mes
     public boolean checkday_month() {

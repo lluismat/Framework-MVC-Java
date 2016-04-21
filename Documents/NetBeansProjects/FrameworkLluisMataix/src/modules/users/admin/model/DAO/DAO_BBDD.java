@@ -90,13 +90,13 @@ public class DAO_BBDD {
                 admin.setPass(rs.getString("Pass"));
                 admin.setAvatar(rs.getString("Avatar"));
                 admin.setState(rs.getString("State"));
-                admin.setDate_birthday(new date(rs.getString("Date_Birthday")));
+                admin.setDate_birthday(new date(rs.getString("Date_Birthday"),0));
                 admin.setAge(rs.getInt("Age"));
                 admin.setBenefits(rs.getFloat("Benefits"));
                 admin.setAntiquity(rs.getInt("Antiquity"));
                 admin.setSalary(rs.getFloat("Salary"));
                 admin.setActivity(rs.getInt("Activity"));
-                admin.setHiring_date(new date(rs.getString("Hiring_Date")));
+                admin.setHiring_date(new date(rs.getString("Hiring_Date"),0));
                 singleton.useradmin.add(admin);
 
             }
