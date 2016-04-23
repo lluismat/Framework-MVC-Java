@@ -74,11 +74,11 @@
       <Month>4</Month>
       <Year>1994</Year>
     </Date__Birthday>
-    <Age>21</Age>
-    <Benefits>103.0</Benefits>
+    <Age>22</Age>
+    <Benefits>104.0</Benefits>
     <Purchases>100.0</Purchases>
     <Client__Type>dgdsf</Client__Type>
-    <Antiquity>3</Antiquity>
+    <Antiquity>4</Antiquity>
     <Discharge__date>
       <Date>7/4/2012</Date>
       <Day>7</Day>
@@ -115,5 +115,34 @@
       <Year>2014</Year>
     </Discharge__date>
     <Premium>No</Premium>
+  </Clients>
+  <Clients>
+    <DNI>21695921K</DNI>
+    <Name>Lluis</Name>
+    <Surname>Mataix</Surname>
+    <Mobile>656197251</Mobile>
+    <Email>mataix.lluis@gmail.com</Email>
+    <User>lluismat</User>
+    <Pass>123456</Pass>
+    <Avatar>C:\Users\lluis\Documents\NetBeansProjects\FrameworkLluisMataix/src/modules/users/client/model/utils/avatars/simpsons_apu.gif</Avatar>
+    <State>Si</State>
+    <Date__Birthday>
+      <Date>1994-4-15</Date>
+      <Day>15</Day>
+      <Month>4</Month>
+      <Year>1994</Year>
+    </Date__Birthday>
+    <Age>22</Age>
+    <Benefits>2500.0</Benefits>
+    <Purchases>2500.0</Purchases>
+    <Client__Type>client</Client__Type>
+    <Antiquity>0</Antiquity>
+    <Discharge__date>
+      <Date>2015-11-5</Date>
+      <Day>5</Day>
+      <Month>11</Month>
+      <Year>2015</Year>
+    </Discharge__date>
+    <Premium>jLabel3</Premium>
   </Clients>
 </list>

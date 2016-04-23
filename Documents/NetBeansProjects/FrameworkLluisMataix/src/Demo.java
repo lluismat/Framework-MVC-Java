@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import modules.menu.model.Config;
 import modules.menu.view.Timer_Class;
 import modules.users.client.model.BLL.BLL_Client;
+import modules.users.client.model.DAO.DAO_Mongo;
 import modules.users.userreg.model.BLL.BLL_Userreg;
 
 /**
@@ -48,9 +49,8 @@ public class Demo {
         
         
         Config.getInstance();
-        BLL_Client.openAuto();
         BLL_Userreg.openAuto();
-        connectionPool.start_BasicDataSourceFactory();
+        
         
 
         

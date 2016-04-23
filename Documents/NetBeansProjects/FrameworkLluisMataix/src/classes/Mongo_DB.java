@@ -1,4 +1,4 @@
-package classes.Mongo_DB;
+package classes;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.Mongo;
@@ -6,21 +6,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Properties;
+import static classes.singletonMongo.*;
 
 public class Mongo_DB {
-    private static Properties prop = new Properties();
-    private static InputStream input = null;
-    private static String machine = null;
-    private static String port = null;
-    private static Mongo client = null;
-    private static DB db = null;
-    private static String nom_bd = null;
-    private static DBCollection collection = null;
-    private static String nom_table = null;
+   
    
     public Mongo_DB() {
         try {
-            input = new FileInputStream("src/MongoDB/ejer1_CRUD/mongo.properties"); 
+            input = new FileInputStream("src/classes/mongo.properties"); 
             try {
                 prop.load(input);
             } catch (Exception e) {
@@ -91,23 +84,23 @@ public class Mongo_DB {
     }
 
     public static void setProp(Properties prop) {
-        Mongo_DB.prop = prop;
+        prop = prop;
     }
 
     public static void setInput(InputStream input) {
-        Mongo_DB.input = input;
+        input = input;
     }
 
     public static void setClient(Mongo client) {
-        Mongo_DB.client = client;
+        client = client;
     }
 
     public static void setDb(DB db) {
-        Mongo_DB.db = db;
+        db = db;
     }
 
     public static void setCollection(DBCollection collection) {
-        Mongo_DB.collection = collection;
+        collection = collection;
     }
 
     public static String getNom_bd() {
@@ -115,7 +108,7 @@ public class Mongo_DB {
     }
 
     public static void setNom_bd(String nom_bd) {
-        Mongo_DB.nom_bd = nom_bd;
+        nom_bd = nom_bd;
     }
 
     public static String getNom_table() {
@@ -123,7 +116,7 @@ public class Mongo_DB {
     }
 
     public static void setNom_table(String nom_table) {
-        Mongo_DB.nom_table = nom_table;
+        nom_table = nom_table;
     }
 
     public static String getMachine() {
@@ -135,10 +128,10 @@ public class Mongo_DB {
     }
 
     public static void setMachine(String machine) {
-        Mongo_DB.machine = machine;
+        machine = machine;
     }
 
     public static void setPort(String port) {
-        Mongo_DB.port = port;
+        port = port;
     }
 }

@@ -34,7 +34,7 @@ public class BLL_Client {
     public static boolean create_client() {
         int location;
         boolean checker = false;
-        client client;
+        
         location = searchClientDNI();
         if (location != -1) {
             JOptionPane.showMessageDialog(null, Language.getInstance().getProperty("erroradminexist"));
@@ -44,8 +44,9 @@ public class BLL_Client {
                 && (askClient("pass") == true)&& (askClient("birthday") == true) && (askClient("purchase") == true) 
                 && (askClient("clienttype") == true)&& (askClient("dischargedate") == true)) {
 
-            client = DAO_Client.pideClient();
-            singleton.userclient.add(client);
+            singleton.client = DAO_Client.pideClient();
+            singleton.userclient.add(singleton.client);
+            BLL_Mongo.insert_Client();
             checker = true;
         }
         return checker;
@@ -246,7 +247,7 @@ public class BLL_Client {
 
                     singleton.userclient.remove(client);
                     miniSimpleTableModel_Client.auxdates1.remove(client);
-                    saveAutoClient();
+                    BLL_Mongo.deleteClient(client.getDni());
                     
 
                 }

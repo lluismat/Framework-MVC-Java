@@ -1,5 +1,8 @@
 package modules.menu.model;
 
+import classes.Mongo_DB;
+import classes.connectionPool;
+import classes.singletonMongo;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -47,9 +50,14 @@ public class Config implements Serializable {
 			Themes.themes();
                         Language.getInstance();
 
+                        connectionPool.start_BasicDataSourceFactory();
+                        singletonMongo.mongo=new Mongo_DB();
+                        
+                        
 			singleton.useradmin = new ArrayList<admin>();
 			singleton.userclient = new ArrayList<client>();
 			singleton.userreg = new ArrayList<registered_user>();
+                        
                         
 		}
 		return Instance;

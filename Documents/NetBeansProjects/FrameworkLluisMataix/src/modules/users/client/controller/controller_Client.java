@@ -24,6 +24,7 @@ import javax.swing.Timer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import modules.menu.controller.controller_menu;
+import modules.menu.model.Config;
 import modules.menu.view.Menu;
 import modules.users.client.model.BLL.BLL_Client;
 import modules.users.client.model.utils.autocomplete.AutocompleteJComboBox;
@@ -209,6 +210,7 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
                     public void windowClosing(WindowEvent e) {
                         menuClient.dispose();
                         new controller_menu(new Menu(), 0).start(0);
+                        
                     }
                 });
 
@@ -290,6 +292,8 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
                 this.createClient.setResizable(false);
                 this.createClient.setTitle("Modificar Cliente");
                 this.createClient.setVisible(true);
+                createClient.birthdayField.setDateFormatString(Config.getInstance().getFormatDate());
+                createClient.dischargeDateField.setDateFormatString(Config.getInstance().getFormatDate());
 
                 this.createClient.addWindowListener(new WindowAdapter() {
                     public void windowClosing(WindowEvent e) {
@@ -398,6 +402,8 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
                 this.changeClient.etiDNI.setVisible(false);
                 this.changeClient.dniField.setVisible(false);
                 this.changeClient.dniField.setEditable(false);
+                changeClient.birthdayField.setDateFormatString(Config.getInstance().getFormatDate());
+                changeClient.dischargeDateField.setDateFormatString(Config.getInstance().getFormatDate());
                 if (singleton.client != null) {
                     this.changeClient.etiDNI.setVisible(true);
                     this.changeClient.dniField.setVisible(true);

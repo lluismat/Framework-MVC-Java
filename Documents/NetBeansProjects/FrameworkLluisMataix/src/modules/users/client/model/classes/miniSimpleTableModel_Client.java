@@ -5,9 +5,12 @@ import classes.date;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.table.AbstractTableModel;
+import modules.menu.model.Config;
 import static modules.users.client.controller.controller_Client.combo;
+import modules.users.client.model.BLL.BLL_Mongo;
 import modules.users.client.model.utils.pagina_client;
 import modules.users.client.view.Client;
+import utils.format;
 
 public class miniSimpleTableModel_Client extends AbstractTableModel {
 
@@ -54,11 +57,11 @@ public class miniSimpleTableModel_Client extends AbstractTableModel {
                 break;
 
             case 3:
-                dev = fila.getDischarge_date().toString();
+                dev = fila.getDischarge_date().toString(Config.getInstance().getFormatDate());
                 break;
 
             case 4:
-                dev = fila.getPurchase();
+                dev = format.formatcurrency(fila.getPurchase(),Config.getInstance());
                 break;
 
         }
@@ -114,19 +117,20 @@ public class miniSimpleTableModel_Client extends AbstractTableModel {
     public void load() {
         dates1.clear();
         auxdates1.clear();
+        BLL_Mongo.viewClient();
 
-        client client = null;
+        //client client = null;
         for (int i = 0; i <= (singleton.userclient.size() - 1); i++) {
-            client = singleton.userclient.get(i);
-            addRow(client);
-            auxdates1.add(client);
-           
+            singleton.client = singleton.userclient.get(i);
+            addRow(singleton.client);
+            auxdates1.add(singleton.client);
             try {
                 Thread.sleep(1); //1 milliseconds
             } catch (Exception e) {
                 System.out.println(e);
             }
         }
+        
     }
     
     public void filtrar() {

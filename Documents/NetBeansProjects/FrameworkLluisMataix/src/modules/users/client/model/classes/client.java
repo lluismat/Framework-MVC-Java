@@ -87,12 +87,13 @@ public class client extends users implements Serializable {
             this.setPass((String)dBObjectClient.get("pass"));
             this.setAvatar((String)dBObjectClient.get("avatar"));
             this.setState((String)dBObjectClient.get("state"));
-            this.setDate_birthday(new date((String)dBObjectClient.get("date_birthday")));
-            this.setPurchase((float)dBObjectClient.get("purchase"));
+            this.setDate_birthday(new date((String)dBObjectClient.get("date_birthday"),0));
+            Float purchases=Float.valueOf(dBObjectClient.get("purchase").toString());
+            this.setPurchase(purchases);
             this.setPremium((String)dBObjectClient.get("premium"));
             this.setClient_type((String)dBObjectClient.get("client_type"));
             this.setAntiquity((int)dBObjectClient.get("antiquity"));
-            this.setDischarge_date(new date((String)dBObjectClient.get("discharge_date")));
+            this.setDischarge_date(new date((String)dBObjectClient.get("discharge_date"),0));
             
             return new client(this.getDni(),this.getName(),this.getSurname(),this.getMobile(),this.getEmail(),this.getUser(),this.getPass(),
             this.getAvatar(),this.getState(),this.getDate_birthday(),this.getPurchase(),this.getPremium(),this.client_type
@@ -111,15 +112,14 @@ public class client extends users implements Serializable {
             dBObjectClient.append("pass", this.getPass());
             dBObjectClient.append("avatar", this.getAvatar());
             dBObjectClient.append("state", this.getState());
-            dBObjectClient.append("date_birthday", this.getDate_birthday());
+            dBObjectClient.append("date_birthday", this.getDate_birthday().toString("dd/MM/yyyy"));
             dBObjectClient.append("purchase", this.getPurchase());
             dBObjectClient.append("premium", this.getPremium());
             dBObjectClient.append("client_type", this.getClient_type());
             dBObjectClient.append("antiquity", this.getAntiquity());
-            dBObjectClient.append("discharge_date", this.getDischarge_date());
+            dBObjectClient.append("discharge_date", this.getDischarge_date().toString("dd/MM/yyyy"));
             
-            
-            
+
             return dBObjectClient;
         }
 
