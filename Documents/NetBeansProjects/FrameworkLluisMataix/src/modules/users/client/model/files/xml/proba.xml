@@ -127,7 +127,7 @@
     <Avatar>C:\Users\lluis\Documents\NetBeansProjects\FrameworkLluisMataix/src/modules/users/client/model/utils/avatars/simpsons_apu.gif</Avatar>
     <State>Si</State>
     <Date__Birthday>
-      <Date>1994-4-15</Date>
+      <Date>15/4/1994</Date>
       <Day>15</Day>
       <Month>4</Month>
       <Year>1994</Year>
@@ -138,10 +138,39 @@
     <Client__Type>client</Client__Type>
     <Antiquity>0</Antiquity>
     <Discharge__date>
-      <Date>2015-11-5</Date>
+      <Date>5/11/2015</Date>
       <Day>5</Day>
       <Month>11</Month>
       <Year>2015</Year>
+    </Discharge__date>
+    <Premium>jLabel3</Premium>
+  </Clients>
+  <Clients>
+    <DNI>12345678Z</DNI>
+    <Name>pepe</Name>
+    <Surname>fadsd</Surname>
+    <Mobile>564651365</Mobile>
+    <Email>dfasdf@sd.com</Email>
+    <User>sdfasdf</User>
+    <Pass>assdfasdf</Pass>
+    <Avatar>C:\Users\lluis\Documents\NetBeansProjects\FrameworkLluisMataix\src\img\avatar.png</Avatar>
+    <State>No</State>
+    <Date__Birthday>
+      <Date>1990-4-7</Date>
+      <Day>7</Day>
+      <Month>4</Month>
+      <Year>1990</Year>
+    </Date__Birthday>
+    <Age>26</Age>
+    <Benefits>158.0</Benefits>
+    <Purchases>156.0</Purchases>
+    <Client__Type>esfasdf</Client__Type>
+    <Antiquity>2</Antiquity>
+    <Discharge__date>
+      <Date>2013-10-2</Date>
+      <Day>2</Day>
+      <Month>10</Month>
+      <Year>2013</Year>
     </Discharge__date>
     <Premium>jLabel3</Premium>
   </Clients>

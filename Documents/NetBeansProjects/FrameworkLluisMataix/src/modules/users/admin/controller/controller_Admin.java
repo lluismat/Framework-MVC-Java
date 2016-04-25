@@ -676,8 +676,7 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
                 break;
             case deleteAdmin:
                 BLL_Admin.deleteAdmin();
-                menuAdmin.dispose();
-                new controller_Admin(new Admin(), 0).start(0);
+                ((miniSimpleTableModel_Admin) Admin.jTable.getModel()).load();
                 break;
             case iconMenu:
                 menuAdmin.dispose();

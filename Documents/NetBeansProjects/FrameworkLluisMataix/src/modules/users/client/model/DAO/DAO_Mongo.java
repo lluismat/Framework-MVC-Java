@@ -62,6 +62,21 @@ public class DAO_Mongo {
         singletonMongo.collection.remove(new BasicDBObject().append("dni",dni));
     }
    
+    public static void updateClient(){
+        
+
+        BasicDBObject updateClient = new BasicDBObject();
+
+        updateClient.append("$set",singleton.client.client_to_Mongo());
+        
+        //Busca el/los registro/s con el dni indicado
+        BasicDBObject searchByDni = new BasicDBObject();
+        searchByDni.append("dni", singleton.client.getDni());
+ 
+        //Realiza la actualización
+       singletonMongo.collection.updateMulti(searchByDni, updateClient);
+       
+    }
 }
     
 

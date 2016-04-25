@@ -10,13 +10,13 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modules.menu.model.Language;
-import modules.users.admin.model.utils.pagina;
 import modules.users.client.controller.controller_Client;
 import modules.users.client.model.DAO.DAO_Client;
 import modules.users.client.model.classes.client;
 import modules.users.client.model.classes.miniSimpleTableModel_Client;
 import modules.users.client.model.utils.avatar_client;
 import modules.users.client.model.utils.json_client;
+import modules.users.client.model.utils.pagina_client;
 import modules.users.client.model.utils.txt_client;
 import modules.users.client.model.utils.xml_client;
 import modules.users.client.view.ChangeClient;
@@ -139,16 +139,16 @@ public class BLL_Client {
     public static boolean update_Client() {
         int location;
         boolean checker = false;
-        client client;
         if ((changeClient("name") == true) && (changeClient("surname") == true)
                 && (changeClient("mobile") == true) && (changeClient("email") == true) && (changeClient("user")==true)
                 && (changeClient("pass") == true)&& (changeClient("birthday") == true) && (changeClient("purchase") == true)
                 && (changeClient("clienttype") == true)&& (changeClient("dischargedate") == true)) {
 
             location = searchClientModifyDNI();
-            client = singleton.userclient.get(location);
-            client = DAO_Client.changeClient();
-            singleton.userclient.set(location, client);
+            singleton.client = singleton.userclient.get(location);
+            singleton.client = DAO_Client.changeClient();
+            singleton.userclient.set(location, singleton.client);
+            BLL_Mongo.updateClient();
             checker = true;
         }
         return checker;
@@ -158,7 +158,7 @@ public class BLL_Client {
         String dni;
         boolean correcto;
         if (((miniSimpleTableModel_Client) Client.jTable_Client.getModel()).getRowCount() != 0) {
-            int inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
+            int inicio = (pagina_client.currentPageIndex - 1) * pagina_client.itemsPerPage;
             int selec = Client.jTable_Client.getSelectedRow();
             int selec1 = inicio + selec; //nos situamos en la fila correspondiente de esa página
 
@@ -195,7 +195,6 @@ public class BLL_Client {
         } else {
             CreateClient.confirm.setText("El Cliente ha sido creado con exito");
             CreateClient.confirm.setBackground(Color.green);
-            saveAutoClient();
         }
 
         return checker;
@@ -215,7 +214,6 @@ public class BLL_Client {
             dispose = true;
             ChangeClient.confirm.setText("El Cliente se ha modificado con exito");
             ChangeClient.confirm.setBackground(Color.green);
-            saveAutoClient();
         }
 
         return dispose;
@@ -229,9 +227,9 @@ public class BLL_Client {
         int n = ((miniSimpleTableModel_Client) Client.jTable_Client.getModel()).getRowCount();
         if (n != 0) {
             int selec = Client.jTable_Client.getSelectedRow();
-            int inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage;
+            int inicio = (pagina_client.currentPageIndex - 1) * pagina_client.itemsPerPage;
             int selec1 = inicio + selec; //nos situamos en la fila correspondiente de esa página
-            if (selec == -1) {
+            if (selec1 == -1) {
                 JOptionPane.showMessageDialog(null, "No se ha seleccionado a ningun Cliente", "Error!", 2);
             } else {
                 dni = (String) Client.jTable_Client.getModel().getValueAt(selec1, 0);

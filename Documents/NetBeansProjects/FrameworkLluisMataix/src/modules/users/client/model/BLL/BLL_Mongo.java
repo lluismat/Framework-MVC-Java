@@ -30,7 +30,9 @@ public class BLL_Mongo {
     }
     
     public static void updateClient(){
-        //DAO_Mongo.update_Client(dni, 0);
+        singletonMongo.client=Mongo_DB.connect();
+        DAO_Mongo.updateClient();
+        Mongo_DB.disconnect();
     }
     public static void deleteClient(String dni){
         singletonMongo.client=Mongo_DB.connect();

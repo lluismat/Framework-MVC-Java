@@ -668,9 +668,7 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
                 break;
             case deleteClient:
                 BLL_Client.deleteClient();
-                menuClient.dispose();
-                new controller_Client(new Client(), 0).start(0);
-                //((miniSimpleTableModel_Client) Client.jTable_Client.getModel()).load();
+                ((miniSimpleTableModel_Client) Client.jTable_Client.getModel()).load();
                 break;
             case iconMenu:
                 menuClient.dispose();
