@@ -58,8 +58,8 @@ public class DAO_Mongo {
     }
    
     
-    public static void deleteClient_by_dni(String dni) {
-        singletonMongo.collection.remove(new BasicDBObject().append("dni",dni));
+    public static void deleteClient_by_dni() {
+        singletonMongo.collection.remove(new BasicDBObject().append("dni",singleton.client.getDni()));
     }
    
     public static void updateClient(){

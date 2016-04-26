@@ -8,8 +8,6 @@ package modules.users.client.model.BLL;
 import classes.Mongo_DB;
 import classes.singletonMongo;
 import modules.users.client.model.DAO.DAO_Mongo;
-import modules.users.client.model.classes.client;
-import modules.users.users.singleton;
 
 /**
  *
@@ -34,9 +32,9 @@ public class BLL_Mongo {
         DAO_Mongo.updateClient();
         Mongo_DB.disconnect();
     }
-    public static void deleteClient(String dni){
+    public static void deleteClient(){
         singletonMongo.client=Mongo_DB.connect();
-        DAO_Mongo.deleteClient_by_dni(dni);
+        DAO_Mongo.deleteClient_by_dni();
         Mongo_DB.disconnect();
     }
 }

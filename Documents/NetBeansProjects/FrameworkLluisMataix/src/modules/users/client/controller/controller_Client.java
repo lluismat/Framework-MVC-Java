@@ -5,6 +5,7 @@
  */
 package modules.users.client.controller;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -23,6 +24,8 @@ import javax.swing.JTable;
 import javax.swing.Timer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import modules.Sign_In.controller.controller_Sign_In;
+import modules.Sign_In.view.Sign_In;
 import modules.menu.controller.controller_menu;
 import modules.menu.model.Config;
 import modules.menu.view.Menu;
@@ -37,6 +40,7 @@ import static modules.users.client.view.Client.jTable_Client;
 import modules.users.client.view.CreateClient;
 import modules.users.users.singleton;
 import static modules.users.client.view.Client.comboClient;
+import modules.users.client.view.ClientMenu;
 
 /**
  *
@@ -49,6 +53,7 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
     public static Client menuClient;
     public static ChangeClient changeClient;
     public static CreateClient createClient;
+    public static ClientMenu clientMenu;
     public static AutocompleteJComboBox combo = null;
     JTable table = null;
 
@@ -62,6 +67,9 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
                 break;
             case 2:
                 changeClient = (ChangeClient) start;
+                break;
+            case 3:
+                clientMenu = (ClientMenu) start;
                 break;
 
         }
@@ -128,7 +136,11 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
         dichargeDateField1,
         clientTypeField1,
         comboDni,
-
+        //clientMenu
+        modifyClient1,
+        viewClient,
+        iconDesconnect,
+        save,
         //////////////////////////////
     }
 
@@ -210,7 +222,7 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
                     public void windowClosing(WindowEvent e) {
                         menuClient.dispose();
                         new controller_menu(new Menu(), 0).start(0);
-                        
+
                     }
                 });
 
@@ -513,6 +525,32 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
 
                 this.changeClient.clientTypeField.addKeyListener(this);
 
+                break;
+
+            case 3:
+                //MENU CLIENTE
+                this.clientMenu.setSize(600, 500);
+                this.clientMenu.setResizable(false);
+                this.clientMenu.setTitle("Menu Cliente");
+                this.clientMenu.setVisible(true);
+                ImageIcon avatar = new ImageIcon(singleton.client.getAvatar());
+                this.clientMenu.etiAvatar.setIcon(new ImageIcon(avatar.getImage().getScaledInstance(125, 125, Image.SCALE_SMOOTH)));
+                this.clientMenu.etiName.setText(singleton.client.getDni()+": "+singleton.client.getName()+" "+singleton.client.getSurname());
+                
+                
+                this.clientMenu.addWindowListener(new WindowAdapter() {
+                    public void windowClosing(WindowEvent e) {
+
+                        new controller_Sign_In(new Sign_In()).start();
+                    }
+                });
+
+                /*
+                 modifyClient1,
+        viewClient,
+        iconDesconnect,
+        save,
+                 */
                 break;
         }
     }

@@ -7,9 +7,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import modules.users.admin.model.BLL.BLL_BBDD;
 
 
 import modules.users.admin.model.classes.admin;
+import modules.users.client.model.BLL.BLL_Mongo;
 import modules.users.client.model.classes.client;
 import modules.users.userreg.model.classes.registered_user;
 import modules.users.users.singleton;
@@ -54,9 +56,12 @@ public class Config implements Serializable {
                         singletonMongo.mongo=new Mongo_DB();
                         
                         
+                        
 			singleton.useradmin = new ArrayList<admin>();
 			singleton.userclient = new ArrayList<client>();
 			singleton.userreg = new ArrayList<registered_user>();
+                        BLL_BBDD.ViewAdmin();
+                        BLL_Mongo.viewClient();
                         
                         
 		}

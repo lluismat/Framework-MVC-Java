@@ -233,19 +233,19 @@ public class BLL_Client {
                 JOptionPane.showMessageDialog(null, "No se ha seleccionado a ningun Cliente", "Error!", 2);
             } else {
                 dni = (String) Client.jTable_Client.getModel().getValueAt(selec1, 0);
-                client client = new client(dni);
-                location = searchClient(client);
+                singleton.client = new client(dni);
+                location = searchClient(singleton.client);
 
                 int opc = JOptionPane.showConfirmDialog(null, "Estas seguro que quieres eliminar al Cliente: " + dni,
                         "Info", JOptionPane.WARNING_MESSAGE);
 
                 if (opc == 0) {
-                    ((miniSimpleTableModel_Client) Client.jTable_Client.getModel()).removeRow(selec);
-                    client = singleton.userclient.get(location);
+                    ((miniSimpleTableModel_Client) Client.jTable_Client.getModel()).removeRow(selec1);
+                    singleton.client = singleton.userclient.get(location);
 
-                    singleton.userclient.remove(client);
-                    miniSimpleTableModel_Client.auxdates1.remove(client);
-                    BLL_Mongo.deleteClient(client.getDni());
+                    singleton.userclient.remove(singleton.client);
+                    miniSimpleTableModel_Client.auxdates1.remove(singleton.client);
+                    BLL_Mongo.deleteClient();
                     
 
                 }

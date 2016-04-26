@@ -15,5 +15,6 @@ public class singleton {
     public static client client;
     public static registered_user registered_user;
     public static String DNI;
+    public static String user;
 
 }

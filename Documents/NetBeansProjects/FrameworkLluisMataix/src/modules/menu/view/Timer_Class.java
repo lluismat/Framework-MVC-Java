@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.Timer;
+import modules.Sign_In.controller.controller_Sign_In;
+import modules.Sign_In.view.Sign_In;
 import modules.menu.controller.controller_menu;
 
 /**
@@ -46,7 +48,8 @@ public class Timer_Class extends javax.swing.JFrame {
                 dispose();
                 //new Menu().setVisible(true);
                 JFrame Menu = new Menu();
-                new controller_menu(new Menu(), 0).start(0);
+                new controller_Sign_In(new Sign_In()).start();
+                //new controller_menu(new Menu(), 0).start(0);
             }
 
         }
