@@ -231,7 +231,7 @@ public class BLL_Userreg {
                     ((miniSimpleTableModel_Userreg) UserReg.jTable.getModel()).removeRow(selec1);
                     userreg = singleton.userreg.get(location);
 
-                    singleton.useradmin.remove(userreg);
+                    singleton.userreg.remove(userreg);
                     miniSimpleTableModel_Userreg.auxdates.remove(userreg);
 
                     saveAutoUserreg();

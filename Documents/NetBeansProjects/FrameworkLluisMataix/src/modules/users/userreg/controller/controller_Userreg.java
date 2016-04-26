@@ -24,6 +24,7 @@ import javax.swing.Timer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import modules.menu.controller.controller_menu;
+import modules.menu.model.Config;
 import modules.menu.view.Menu;
 import modules.users.userreg.model.BLL.BLL_Userreg;
 import modules.users.userreg.model.classes.miniSimpleTableModel_Userreg;
@@ -288,6 +289,8 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
                 this.createUser.setResizable(false);
                 this.createUser.setTitle("Nuevo Usuario Registrado");
                 this.createUser.setVisible(true);
+                createUser.birthdayField.setDateFormatString(Config.getInstance().getFormatDate());
+                
 
                 this.createUser.addWindowListener(new WindowAdapter() {
                     @Override
@@ -380,6 +383,7 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
                 this.changeUserreg.etiDNI.setVisible(false);
                 this.changeUserreg.dniField.setVisible(false);
                 this.changeUserreg.dniField.setEditable(false);
+                this.changeUserreg.birthdayField.setDateFormatString(Config.getInstance().getFormatDate());
 
                 if (singleton.registered_user != null) {
                     this.changeUserreg.etiDNI.setVisible(true);

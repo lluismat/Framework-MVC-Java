@@ -137,10 +137,10 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
         clientTypeField1,
         comboDni,
         //clientMenu
-        modifyClient1,
-        viewClient,
-        iconDesconnect,
-        save,
+        etiSave,
+        etiModify,
+        etiConfig,
+        etiExtit,
         //////////////////////////////
     }
 
@@ -529,28 +529,36 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
 
             case 3:
                 //MENU CLIENTE
-                this.clientMenu.setSize(600, 500);
+                this.clientMenu.setSize(650, 500);
                 this.clientMenu.setResizable(false);
                 this.clientMenu.setTitle("Menu Cliente");
                 this.clientMenu.setVisible(true);
+                
                 ImageIcon avatar = new ImageIcon(singleton.client.getAvatar());
                 this.clientMenu.etiAvatar.setIcon(new ImageIcon(avatar.getImage().getScaledInstance(125, 125, Image.SCALE_SMOOTH)));
                 this.clientMenu.etiName.setText(singleton.client.getDni()+": "+singleton.client.getName()+" "+singleton.client.getSurname());
-                
-                
+                this.clientMenu.mobileField.setText(singleton.client.getMobile());
+                this.clientMenu.emailField.setText(singleton.client.getEmail());
+                this.clientMenu.userField.setText(singleton.client.getUser());
+                this.clientMenu.passField.setText(singleton.client.getPass());
+                this.clientMenu.premiumField.setText(singleton.client.getPremium());
+                this.clientMenu.birthdayField.setText(singleton.client.getDate_birthday().toString());
+                this.clientMenu.purchaseField.setText(String.valueOf(singleton.client.getPurchase()));
+                this.clientMenu.dischargedateField.setText(singleton.client.getDischarge_date().toString());
+                this.clientMenu.clientTypeField.setText(singleton.client.getClient_type());
+                this.clientMenu.antiquityField.setText(String.valueOf(singleton.client.getAntiquity()));
+                this.clientMenu.stateField.setText(singleton.client.getState());
+                this.clientMenu.ageField.setText(String.valueOf(singleton.client.getAge()));
                 this.clientMenu.addWindowListener(new WindowAdapter() {
                     public void windowClosing(WindowEvent e) {
 
                         new controller_Sign_In(new Sign_In()).start();
                     }
                 });
-
-                /*
-                 modifyClient1,
-        viewClient,
-        iconDesconnect,
-        save,
-                 */
+                
+                
+                
+                
                 break;
         }
     }

@@ -7,6 +7,7 @@ import javax.swing.JComboBox;
 import javax.swing.table.AbstractTableModel;
 import modules.users.admin.model.utils.pagina;
 import static modules.users.userreg.controller.controller_Userreg.combo;
+import modules.users.userreg.model.BLL.BLL_Userreg;
 import modules.users.userreg.model.utils.pagina_Userreg;
 import modules.users.userreg.view.UserReg;
 
@@ -108,16 +109,18 @@ public class miniSimpleTableModel_Userreg extends AbstractTableModel {
     }
 
     public void removeRow(int fila) {
-        dates.remove(fila-1);
+        dates.remove(fila);
         fireTableDataChanged();
-        UserReg.jLabel3.setText(String.valueOf(String.valueOf(dates.size())));
-        pagina.initLinkBox();
+        
+        //UserReg.jLabel3.setText(String.valueOf(String.valueOf(dates.size())));
+        //pagina.initLinkBox();
         
     }
 
     public void load() {
         dates.clear();
         auxdates.clear();
+        BLL_Userreg.openAuto();
 
         registered_user userreg = null;
         for (int i = 0; i <= (singleton.userreg.size() - 1); i++) {
