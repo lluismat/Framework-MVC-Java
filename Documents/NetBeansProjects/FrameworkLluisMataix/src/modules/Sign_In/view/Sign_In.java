@@ -56,10 +56,10 @@ public class Sign_In extends javax.swing.JFrame {
         jLabel3.setText("Escribe la Contraseña:");
 
         btnAceptar.setBackground(new java.awt.Color(255, 255, 255));
-        btnAceptar.setText("Aceptar");
+        btnAceptar.setText("Iniciar Sesion");
 
         btnCancelar.setBackground(new java.awt.Color(255, 255, 255));
-        btnCancelar.setText("Cancelar");
+        btnCancelar.setText("Salir");
 
         errorSignIn.setForeground(new java.awt.Color(255, 255, 255));
         errorSignIn.setText("error");

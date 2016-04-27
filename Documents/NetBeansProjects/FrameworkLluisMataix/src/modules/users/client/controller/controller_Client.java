@@ -28,6 +28,7 @@ import modules.Sign_In.controller.controller_Sign_In;
 import modules.Sign_In.view.Sign_In;
 import modules.menu.controller.controller_menu;
 import modules.menu.model.Config;
+import modules.menu.view.Config_jFrame;
 import modules.menu.view.Menu;
 import modules.users.client.model.BLL.BLL_Client;
 import modules.users.client.model.utils.autocomplete.AutocompleteJComboBox;
@@ -41,6 +42,7 @@ import modules.users.client.view.CreateClient;
 import modules.users.users.singleton;
 import static modules.users.client.view.Client.comboClient;
 import modules.users.client.view.ClientMenu;
+import utils.format;
 
 /**
  *
@@ -140,7 +142,7 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
         etiSave,
         etiModify,
         etiConfig,
-        etiExtit,
+        etiExit,
         //////////////////////////////
     }
 
@@ -168,7 +170,11 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
         Timer timer = new Timer(2000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 changeClient.dispose();
-                new controller_Client(new Client(), 0).start(0);
+                if (singleton.user == "Admin") {
+                    new controller_Client(new Client(), 0).start(0);
+                } else {
+                    new controller_Client(new ClientMenu(), 3).start(3);
+                }
             }
         });
         timer.setRepeats(false);
@@ -423,6 +429,7 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
                     this.changeClient.comboDni.setVisible(false);
                     this.changeClient.comboDni.setEnabled(true);
                     BLL_Client.viewJTableClient(singleton.client.getDni());
+
                 }
                 this.changeClient.setSize(942, 720);
                 this.changeClient.setResizable(false);
@@ -533,18 +540,18 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
                 this.clientMenu.setResizable(false);
                 this.clientMenu.setTitle("Menu Cliente");
                 this.clientMenu.setVisible(true);
-                
+
                 ImageIcon avatar = new ImageIcon(singleton.client.getAvatar());
                 this.clientMenu.etiAvatar.setIcon(new ImageIcon(avatar.getImage().getScaledInstance(125, 125, Image.SCALE_SMOOTH)));
-                this.clientMenu.etiName.setText(singleton.client.getDni()+": "+singleton.client.getName()+" "+singleton.client.getSurname());
+                this.clientMenu.etiName.setText(singleton.client.getDni() + ": " + singleton.client.getName() + " " + singleton.client.getSurname());
                 this.clientMenu.mobileField.setText(singleton.client.getMobile());
                 this.clientMenu.emailField.setText(singleton.client.getEmail());
                 this.clientMenu.userField.setText(singleton.client.getUser());
                 this.clientMenu.passField.setText(singleton.client.getPass());
                 this.clientMenu.premiumField.setText(singleton.client.getPremium());
-                this.clientMenu.birthdayField.setText(singleton.client.getDate_birthday().toString());
-                this.clientMenu.purchaseField.setText(String.valueOf(singleton.client.getPurchase()));
-                this.clientMenu.dischargedateField.setText(singleton.client.getDischarge_date().toString());
+                this.clientMenu.birthdayField.setText(singleton.client.getDate_birthday().toString(Config.getInstance().getFormatDate()));
+                this.clientMenu.purchaseField.setText(String.valueOf(format.formatcurrency(singleton.client.getPurchase(),Config.getInstance())));
+                this.clientMenu.dischargedateField.setText(singleton.client.getDischarge_date().toString(Config.getInstance().getFormatDate()));
                 this.clientMenu.clientTypeField.setText(singleton.client.getClient_type());
                 this.clientMenu.antiquityField.setText(String.valueOf(singleton.client.getAntiquity()));
                 this.clientMenu.stateField.setText(singleton.client.getState());
@@ -555,10 +562,15 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
                         new controller_Sign_In(new Sign_In()).start();
                     }
                 });
-                
-                
-                
-                
+                this.clientMenu.etiSave.setName("etiSave");
+                this.clientMenu.etiSave.addMouseListener(this);
+                this.clientMenu.etiModify.setName("etiModify");
+                this.clientMenu.etiModify.addMouseListener(this);
+                this.clientMenu.etiConfig.setName("etiConfig");
+                this.clientMenu.etiConfig.addMouseListener(this);
+                this.clientMenu.etiExit.setName("etiExit");
+                this.clientMenu.etiExit.addMouseListener(this);
+
                 break;
         }
     }
@@ -614,7 +626,11 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
 
             case btnCancelar1:
                 changeClient.dispose();
-                new controller_Client(new Client(), 0).start(0);
+                if (singleton.user.equals("Admin")) {
+                    new controller_Client(new Client(), 0).start(0);
+                } else {
+                    new controller_Client(new ClientMenu(), 3).start(3);
+                }
                 break;
 
             case comboDni:
@@ -701,6 +717,7 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
                 new controller_Client(new CreateClient(), 1).start(1);
                 break;
             case modifyClient:
+                singleton.client=null;
                 int selec = Client.jTable_Client.getSelectedRow();
                 if (selec == -1) {
                     menuClient.dispose();
@@ -804,6 +821,22 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
                 break;
             case optNoM1:
                 this.changeClient.premium.setText("No");
+                break;
+            //MENU CLIENTE
+            case etiSave:
+                BLL_Client.SaveClient(Config.getInstance().getFiles());
+                break;
+            case etiModify:
+                clientMenu.dispose();
+                new controller_Client(new ChangeClient(singleton.client, table), 2).start(2);
+                break;
+            case etiConfig:
+                clientMenu.dispose();
+                new controller_menu(new Config_jFrame(), 1).start(1);
+                break;
+            case etiExit:
+                BLL_Client.exitOption();
+                clientMenu.dispose();
                 break;
 
         }

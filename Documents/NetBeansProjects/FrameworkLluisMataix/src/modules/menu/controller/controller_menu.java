@@ -24,8 +24,10 @@ import modules.users.admin.model.BLL.BLL_Admin;
 import modules.users.admin.view.Admin;
 import modules.users.client.controller.controller_Client;
 import modules.users.client.view.Client;
+import modules.users.client.view.ClientMenu;
 import modules.users.userreg.controller.controller_Userreg;
 import modules.users.userreg.view.UserReg;
+import modules.users.users.singleton;
 import utils.Themes;
 
 /**
@@ -225,7 +227,13 @@ public class controller_menu implements ActionListener, MouseListener {
                 BLL_Admin.changeConfig();
                 files_Config.SaveConfig();
                 config.dispose();
+                if(singleton.user=="Admin"){
                 new controller_menu(new Menu(), 0).start(0);
+                }else if(singleton.user=="Client"){
+                    new controller_Client(new ClientMenu(),3).start(3);
+                }else{
+                    
+                }
                 break;
             case btnDefault:
                 Config.getInstance().setFormatDate("dd/MM/yyyy");
@@ -240,7 +248,13 @@ public class controller_menu implements ActionListener, MouseListener {
                 break;
             case btnVolver:
                 config.dispose();
+                if(singleton.user=="Admin"){
                 new controller_menu(new Menu(), 0).start(0);
+                }else if(singleton.user=="Client"){
+                    new controller_Client(new ClientMenu(),3).start(3);
+                }else{
+                    
+                }
                 break;
         }
     }

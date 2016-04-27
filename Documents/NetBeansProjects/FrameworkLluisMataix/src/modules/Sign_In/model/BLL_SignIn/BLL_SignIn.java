@@ -44,25 +44,8 @@ public class BLL_SignIn {
 
     }
 
-    public static int searchClient(client client) {
-
-        for (int i = 0; i <= (singleton.userclient.size() - 1); i++) {
-            if ((singleton.userclient.get(i)).equals(client)) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    //buscar cliente por dni en la ventana de Sign In
-    public static int searchClientDNI() {
-        int location;
-        singleton.DNI = Sign_In.dniField.getText();
-        singleton.client = new client(singleton.DNI);
-        location = searchClient(singleton.client);
-        return location;
-    }
     
+    //buscar cliente por dni en la ventana de Sign In
     public static void searchClientMongo(){
         singletonMongo.client=Mongo_DB.connect();
         DAO_SignIn.searchClientDAO();

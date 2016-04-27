@@ -60,8 +60,7 @@ public class Config implements Serializable {
 			singleton.useradmin = new ArrayList<admin>();
 			singleton.userclient = new ArrayList<client>();
 			singleton.userreg = new ArrayList<registered_user>();
-                        //BLL_BBDD.ViewAdmin();
-                        //BLL_Mongo.viewClient();
+                        
                         
                         
 		}

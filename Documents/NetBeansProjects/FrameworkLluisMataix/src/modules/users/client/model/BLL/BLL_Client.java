@@ -9,6 +9,8 @@ import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import modules.Sign_In.controller.controller_Sign_In;
+import modules.Sign_In.view.Sign_In;
 import modules.menu.model.Language;
 import modules.users.client.controller.controller_Client;
 import modules.users.client.model.DAO.DAO_Client;
@@ -34,15 +36,15 @@ public class BLL_Client {
     public static boolean create_client() {
         int location;
         boolean checker = false;
-        
+
         location = searchClientDNI();
         if (location != -1) {
             JOptionPane.showMessageDialog(null, Language.getInstance().getProperty("erroradminexist"));
             checker = false;
         } else if ((askClient("dni") == true) && (askClient("name") == true) && (askClient("surname") == true)
-                && (askClient("mobile") == true) && (askClient("email") == true) && (askClient("user")==true) 
-                && (askClient("pass") == true)&& (askClient("birthday") == true) && (askClient("purchase") == true) 
-                && (askClient("clienttype") == true)&& (askClient("dischargedate") == true)) {
+                && (askClient("mobile") == true) && (askClient("email") == true) && (askClient("user") == true)
+                && (askClient("pass") == true) && (askClient("birthday") == true) && (askClient("purchase") == true)
+                && (askClient("clienttype") == true) && (askClient("dischargedate") == true)) {
 
             singleton.client = DAO_Client.pideClient();
             singleton.userclient.add(singleton.client);
@@ -78,10 +80,10 @@ public class BLL_Client {
             ChangeClient.optNo.setSelected(true);
             ChangeClient.optionState.setText("No");
         }
-        if("Si".equals(client.getPremium())){
+        if ("Si".equals(client.getPremium())) {
             ChangeClient.optYes1.setSelected(true);
             ChangeClient.premium.setText("Si");
-        }else if("No".equals(client.getPremium())){
+        } else if ("No".equals(client.getPremium())) {
             ChangeClient.optNo1.setSelected(true);
             ChangeClient.premium.setText("No");
         }
@@ -96,9 +98,12 @@ public class BLL_Client {
         int location;
         client client;
         client = new client(dni);
-        location = searchClient(client);
-        client = singleton.userclient.get(location);
-
+        if (singleton.userclient.isEmpty()) {
+            client = singleton.client;
+        } else {
+            location = searchClient(client);
+            client = singleton.userclient.get(location);
+        }
         ChangeClient.dniField.setText(client.getDni());
         ChangeClient.nameField.setText(client.getName());
         ChangeClient.etiTitle.setText("Cliente: " + client.getName() + " " + client.getSurname());
@@ -113,21 +118,21 @@ public class BLL_Client {
 
         ChangeClient.passField.setText(client.getPass());
 
-      if ("Si".equals(client.getState())) {
+        if ("Si".equals(client.getState())) {
             ChangeClient.optYes.setSelected(true);
             ChangeClient.optionState.setText("Si");
         } else if ("No".equals(client.getState())) {
             ChangeClient.optNo.setSelected(true);
             ChangeClient.optionState.setText("No");
         }
-        if("Si".equals(client.getPremium())){
+        if ("Si".equals(client.getPremium())) {
             ChangeClient.optYes1.setSelected(true);
             ChangeClient.premium.setText("Si");
-        }else if("No".equals(client.getPremium())){
+        } else if ("No".equals(client.getPremium())) {
             ChangeClient.optNo1.setSelected(true);
             ChangeClient.premium.setText("No");
         }
-        
+
         ChangeClient.birthdayField.setCalendar(client.getDate_birthday().StringtoCalendar());
         ChangeClient.purchaseField.setText(String.valueOf(client.getPurchase()));
         ChangeClient.dischargeDateField.setCalendar(client.getDischarge_date().StringtoCalendar());
@@ -140,14 +145,18 @@ public class BLL_Client {
         int location;
         boolean checker = false;
         if ((changeClient("name") == true) && (changeClient("surname") == true)
-                && (changeClient("mobile") == true) && (changeClient("email") == true) && (changeClient("user")==true)
-                && (changeClient("pass") == true)&& (changeClient("birthday") == true) && (changeClient("purchase") == true)
-                && (changeClient("clienttype") == true)&& (changeClient("dischargedate") == true)) {
+                && (changeClient("mobile") == true) && (changeClient("email") == true) && (changeClient("user") == true)
+                && (changeClient("pass") == true) && (changeClient("birthday") == true) && (changeClient("purchase") == true)
+                && (changeClient("clienttype") == true) && (changeClient("dischargedate") == true)) {
 
+            if(singleton.userclient.isEmpty()){
+                singleton.client=DAO_Client.changeClient();
+            }else{
             location = searchClientModifyDNI();
             singleton.client = singleton.userclient.get(location);
             singleton.client = DAO_Client.changeClient();
             singleton.userclient.set(location, singleton.client);
+            }
             BLL_Mongo.updateClient();
             checker = true;
         }
@@ -172,10 +181,10 @@ public class BLL_Client {
                 singleton.client = new client(dni);
                 int location = searchClient(singleton.client);
                 singleton.client = singleton.userclient.get(location);
-                new controller_Client(new ChangeClient(singleton.client, Client.jTable_Client),2).start(2);
-                singleton.client=null;
+                new controller_Client(new ChangeClient(singleton.client, Client.jTable_Client), 2).start(2);
+                singleton.client = null;
                 correcto = true;
-                
+
             }
         } else {
             JOptionPane.showMessageDialog(null, "lista vacía", "Error!", 2);
@@ -246,7 +255,6 @@ public class BLL_Client {
                     singleton.userclient.remove(singleton.client);
                     miniSimpleTableModel_Client.auxdates1.remove(singleton.client);
                     BLL_Mongo.deleteClient();
-                    
 
                 }
 
@@ -255,7 +263,7 @@ public class BLL_Client {
 
                     }
                 }
-                
+
             }
 
         } else {
@@ -410,18 +418,18 @@ public class BLL_Client {
     }
 
     public static void openClient(String type) {
-        
-            switch (type) {
-                case "XML":
-                    xml_client.openClient();
-                    break;
-                case "JSON":
-                    json_client.OpenClient();
-                    break;
-                case "TXT":
-                    txt_client.openClient();
-                    break;
-            }
+
+        switch (type) {
+            case "XML":
+                xml_client.openClient();
+                break;
+            case "JSON":
+                json_client.OpenClient();
+                break;
+            case "TXT":
+                txt_client.openClient();
+                break;
+        }
     }
 
     public static void Exit() {
@@ -451,6 +459,17 @@ public class BLL_Client {
 
         json_client.OpenAutoClient();
 
+    }
+
+    public static void exitOption() {
+        boolean selection = menus.menuS_N("Quieres salir de la aplicacion o cerrar sesion?", "Saliendo", "Salir de la Aplicación", "Cerrar Sesión");
+        if (selection == true) {
+            JOptionPane.showMessageDialog(null, "Saliendo de la Aplicación");
+            System.exit(0);
+        } else {
+            singleton.client=null;
+            new controller_Sign_In(new Sign_In()).start();
+        }
     }
 
 }

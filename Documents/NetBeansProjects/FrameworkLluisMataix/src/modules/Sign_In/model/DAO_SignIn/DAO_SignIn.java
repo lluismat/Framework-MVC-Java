@@ -97,12 +97,13 @@ public class DAO_SignIn {
         client c = new client();
         try {
             
-            cursor = singletonMongo.collection.find();
+            BasicDBObject searchClient= new BasicDBObject();
+            c=new client(Sign_In.dniField.getText());
+            searchClient.append("dni",c.getDni());
+            cursor = singletonMongo.collection.find(searchClient);
             if(cursor.count()!=0){
                 while(cursor.hasNext()){
-                    c=new client(Sign_In.dniField.getText());
                     BasicDBObject document = (BasicDBObject) cursor.next();
-                    document.append("dni",c.getDni());
                     singleton.client = c.Mongo_to_client(document); 
                 }
             }else{
