@@ -20,6 +20,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.Timer;
 import javax.swing.table.TableModel;
@@ -143,6 +144,7 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
         etiModify,
         etiConfig,
         etiExit,
+        logOut,
         //////////////////////////////
     }
 
@@ -422,6 +424,11 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
                 this.changeClient.dniField.setEditable(false);
                 changeClient.birthdayField.setDateFormatString(Config.getInstance().getFormatDate());
                 changeClient.dischargeDateField.setDateFormatString(Config.getInstance().getFormatDate());
+                
+                if(singleton.user.equals("Client")){
+                    this.changeClient.dischargeDateField.setEnabled(false);
+                }
+                
                 if (singleton.client != null) {
                     this.changeClient.etiDNI.setVisible(true);
                     this.changeClient.dniField.setVisible(true);
@@ -536,7 +543,7 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
 
             case 3:
                 //MENU CLIENTE
-                this.clientMenu.setSize(650, 500);
+                this.clientMenu.setSize(680, 500);
                 this.clientMenu.setResizable(false);
                 this.clientMenu.setTitle("Menu Cliente");
                 this.clientMenu.setVisible(true);
@@ -550,7 +557,7 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
                 this.clientMenu.passField.setText(singleton.client.getPass());
                 this.clientMenu.premiumField.setText(singleton.client.getPremium());
                 this.clientMenu.birthdayField.setText(singleton.client.getDate_birthday().toString(Config.getInstance().getFormatDate()));
-                this.clientMenu.purchaseField.setText(String.valueOf(format.formatcurrency(singleton.client.getPurchase(),Config.getInstance())));
+                this.clientMenu.purchaseField.setText(String.valueOf(format.formatcurrency(singleton.client.getPurchase(), Config.getInstance())));
                 this.clientMenu.dischargedateField.setText(singleton.client.getDischarge_date().toString(Config.getInstance().getFormatDate()));
                 this.clientMenu.clientTypeField.setText(singleton.client.getClient_type());
                 this.clientMenu.antiquityField.setText(String.valueOf(singleton.client.getAntiquity()));
@@ -570,6 +577,8 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
                 this.clientMenu.etiConfig.addMouseListener(this);
                 this.clientMenu.etiExit.setName("etiExit");
                 this.clientMenu.etiExit.addMouseListener(this);
+                this.clientMenu.logOut.setName("logOut");
+                this.clientMenu.logOut.addMouseListener(this);
 
                 break;
         }
@@ -717,7 +726,7 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
                 new controller_Client(new CreateClient(), 1).start(1);
                 break;
             case modifyClient:
-                singleton.client=null;
+                singleton.client = null;
                 int selec = Client.jTable_Client.getSelectedRow();
                 if (selec == -1) {
                     menuClient.dispose();
@@ -824,7 +833,7 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
                 break;
             //MENU CLIENTE
             case etiSave:
-                BLL_Client.SaveClient(Config.getInstance().getFiles());
+                BLL_Client.SaveClient2(Config.getInstance().getFiles());
                 break;
             case etiModify:
                 clientMenu.dispose();
@@ -835,7 +844,14 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
                 new controller_menu(new Config_jFrame(), 1).start(1);
                 break;
             case etiExit:
-                BLL_Client.exitOption();
+                //BLL_Client.exitOption();
+                JOptionPane.showMessageDialog(null, "Saliendo de la Aplicación");
+                System.exit(0);
+
+                break;
+            case logOut:
+                singleton.client = null;
+                new controller_Sign_In(new Sign_In()).start();
                 clientMenu.dispose();
                 break;
 

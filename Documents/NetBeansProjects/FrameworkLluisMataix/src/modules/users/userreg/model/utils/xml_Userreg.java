@@ -67,6 +67,44 @@ public class xml_Userreg {
 					Language.getInstance().getProperty("errorfiles"), JOptionPane.ERROR_MESSAGE);
 		}
 	}
+    
+    public static void saveUserreg2() {
+		String PATH = null;
+		try {
+			OutputStream os = new ByteArrayOutputStream();
+			OutputStreamWriter osw = new OutputStreamWriter(os);
+			XStream xstream = new XStream();
+			Annotations.configureAliases(xstream, registered_user.class);
+
+			String header = "<?xml version=\"1.0\" encoding=\"" + ENCODING + "\"?>\n";
+			xstream.toXML(singleton.registered_user, osw);
+			StringBuffer xml = new StringBuffer();
+			xml.append(header);
+			xml.append(os.toString());
+
+			JFileChooser fileChooser = new JFileChooser();
+
+			fileChooser.setAcceptAllFileFilterUsed(false);
+			fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("XML (*.xml)", "xml"));
+
+			int seleccion = fileChooser.showSaveDialog(null);
+			if (seleccion == JFileChooser.APPROVE_OPTION) {
+				File JFC = fileChooser.getSelectedFile();
+				PATH = JFC.getAbsolutePath();
+				PATH = PATH + ".xml";
+
+				FileWriter fileXml = new FileWriter(PATH);
+				fileXml.write(xml.toString());
+				fileXml.close();
+				osw.close();
+				os.close();
+
+			}
+		} catch (Exception e1) {
+			JOptionPane.showMessageDialog(null, Language.getInstance().getProperty("saveerrorxml"),
+					Language.getInstance().getProperty("errorfiles"), JOptionPane.ERROR_MESSAGE);
+		}
+	}
 
 	public static void openUserreg() {
 		String PATH = null;

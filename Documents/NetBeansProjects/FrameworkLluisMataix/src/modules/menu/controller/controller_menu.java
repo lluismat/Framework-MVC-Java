@@ -27,6 +27,7 @@ import modules.users.client.view.Client;
 import modules.users.client.view.ClientMenu;
 import modules.users.userreg.controller.controller_Userreg;
 import modules.users.userreg.view.UserReg;
+import modules.users.userreg.view.UserregMenu;
 import modules.users.users.singleton;
 import utils.Themes;
 
@@ -232,7 +233,7 @@ public class controller_menu implements ActionListener, MouseListener {
                 }else if(singleton.user=="Client"){
                     new controller_Client(new ClientMenu(),3).start(3);
                 }else{
-                    
+                    new controller_Userreg(new UserregMenu(),3).start(3);
                 }
                 break;
             case btnDefault:
@@ -253,7 +254,7 @@ public class controller_menu implements ActionListener, MouseListener {
                 }else if(singleton.user=="Client"){
                     new controller_Client(new ClientMenu(),3).start(3);
                 }else{
-                    
+                    new controller_Userreg(new UserregMenu(),3).start(3);
                 }
                 break;
         }

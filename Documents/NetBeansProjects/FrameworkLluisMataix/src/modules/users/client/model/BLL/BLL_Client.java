@@ -416,6 +416,20 @@ public class BLL_Client {
             JOptionPane.showMessageDialog(null, Language.getInstance().getProperty("errormessage"));
         }
     }
+    
+    public static void SaveClient2(String type){
+        switch (type) {
+                case "XML":
+                    xml_client.saveClient2();
+                    break;
+                case "JSON":
+                    json_client.SaveClient2();
+                    break;
+                case "TXT":
+                    txt_client.saveClient2();
+                    break;
+            }
+    }
 
     public static void openClient(String type) {
 
@@ -462,13 +476,14 @@ public class BLL_Client {
     }
 
     public static void exitOption() {
-        boolean selection = menus.menuS_N("Quieres salir de la aplicacion o cerrar sesion?", "Saliendo", "Salir de la Aplicación", "Cerrar Sesión");
+        boolean selection = menus.menuS_N("Quieres salir de la aplicacion o cerrar sesion?", "Saliendo","Cerrar Sesión", "Salir de la Aplicación");
         if (selection == true) {
-            JOptionPane.showMessageDialog(null, "Saliendo de la Aplicación");
-            System.exit(0);
-        } else {
             singleton.client=null;
             new controller_Sign_In(new Sign_In()).start();
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Saliendo de la Aplicación");
+            System.exit(0);
         }
     }
 

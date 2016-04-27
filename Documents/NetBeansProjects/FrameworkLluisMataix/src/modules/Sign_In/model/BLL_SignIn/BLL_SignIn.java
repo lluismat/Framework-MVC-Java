@@ -13,9 +13,6 @@ import javax.swing.JOptionPane;
 import modules.Sign_In.model.DAO_SignIn.DAO_SignIn;
 import modules.Sign_In.view.Sign_In;
 import modules.users.admin.model.DAO.DAO_BBDD;
-import modules.users.admin.model.classes.admin;
-import modules.users.client.model.DAO.DAO_Mongo;
-import modules.users.client.model.classes.client;
 import modules.users.userreg.model.classes.registered_user;
 import modules.users.users.singleton;
 

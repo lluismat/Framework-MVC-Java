@@ -9,6 +9,8 @@ import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import modules.Sign_In.controller.controller_Sign_In;
+import modules.Sign_In.view.Sign_In;
 import modules.menu.model.Language;
 import modules.users.userreg.controller.controller_Userreg;
 import modules.users.userreg.model.DAO.DAO_Userreg;
@@ -384,6 +386,19 @@ public class BLL_Userreg {
             JOptionPane.showMessageDialog(null, Language.getInstance().getProperty("errormessage"));
         }
     }
+    public static void SaveUserreg2(String type){
+         switch (type) {
+                case "XML":
+                    xml_Userreg.saveUserreg2();
+                    break;
+                case "JSON":
+                    json_Userreg.SaveUserreg2();
+                    break;
+                case "TXT":
+                    txt_Userreg.saveUserreg2();
+                    break;
+            }
+    }
 
     public static void openUserreg(String type) {
         if (singleton.useradmin.isEmpty()) {
@@ -459,5 +474,16 @@ public class BLL_Userreg {
 
     }
     
+    public static void exitOption() {
+        boolean selection = menus.menuS_N("Quieres salir de la aplicacion o cerrar sesion?", "Saliendo","Cerrar Sesión", "Salir de la Aplicación");
+        if (selection == true) {
+            singleton.client=null;
+            new controller_Sign_In(new Sign_In()).start();
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Saliendo de la Aplicación");
+            System.exit(0);
+        }
+    }
     
 }

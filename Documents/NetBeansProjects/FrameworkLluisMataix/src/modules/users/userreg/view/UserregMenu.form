@@ -1,25 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-  <NonVisualComponents>
-    <Component class="javax.swing.JLabel" name="jLabel3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel3"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel17">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel17"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
-      </Properties>
-    </Component>
-  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[680, 429]"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -40,10 +26,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -63,12 +46,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <Component id="etiAvatar" min="-2" pref="125" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jToolBar1" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
+                      <Component id="jToolBar1" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
                           <Component id="etiName" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -77,39 +60,35 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jLabel15" max="32767" attributes="0"/>
-                      <Component id="jLabel9" max="32767" attributes="0"/>
-                      <Component id="jLabel7" max="32767" attributes="0"/>
-                      <Component id="jLabel6" max="32767" attributes="0"/>
-                      <Component id="jLabel5" max="32767" attributes="0"/>
+                      <Component id="jLabel15" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jLabel9" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jLabel7" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jLabel6" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jLabel5" alignment="1" max="32767" attributes="0"/>
                       <Component id="jLabel8" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="passField" pref="140" max="32767" attributes="0"/>
-                      <Component id="mobileField" max="32767" attributes="0"/>
-                      <Component id="emailField" max="32767" attributes="0"/>
-                      <Component id="userField" max="32767" attributes="0"/>
-                      <Component id="premiumField" max="32767" attributes="0"/>
-                      <Component id="ageField" max="32767" attributes="0"/>
+                      <Component id="passField" alignment="0" pref="140" max="32767" attributes="0"/>
+                      <Component id="mobileField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="emailField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="userField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="activityField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="ageField" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLabel10" max="32767" attributes="0"/>
-                      <Component id="jLabel11" max="32767" attributes="0"/>
-                      <Component id="jLabel12" max="32767" attributes="0"/>
-                      <Component id="jLabel13" max="32767" attributes="0"/>
-                      <Component id="jLabel14" max="32767" attributes="0"/>
-                      <Component id="jLabel16" max="32767" attributes="0"/>
+                      <Component id="jLabel10" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabel11" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabel12" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabel16" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="purchaseField" pref="155" max="32767" attributes="0"/>
-                      <Component id="birthdayField" max="32767" attributes="0"/>
-                      <Component id="dischargedateField" max="32767" attributes="0"/>
-                      <Component id="clientTypeField" max="32767" attributes="0"/>
-                      <Component id="antiquityField" max="32767" attributes="0"/>
-                      <Component id="stateField" max="32767" attributes="0"/>
+                      <Component id="karmaField" alignment="0" pref="155" max="32767" attributes="0"/>
+                      <Component id="birthdayField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="pointsField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="stateField" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -119,8 +98,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="etiAvatar" min="-2" pref="125" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
+                      <Component id="etiAvatar" alignment="1" min="-2" pref="125" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
                           <Component id="etiName" max="32767" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jToolBar1" min="-2" pref="44" max="-2" attributes="0"/>
@@ -139,41 +118,35 @@
                       <Component id="jLabel6" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       <Component id="emailField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="purchaseField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="karmaField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel7" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="userField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="dischargedateField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="pointsField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="passField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="clientTypeField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="stateField" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                      <Component id="passField" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="premiumField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="antiquityField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="jLabel9" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="activityField" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel9" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ageField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="stateField" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="31" max="32767" attributes="0"/>
+                  <EmptySpace pref="13" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -209,11 +182,11 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="etiModify" min="-2" pref="161" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="etiConfig" min="-2" pref="149" max="-2" attributes="0"/>
+                          <Component id="etiConfig" min="-2" pref="151" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="logOut" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="etiExit" min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="logOut" min="-2" pref="48" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="etiExit" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -304,6 +277,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="logOut">
                   <Properties>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/img/login_out.png"/>
                     </Property>
@@ -428,10 +402,10 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Comic Sans MS" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Premium:"/>
+            <Property name="text" type="java.lang.String" value="Actividad:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="premiumField">
+        <Component class="javax.swing.JTextField" name="activityField">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -468,10 +442,10 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Comic Sans MS" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Compras:"/>
+            <Property name="text" type="java.lang.String" value="Karma:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="purchaseField">
+        <Component class="javax.swing.JTextField" name="karmaField">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -488,50 +462,10 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Comic Sans MS" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Fecha de Alta:"/>
+            <Property name="text" type="java.lang.String" value="Points:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="dischargedateField">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel13">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Comic Sans MS" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Tipo de Cliente:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="clientTypeField">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel14">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Comic Sans MS" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Antiguedad:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="antiquityField">
+        <Component class="javax.swing.JTextField" name="pointsField">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

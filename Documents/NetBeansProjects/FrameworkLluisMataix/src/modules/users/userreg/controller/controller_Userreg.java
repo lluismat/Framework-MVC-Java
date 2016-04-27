@@ -5,6 +5,7 @@
  */
 package modules.users.userreg.controller;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -19,12 +20,16 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.Timer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import modules.Sign_In.controller.controller_Sign_In;
+import modules.Sign_In.view.Sign_In;
 import modules.menu.controller.controller_menu;
 import modules.menu.model.Config;
+import modules.menu.view.Config_jFrame;
 import modules.menu.view.Menu;
 import modules.users.userreg.model.BLL.BLL_Userreg;
 import modules.users.userreg.model.classes.miniSimpleTableModel_Userreg;
@@ -33,6 +38,7 @@ import modules.users.userreg.model.utils.autocomplete_userreg.StringSearchable;
 import modules.users.userreg.model.utils.pagina_Userreg;
 import modules.users.userreg.view.ChangeUserreg;
 import modules.users.userreg.view.UserReg;
+import modules.users.userreg.view.UserregMenu;
 import modules.users.userreg.view.createUserreg;
 import modules.users.users.singleton;
 
@@ -47,6 +53,7 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
     public static UserReg menuUserreg;
     public static ChangeUserreg changeUserreg;
     public static createUserreg createUser;
+    public static UserregMenu userregMenu;
     public static AutocompleteJComboBox combo = null;
     JTable table = null;
 
@@ -61,7 +68,9 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
             case 2:
                 changeUserreg = (ChangeUserreg) start;
                 break;
-
+            case 3:
+                userregMenu = (UserregMenu) start;
+                break;
         }
     }
 
@@ -119,7 +128,12 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
         optNo1,
         activityField1,
         comboDni,
-
+        //userregMenu
+        etiSave,
+        etiModify,
+        etiConfig,
+        etiExit,
+        logOut,
         //////////////////////////////
     }
 
@@ -138,7 +152,7 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
         combo.requestFocus();
     }
 
-    private void timer_NA() {
+    private void timer_NU() {
 
         Timer timer = new Timer(2000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -150,12 +164,17 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
         timer.start();
     }
 
-    private void timer_CA() {
+    private void timer_CU() {
 
         Timer timer = new Timer(2000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 changeUserreg.dispose();
-                new controller_Userreg(new UserReg(), 0).start(0);
+                if (singleton.user.equals("Admin")) {
+                    new controller_Userreg(new UserReg(), 0).start(0);
+                } else {
+                    new controller_Userreg(new UserregMenu(), 3).start(3);
+                }
+                
             }
         });
         timer.setRepeats(false);
@@ -290,7 +309,6 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
                 this.createUser.setTitle("Nuevo Usuario Registrado");
                 this.createUser.setVisible(true);
                 createUser.birthdayField.setDateFormatString(Config.getInstance().getFormatDate());
-                
 
                 this.createUser.addWindowListener(new WindowAdapter() {
                     @Override
@@ -384,6 +402,9 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
                 this.changeUserreg.dniField.setVisible(false);
                 this.changeUserreg.dniField.setEditable(false);
                 this.changeUserreg.birthdayField.setDateFormatString(Config.getInstance().getFormatDate());
+                if(singleton.user.equals("Userreg")){
+                     this.changeUserreg.activityField.setEnabled(false);
+                }
 
                 if (singleton.registered_user != null) {
                     this.changeUserreg.etiDNI.setVisible(true);
@@ -484,6 +505,49 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
                 this.changeUserreg.activityField.addKeyListener(this);
 
                 break;
+
+            case 3:
+                //MENU USUARIO REGISTRADO
+                this.userregMenu.setSize(680, 500);
+                this.userregMenu.setResizable(false);
+                this.userregMenu.setTitle("Menu Cliente");
+                this.userregMenu.setVisible(true);
+
+                ImageIcon avatar = new ImageIcon(singleton.registered_user.getAvatar());
+                this.userregMenu.etiAvatar.setIcon(new ImageIcon(avatar.getImage().getScaledInstance(125, 125, Image.SCALE_SMOOTH)));
+                this.userregMenu.etiName.setText(singleton.registered_user.getDni() + ": " + singleton.registered_user.getName()
+                        + " " + singleton.registered_user.getSurname());
+                this.userregMenu.mobileField.setText(singleton.registered_user.getMobile());
+                this.userregMenu.emailField.setText(singleton.registered_user.getEmail());
+                this.userregMenu.userField.setText(singleton.registered_user.getUser());
+                this.userregMenu.passField.setText(singleton.registered_user.getPass());
+                this.userregMenu.activityField.setText(String.valueOf(singleton.registered_user.getActivity()));
+                this.userregMenu.birthdayField.setText(singleton.registered_user.getDate_birthday().toString(Config.getInstance().getFormatDate()));
+                this.userregMenu.karmaField.setText(singleton.registered_user.getKarma());
+                this.userregMenu.pointsField.setText(String.valueOf(singleton.registered_user.getBenefits()));
+                this.userregMenu.stateField.setText(singleton.registered_user.getState());
+                this.userregMenu.ageField.setText(String.valueOf(singleton.registered_user.getAge()));
+
+                this.userregMenu.addWindowListener(new WindowAdapter() {
+                    public void windowClosing(WindowEvent e) {
+
+                        JOptionPane.showMessageDialog(null, "Saliendo de la aplicación");
+                        System.exit(0);
+                        //new controller_Sign_In(new Sign_In()).start();
+                    }
+                });
+                this.userregMenu.etiSave.setName("etiSave");
+                this.userregMenu.etiSave.addMouseListener(this);
+                this.userregMenu.etiModify.setName("etiModify");
+                this.userregMenu.etiModify.addMouseListener(this);
+                this.userregMenu.etiConfig.setName("etiConfig");
+                this.userregMenu.etiConfig.addMouseListener(this);
+                this.userregMenu.etiExit.setName("etiExit");
+                this.userregMenu.etiExit.addMouseListener(this);
+                this.userregMenu.logOut.setName("logOut");
+                this.userregMenu.logOut.addMouseListener(this);
+                break;
+
         }
     }
 
@@ -514,7 +578,7 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
                 boolean disp = false;
                 disp = BLL_Userreg.checkCreateUserreg();
                 if (disp == true) {
-                    timer_NA();
+                    timer_NU();
                 }
                 break;
             case btnCancelar:
@@ -526,13 +590,18 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
                 boolean disp1 = false;
                 disp1 = BLL_Userreg.checkChangeUserreg();
                 if (disp1 == true) {
-                    timer_CA();
+                    timer_CU();
                 }
                 break;
 
             case btnCancelar1:
                 this.changeUserreg.dispose();
-                new controller_Userreg(new UserReg(), 0).start(0);
+                if (singleton.user.equals("Admin")) {
+                    new controller_Userreg(new UserReg(), 0).start(0);
+                } else {
+                    new controller_Userreg(new UserregMenu(), 3).start(3);
+                }
+                
                 break;
 
             case comboDni:
@@ -610,7 +679,7 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
                 new controller_Userreg(new createUserreg(), 1).start(1);
                 break;
             case modifyUserreg:
-
+                singleton.registered_user = null;
                 int selec = UserReg.jTable.getSelectedRow();
                 if (selec == -1) {
                     menuUserreg.dispose();
@@ -688,7 +757,11 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
                 this.changeUserreg.passField.setText("");
                 break;
             case activityField1:
+                if(singleton.user.equals("Admin")){
                 this.changeUserreg.activityField.setText("");
+                }else{
+                    
+                }
                 break;
             case img1:
                 BLL_Userreg.loadAvatar();
@@ -698,6 +771,29 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
                 break;
             case optYes1:
                 this.changeUserreg.optionState.setText("Si");
+                break;
+            //UserregMenu
+            case etiSave:
+                BLL_Userreg.SaveUserreg2(Config.getInstance().getFiles());
+                break;
+            case etiModify:
+                userregMenu.dispose();
+                new controller_Userreg(new ChangeUserreg(singleton.registered_user, table), 2).start(2);
+                break;
+            case etiConfig:
+                userregMenu.dispose();
+                new controller_menu(new Config_jFrame(), 1).start(1);
+                break;
+                case etiExit:
+                //BLL_Userreg.exitOption();
+                JOptionPane.showMessageDialog(null, "Saliendo de la Aplicación");
+                System.exit(0);
+
+                break;
+            case logOut:
+                singleton.client = null;
+                new controller_Sign_In(new Sign_In()).start();
+                userregMenu.dispose();
                 break;
         }
     }

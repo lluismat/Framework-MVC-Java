@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modules.users.client.view;
+package modules.users.userreg.view;
 
 /**
  *
  * @author lluis
  */
-public class ClientMenu extends javax.swing.JFrame {
+public class UserregMenu extends javax.swing.JFrame {
 
     /**
-     * Creates new form ClientMenu
+     * Creates new form UserregMenu
      */
-    public ClientMenu() {
+    public UserregMenu() {
         initComponents();
     }
 
@@ -27,9 +27,6 @@ public class ClientMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
         jPanel2 = new javax.swing.JPanel();
@@ -49,29 +46,20 @@ public class ClientMenu extends javax.swing.JFrame {
         passField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        premiumField = new javax.swing.JTextField();
+        activityField = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         birthdayField = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        purchaseField = new javax.swing.JTextField();
+        karmaField = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        dischargedateField = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        clientTypeField = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        antiquityField = new javax.swing.JTextField();
+        pointsField = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         ageField = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         stateField = new javax.swing.JTextField();
 
-        jLabel3.setText("jLabel3");
-
-        jLabel17.setText("jLabel17");
-
-        jLabel1.setText("jLabel1");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(680, 429));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -101,6 +89,7 @@ public class ClientMenu extends javax.swing.JFrame {
         etiConfig.setText("Configuracion");
         etiConfig.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        logOut.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         logOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/login_out.png"))); // NOI18N
         logOut.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -113,11 +102,11 @@ public class ClientMenu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(etiModify, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(etiConfig, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(etiConfig, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(logOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(etiExit, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(logOut, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(etiExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,11 +154,11 @@ public class ClientMenu extends javax.swing.JFrame {
         jLabel8.setText("Contraseña:");
 
         jLabel9.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        jLabel9.setText("Premium:");
+        jLabel9.setText("Actividad:");
 
-        premiumField.setEditable(false);
-        premiumField.setBackground(new java.awt.Color(255, 255, 255));
-        premiumField.setText("jTextField1");
+        activityField.setEditable(false);
+        activityField.setBackground(new java.awt.Color(255, 255, 255));
+        activityField.setText("jTextField1");
 
         jLabel10.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel10.setText("Fecha de Nacimiento:");
@@ -179,32 +168,18 @@ public class ClientMenu extends javax.swing.JFrame {
         birthdayField.setText("jTextField1");
 
         jLabel11.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        jLabel11.setText("Compras:");
+        jLabel11.setText("Karma:");
 
-        purchaseField.setEditable(false);
-        purchaseField.setBackground(new java.awt.Color(255, 255, 255));
-        purchaseField.setText("jTextField1");
+        karmaField.setEditable(false);
+        karmaField.setBackground(new java.awt.Color(255, 255, 255));
+        karmaField.setText("jTextField1");
 
         jLabel12.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        jLabel12.setText("Fecha de Alta:");
+        jLabel12.setText("Points:");
 
-        dischargedateField.setEditable(false);
-        dischargedateField.setBackground(new java.awt.Color(255, 255, 255));
-        dischargedateField.setText("jTextField1");
-
-        jLabel13.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        jLabel13.setText("Tipo de Cliente:");
-
-        clientTypeField.setEditable(false);
-        clientTypeField.setBackground(new java.awt.Color(255, 255, 255));
-        clientTypeField.setText("jTextField1");
-
-        jLabel14.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        jLabel14.setText("Antiguedad:");
-
-        antiquityField.setEditable(false);
-        antiquityField.setBackground(new java.awt.Color(255, 255, 255));
-        antiquityField.setText("jTextField1");
+        pointsField.setEditable(false);
+        pointsField.setBackground(new java.awt.Color(255, 255, 255));
+        pointsField.setText("jTextField1");
 
         jLabel15.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel15.setText("Edad:");
@@ -243,23 +218,19 @@ public class ClientMenu extends javax.swing.JFrame {
                     .addComponent(mobileField)
                     .addComponent(emailField)
                     .addComponent(userField)
-                    .addComponent(premiumField)
+                    .addComponent(activityField)
                     .addComponent(ageField))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(purchaseField, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                    .addComponent(karmaField, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
                     .addComponent(birthdayField)
-                    .addComponent(dischargedateField)
-                    .addComponent(clientTypeField)
-                    .addComponent(antiquityField)
+                    .addComponent(pointsField)
                     .addComponent(stateField))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -284,43 +255,36 @@ public class ClientMenu extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
-                    .addComponent(purchaseField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(karmaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(userField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
-                    .addComponent(dischargedateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                    .addComponent(pointsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(passField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel13)
-                        .addComponent(clientTypeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel16)
+                        .addComponent(stateField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(premiumField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel14)
-                        .addComponent(antiquityField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(activityField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16)
-                    .addComponent(stateField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                    .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,13 +294,45 @@ public class ClientMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(UserregMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(UserregMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(UserregMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(UserregMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new UserregMenu().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JTextField activityField;
     public static javax.swing.JTextField ageField;
-    public static javax.swing.JTextField antiquityField;
     public static javax.swing.JTextField birthdayField;
-    public static javax.swing.JTextField clientTypeField;
-    public static javax.swing.JTextField dischargedateField;
     public static javax.swing.JTextField emailField;
     public static javax.swing.JLabel etiAvatar;
     public static javax.swing.JLabel etiConfig;
@@ -344,16 +340,11 @@ public class ClientMenu extends javax.swing.JFrame {
     public static javax.swing.JLabel etiModify;
     public static javax.swing.JLabel etiName;
     public static javax.swing.JLabel etiSave;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -362,11 +353,11 @@ public class ClientMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JToolBar jToolBar1;
+    public static javax.swing.JTextField karmaField;
     public static javax.swing.JLabel logOut;
     public static javax.swing.JTextField mobileField;
     public static javax.swing.JTextField passField;
-    public static javax.swing.JTextField premiumField;
-    public static javax.swing.JTextField purchaseField;
+    public static javax.swing.JTextField pointsField;
     public static javax.swing.JTextField stateField;
     public static javax.swing.JTextField userField;
     // End of variables declaration//GEN-END:variables

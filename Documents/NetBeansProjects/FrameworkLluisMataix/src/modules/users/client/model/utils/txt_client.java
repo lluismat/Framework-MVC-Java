@@ -44,6 +44,33 @@ public class txt_client {
 		}
 	}
 
+        public static void saveClient2() {
+		String PATH = null;
+		try {
+			File f;
+			JFileChooser fileChooser = new JFileChooser();
+
+			fileChooser.setAcceptAllFileFilterUsed(false);
+			fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Texto (*.txt)", "txt"));
+
+			int seleccion = fileChooser.showSaveDialog(null);
+			if (seleccion == JFileChooser.APPROVE_OPTION) {
+				File JFC = fileChooser.getSelectedFile();
+				PATH = JFC.getAbsolutePath();
+				PATH = PATH + ".txt";
+				f = new File(PATH);
+
+				FileOutputStream fo = new FileOutputStream(f);
+				ObjectOutputStream o = new ObjectOutputStream(fo);
+				o.writeObject(singleton.client);
+				o.close();
+			}
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, Language.getInstance().getProperty("saveerrortxt"),
+					Language.getInstance().getProperty("errorfiles"), JOptionPane.ERROR_MESSAGE);
+		}
+	}
+        
 	public static void openClient() {
 		String PATH = null;
 		try {

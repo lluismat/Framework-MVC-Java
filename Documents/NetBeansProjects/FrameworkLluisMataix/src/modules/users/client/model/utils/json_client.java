@@ -55,6 +55,36 @@ public class json_client {
         }
     }
 
+    public static void SaveClient2() {
+        String PATH = null;
+        try {
+            XStream xstreamjson = new XStream(new JettisonMappedXmlDriver());
+            xstreamjson.setMode(XStream.NO_REFERENCES);
+            xstreamjson.alias("Clients", client.class);
+
+            JFileChooser fileChooser = new JFileChooser();
+
+            fileChooser.setAcceptAllFileFilterUsed(false);
+            fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("JSON (*.json)", "json"));
+
+            int seleccion = fileChooser.showSaveDialog(null);
+            if (seleccion == JFileChooser.APPROVE_OPTION) {
+                File JFC = fileChooser.getSelectedFile();
+                PATH = JFC.getAbsolutePath();
+                PATH = PATH + ".json";
+
+                Gson gson = new Gson();
+                String json = gson.toJson(singleton.client);
+                FileWriter fileXml = new FileWriter(PATH);
+                fileXml.write(json.toString());
+                fileXml.close();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, Language.getInstance().getProperty("saveerrorjson"),
+                    Language.getInstance().getProperty("errorjson"), JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
     public static void OpenClient() {
         String PATH = null;
         client client = new client();

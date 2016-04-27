@@ -21,9 +21,10 @@ import modules.Sign_In.view.Sign_In;
 import modules.menu.controller.controller_menu;
 import modules.menu.model.Language;
 import modules.menu.view.Menu;
-import modules.users.admin.model.BLL.BLL_Admin;
 import modules.users.client.controller.controller_Client;
 import modules.users.client.view.ClientMenu;
+import modules.users.userreg.controller.controller_Userreg;
+import modules.users.userreg.view.UserregMenu;
 import modules.users.users.singleton;
 import utils.Themes;
 
@@ -88,6 +89,7 @@ public class controller_Sign_In implements ActionListener, KeyListener, MouseLis
                         new controller_Client(new ClientMenu(), 3).start(3);
                         break;
                     case "Userreg":
+                        new controller_Userreg(new UserregMenu(),3).start(3);
                         break;
                 }
                 

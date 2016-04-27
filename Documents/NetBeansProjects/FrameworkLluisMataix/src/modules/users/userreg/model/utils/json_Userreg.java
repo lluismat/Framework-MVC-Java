@@ -58,6 +58,36 @@ public class json_Userreg {
                     Language.getInstance().getProperty("errorjson"), JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+    public static void SaveUserreg2() {
+        String PATH = null;
+        try {
+            XStream xstreamjson = new XStream(new JettisonMappedXmlDriver());
+            xstreamjson.setMode(XStream.NO_REFERENCES);
+            xstreamjson.alias("Registered_user", registered_user.class);
+
+            JFileChooser fileChooser = new JFileChooser();
+
+            fileChooser.setAcceptAllFileFilterUsed(false);
+            fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("JSON (*.json)", "json"));
+
+            int seleccion = fileChooser.showSaveDialog(null);
+            if (seleccion == JFileChooser.APPROVE_OPTION) {
+                File JFC = fileChooser.getSelectedFile();
+                PATH = JFC.getAbsolutePath();
+                PATH = PATH + ".json";
+
+                Gson gson = new Gson();
+                String json = gson.toJson(singleton.registered_user);
+                FileWriter fileXml = new FileWriter(PATH);
+                fileXml.write(json.toString());
+                fileXml.close();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, Language.getInstance().getProperty("saveerrorjson"),
+                    Language.getInstance().getProperty("errorjson"), JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     public static void OpenUserreg() {
         String PATH = null;
