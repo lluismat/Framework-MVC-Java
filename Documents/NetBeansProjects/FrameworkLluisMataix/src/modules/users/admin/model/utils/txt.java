@@ -16,6 +16,9 @@ import modules.users.admin.model.classes.admin;
 import modules.users.users.singleton;
 
 public class txt {
+    /**
+     * guarda un admin en TXT
+     */
 	public static void saveAdmin() {
 		String PATH = null;
 		try {
@@ -43,6 +46,9 @@ public class txt {
 		}
 	}
 
+        /**
+         * abre un fichero en TXT
+         */
 	public static void openAdmin() {
 		String PATH = null;
 		try {
@@ -69,6 +75,9 @@ public class txt {
 		}
 	}
 
+        /**
+         * abre automaticamente un txt
+         */
 	public static void openAutoAdmin() {
 		String PATH = null;
 		try {
@@ -87,6 +96,9 @@ public class txt {
 		}
 	}
 
+        /**
+         * guarda automaticamente un administrador en TXT
+         */
 	public static void saveAutoAdmin() {
 		String PATH = null;
 		try {

@@ -33,6 +33,10 @@ import utils.menus;
  */
 public class BLL_Client {
 
+    /**
+     * funcion que comprueba que esten bien todos los campos y crea el administrador, lo añade en arraylist y en MongoDB
+     * @return 
+     */
     public static boolean create_client() {
         int location;
         boolean checker = false;
@@ -54,6 +58,9 @@ public class BLL_Client {
         return checker;
     }
 
+    /**
+     * funcion para mostrar los datos de un cliente
+     */
     public static void viewClient() {
         int location;
         client client;
@@ -94,6 +101,10 @@ public class BLL_Client {
 
     }
 
+    /**
+     * funcion para mostrar los datos de un cliente seleccionado en el pager
+     * @param dni 
+     */
     public static void viewJTableClient(String dni) {
         int location;
         client client;
@@ -140,7 +151,10 @@ public class BLL_Client {
 
     }
 
-    //funcion modificar admin
+    /**
+     * funcion que comprueba que todos los campos esten bien y modifica el usuario en mongoDB
+     * @return 
+     */
     public static boolean update_Client() {
         int location;
         boolean checker = false;
@@ -163,6 +177,10 @@ public class BLL_Client {
         return checker;
     }
 
+    /**
+     * funcion para modificar un cliente seleccionado en el pager
+     * @return 
+     */
     public static boolean modify_row() {
         String dni;
         boolean correcto;
@@ -193,7 +211,10 @@ public class BLL_Client {
         return correcto;
     }
 
-    //comprueba que todos los campos esten bien antes de crear el admin
+    /**
+     * muestra al usuario si el cliente a sido creado con exito o no
+     * @return 
+     */
     public static boolean checkCreateClient() {
         boolean checker;
         checker = BLL_Client.create_client();
@@ -209,7 +230,10 @@ public class BLL_Client {
         return checker;
     }
 
-    //comprobar que todo este bien antes de modificar
+    /**
+     * muestra al usuario si el cliente ha sido modificado con exito o no
+     * @return 
+     */
     public static boolean checkChangeClient() {
         boolean checker;
         boolean dispose = false;
@@ -228,7 +252,9 @@ public class BLL_Client {
         return dispose;
     }
 
-    //Eliminar admin
+    /**
+     * elimina el cliente de la tabla y de MongoDB
+     */
     public static void deleteClient() {
         String dni;
         int location;
@@ -271,7 +297,11 @@ public class BLL_Client {
         }
     }
 
-    //buscar client
+    /**
+     * busca un cliente
+     * @param client
+     * @return 
+     */
     public static int searchClient(client client) {
 
         for (int i = 0; i <= (singleton.userclient.size() - 1); i++) {
@@ -282,7 +312,10 @@ public class BLL_Client {
         return -1;
     }
 
-    //buscar admin por dni en la ventana de crear
+    /**
+     * busca un cliente por dni en la ventana de crear cliente
+     * @return 
+     */
     public static int searchClientDNI() {
         int location;
         client client;
@@ -292,7 +325,10 @@ public class BLL_Client {
         return location;
     }
 
-    //buscar admin por dni en la ventana de modificar
+    /**
+     * busca un cliente por dni en la ventana de crear cliente
+     * @return 
+     */
     public static int searchClientModifyDNI() {
         int location;
         client client;
@@ -307,6 +343,11 @@ public class BLL_Client {
         return location;
     }
 
+    /**
+     * funcion que llama las funciones de validar los campos del DAO  de la ventana de crear
+     * @param type
+     * @return 
+     */
     public static boolean askClient(String type) {
         boolean checker = false;
         switch (type) {
@@ -361,7 +402,11 @@ public class BLL_Client {
         return checker;
     }
 
-    //change admin
+    /**
+     * funcion que llama al DAO que valida los campos en la ventana de modificar cliente
+     * @param type
+     * @return 
+     */
     public static boolean changeClient(String type) {
         boolean checker = false;
         switch (type) {
@@ -399,6 +444,10 @@ public class BLL_Client {
         return checker;
     }
 
+    /**
+     * funcino para guardar un cliente en un archivo JSON, XML o TXT
+     * @param type 
+     */
     public static void SaveClient(String type) {
         if (singleton.userclient.size() != 0) {
             switch (type) {
@@ -417,6 +466,10 @@ public class BLL_Client {
         }
     }
     
+    /**
+     * funcion para guardar un archivo JSON,XML O TXT de solo el cliente que a accedido a la aplicacion
+     * @param type 
+     */
     public static void SaveClient2(String type){
         switch (type) {
                 case "XML":
@@ -431,6 +484,10 @@ public class BLL_Client {
             }
     }
 
+    /**
+     * Funcion para abrir un archivo JSON,XML o TXT
+     * @param type 
+     */
     public static void openClient(String type) {
 
         switch (type) {
@@ -446,25 +503,40 @@ public class BLL_Client {
         }
     }
 
+    /**
+     * funcion para salir
+     */
     public static void Exit() {
         JOptionPane.showMessageDialog(null, Language.getInstance().getProperty("exitmessage"));
         System.exit(0);
     }
 
+    /**
+     * funcion para guardar automaticamente un usuario en JSON,XML Y TXT
+     */
     public static void saveAutoClient() {
         xml_client.autosaveclient();
         txt_client.saveAutoClient();
         json_client.SaveAutoClient();
     }
 
+    /**
+     * funcion para seleccionar un avatar en la ventana de crear cliente
+     */
     public static void createAvatar() {
         avatar_client.createAvatar();
     }
 
+    /**
+     * funcion para seleccionar un avatar en la ventana de modificar cliente
+     */
     public static void loadAvatar() {
         avatar_client.OpenAvatar();
     }
 
+    /**
+     * funcion para abrir automaticamente ficheros en JSON,XML y TXT
+     */
     public static void openAuto() {
         // admin
         xml_client.OpenAutoClient();
@@ -475,6 +547,9 @@ public class BLL_Client {
 
     }
 
+    /**
+     * funcion para preguntar si quiere salir de la aplicacion o cerrar sesion
+     */
     public static void exitOption() {
         boolean selection = menus.menuS_N("Quieres salir de la aplicacion o cerrar sesion?", "Saliendo","Cerrar Sesión", "Salir de la Aplicación");
         if (selection == true) {

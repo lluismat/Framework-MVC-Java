@@ -4,11 +4,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -16,15 +14,15 @@ import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
-
-import modules.menu.model.Config;
 import modules.menu.model.Language;
 import modules.users.client.model.classes.client;
 import modules.users.users.singleton;
 
 public class json_client {
 
-
+/**
+ * guarda los clientes en JSON
+ */
     public static void SaveClient() {
         String PATH = null;
         try {
@@ -55,6 +53,9 @@ public class json_client {
         }
     }
 
+    /**
+     * guarda un cliente en JSON
+     */
     public static void SaveClient2() {
         String PATH = null;
         try {
@@ -85,6 +86,9 @@ public class json_client {
         }
     }
     
+    /**
+     * abre un archivo con clientes en JSON
+     */
     public static void OpenClient() {
         String PATH = null;
         client client = new client();
@@ -123,6 +127,9 @@ public class json_client {
         }
     }
 
+    /**
+     * guarda automaticamente los clientes en JSON
+     */
     public static void SaveAutoClient() {
         String PATH = null;
         try {
@@ -147,6 +154,9 @@ public class json_client {
 
     }
 
+    /**
+     * abre automaticamente los archivos de clientes en JSON
+     */
     public static void OpenAutoClient() {
         String PATH = null;
         client client = new client("");

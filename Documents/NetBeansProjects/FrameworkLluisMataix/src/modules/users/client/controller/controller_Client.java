@@ -447,7 +447,11 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
                 this.changeClient.addWindowListener(new WindowAdapter() {
                     public void windowClosing(WindowEvent e) {
 
-                        new controller_Client(new Client(), 0).start(0);
+                         if (singleton.user == "Admin") {
+                    new controller_Client(new Client(), 0).start(0);
+                } else {
+                    new controller_Client(new ClientMenu(), 3).start(3);
+                }
                     }
                 });
 

@@ -19,6 +19,10 @@ import utils.validate;
  */
 public class DAO_Client {
 
+    /**
+     * funcion para crear un cliente
+     * @return 
+     */
     public static client pideClient() {
 
         String dni = "", name = "", surname = "", mobile = "", email = "", user = "", pass = "", avatar = "",
@@ -47,7 +51,10 @@ public class DAO_Client {
         return client;
     }
 
-    // funcion modificar admin
+    /**
+     * funcion para modificar un cliente
+     * @return 
+     */
     public static client changeClient() {
 
         String dni = "", name = "", surname = "", mobile = "", email = "", user = "", pass = "", avatar = "",
@@ -75,7 +82,10 @@ public class DAO_Client {
         return client;
     }
 
-    // pide dni
+    /**
+     * funcion para validar un dni en la ventana de crear cliente
+     * @return 
+     */
     public static boolean askdni() {
         String inserted_dni = "";
         boolean checker = false;
@@ -95,7 +105,10 @@ public class DAO_Client {
         return checker;
     }
 
-    // pide nombre
+    /**
+     * valida el nombre en la ventana de crear cliente
+     * @return 
+     */
     public static boolean askname() {
         String inserted_name = "";
         boolean checker = false;
@@ -113,7 +126,10 @@ public class DAO_Client {
         return checker;
     }
 
-    // pide apellidos
+    /**
+     * valida un apellido en la ventana de crea cliente
+     * @return 
+     */
     public static boolean asksurname() {
         String inserted_surname = "";
         boolean checker = false;
@@ -131,7 +147,10 @@ public class DAO_Client {
         return checker;
     }
 
-    // pide mobil
+    /**
+     * valida el numero de mobil en la ventana de crear cliente
+     * @return 
+     */
     public static boolean askmobile() {
         String inserted_mobile = "";
         boolean checker = false;
@@ -149,7 +168,10 @@ public class DAO_Client {
         return checker;
     }
 
-    // pide email
+    /**
+     * valida un email en la ventana de crear un cliente
+     * @return 
+     */
     public static boolean askemail() {
         String inserted_email = "";
         boolean checker = false;
@@ -167,7 +189,10 @@ public class DAO_Client {
         return checker;
     }
 
-    // pide user
+    /**
+     * valida el nombre de usuario en la ventana de crear cliente
+     * @return 
+     */
     public static boolean askuser() {
         String inserted_user = "";
         boolean checker = false;
@@ -185,7 +210,10 @@ public class DAO_Client {
         return checker;
     }
 
-    // pide password
+    /**
+     * valida la contraseña en la ventana de crear cliente
+     * @return 
+     */
     public static boolean askpassword() {
         String inserted_password = "";
         boolean checker = false;
@@ -203,7 +231,10 @@ public class DAO_Client {
         return checker;
     }
 
-    //pide date birthday
+    /**
+     * valida la fecha de nacimiento en la ventana de crear cliente
+     * @return 
+     */
     public static boolean askdate() {
         String inserted_date_birthday = "";
         int age = 0;
@@ -225,6 +256,10 @@ public class DAO_Client {
         return checker;
     }
 
+    /**
+     * valida las compras en la ventana de crear cliente
+     * @return 
+     */
     public static boolean askpurchase() {
         String inserted_purchase = "";
         boolean checker = false;
@@ -242,7 +277,10 @@ public class DAO_Client {
         return checker;
     }
 
-    // pide client_type
+    /**
+     * valida el tipo de cliente
+     * @return 
+     */
     public static boolean askclient_type() {
         String inserted_clienttype = "";
         boolean checker = false;
@@ -260,6 +298,10 @@ public class DAO_Client {
         return checker;
     }
 
+    /**
+     * valida la fecha de alta en la ventana de crear cliente
+     * @return 
+     */
     public static boolean askdischargedate() {
         boolean checker = false;
         date dischargeDate = null;
@@ -297,8 +339,13 @@ public class DAO_Client {
     }
 
 
-    //MODIFICAR CLIENTE
-    // pide nombre
+    /**
+     * MODIFICAR CLIENTE
+     */
+    /**
+    * valida el nombre en la ventana de modificar cliente
+    * @return 
+    */
     public static boolean changeName() {
         String inserted_name = "";
         boolean checker = false;
@@ -314,7 +361,10 @@ public class DAO_Client {
         return checker;
     }
 
-    // pide apellidos
+    /**
+     * valida el apellido en la ventana de modificar cliente
+     * @return 
+     */
     public static boolean changeSurname() {
         String inserted_surname = "";
         boolean checker = false;
@@ -330,7 +380,10 @@ public class DAO_Client {
         return checker;
     }
 
-    // pide mobil
+    /**
+     * valida el numero de mobil en la ventana de modificar cliente
+     * @return 
+     */
     public static boolean changeMobile() {
         String inserted_mobile = "";
         boolean checker = false;
@@ -346,7 +399,10 @@ public class DAO_Client {
         return checker;
     }
 
-    // pide email
+    /**
+     * valida el email en la ventana de modificar cliente
+     * @return 
+     */
     public static boolean changeEmail() {
         String inserted_email = "";
         boolean checker = false;
@@ -362,7 +418,10 @@ public class DAO_Client {
         return checker;
     }
 
-    // pide user
+    /**
+     * valida el nombre de usuario en la ventana de modificar cliente
+     * @return 
+     */
     public static boolean changeUser() {
         String inserted_user = "";
         boolean checker = false;
@@ -378,7 +437,10 @@ public class DAO_Client {
         return checker;
     }
 
-    // pide password
+    /**
+     * valida la contraseña en la ventana de modificar cliente
+     * @return 
+     */
     public static boolean changePassword() {
         String inserted_password = "";
         boolean checker = false;
@@ -394,7 +456,10 @@ public class DAO_Client {
         return checker;
     }
 
-    //pide date birthday
+    /**
+     * valida la fecha de nacimiento en la ventana de modificar cliente
+     * @return 
+     */
     public static boolean changeDate() {
         String inserted_date_birthday = "";
         int age = 0;
@@ -416,6 +481,10 @@ public class DAO_Client {
         return checker;
     }
 
+    /**
+     * valida las compras en la ventana de modificar cliente
+     * @return 
+     */
     public static boolean changePurchase() {
         String inserted_purchase = "";
         boolean checker = false;
@@ -434,7 +503,10 @@ public class DAO_Client {
         return checker;
     }
 
-    // pide client_type
+    /**
+     * valida el tipo de cliente en la ventana de modificar cliente
+     * @return 
+     */
     public static boolean changeClient_type() {
         String inserted_clienttype = "";
         boolean checker = false;
@@ -453,6 +525,10 @@ public class DAO_Client {
         return checker;
     }
     
+    /**
+     * valida la fecha de alta en la ventana de modificar cliente
+     * @return 
+     */
     public static boolean changedischargedate() {
         boolean checker = false;
         date dischargeDate = null;

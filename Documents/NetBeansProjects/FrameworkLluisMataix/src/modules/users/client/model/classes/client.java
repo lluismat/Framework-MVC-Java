@@ -25,7 +25,24 @@ public class client extends users implements Serializable {
 	@XStreamAlias("Premium")
 	private String premium;
 
-	// constructor
+	
+        /**
+         * Constructor
+         * @param dni
+         * @param name
+         * @param surname
+         * @param mobile
+         * @param email
+         * @param user
+         * @param pass
+         * @param avatar
+         * @param state
+         * @param date_birthday
+         * @param purchase
+         * @param premium
+         * @param client_type
+         * @param discharge_date 
+         */
 
 	public client(String dni, String name, String surname, String mobile, String email, String user, String pass,
 			String avatar, String state, date date_birthday, float purchase, String premium, String client_type,
@@ -41,19 +58,28 @@ public class client extends users implements Serializable {
 		this.setAntiquity(calculateantiquity());
 	}
 
-	// Constructor per defecte
+	/**
+         * constructor por defecto
+         */
 
 	public client() {
 		super();
 	}
 
-	// Constructor de clau primaria
+	/**
+         * constructor de llave primaria
+         * @param dni 
+         */
 
 	public client(String dni) {
 		super(dni);
 	}
 
-	// Constructor a peticio del usuari
+	/**
+         * constructor a peticio del usuari
+         * @param election
+         * @param i 
+         */
 
 	public client(Object election, int i) {
 		super(election, i);
@@ -76,6 +102,11 @@ public class client extends users implements Serializable {
 		}
 	}
         
+        /** 
+         * pasar de mongo a client
+         * @param dBObjectClient
+         * @return 
+         */
         public client Mongo_to_client(DBObject dBObjectClient){
          
             this.setDni((String)dBObjectClient.get("dni"));
@@ -100,6 +131,10 @@ public class client extends users implements Serializable {
                     ,this.getDischarge_date());
         }
         
+        /**
+         * pasa de client a mongo
+         * @return 
+         */
         public BasicDBObject client_to_Mongo(){
             BasicDBObject dBObjectClient = new BasicDBObject();
             
@@ -123,13 +158,19 @@ public class client extends users implements Serializable {
             return dBObjectClient;
         }
 
-	// calculate antiquity
+	/**
+         * calcula la antiguedad
+         * @return 
+         */
 	public int calculateantiquity() {
 		int calculateantiquity = this.getDischarge_date().substractdatesystem();
 		return calculateantiquity;
 	}
 
-	// getters and setters
+	/**
+         * gettes and setters
+         * @return 
+         */
 
 	public float getPurchase() {
 		return purchase;
@@ -174,14 +215,20 @@ public class client extends users implements Serializable {
 		this.setAntiquity(calculateantiquity());
 	}
 
-	// calculate_benefits discount
+	/**
+         * calcula los beneficios
+         * @return 
+         */
 	public float calculate_benefits() {
 		float calculate = 0.0f;
 		calculate = this.getPurchase() + (float) this.getAntiquity();
 		return calculate;
 	}
 
-	// toString
+	/**
+         * toString
+         * @return 
+         */
 	public String toString() {
 		String cad = "";
 		cad = cad + super.toString();

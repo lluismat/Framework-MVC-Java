@@ -8,15 +8,11 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.Annotations;
-
-import modules.menu.model.Config;
 import modules.menu.model.Language;
 import modules.users.client.model.classes.client;
 import modules.users.users.singleton;
@@ -24,6 +20,9 @@ import modules.users.users.singleton;
 public class xml_client {
 	private static final String ENCODING = "UTF-8";
 
+        /**
+         * guarda los clientes en XML
+         */
 	public static void saveClient() {
 		String PATH = null;
 		try {
@@ -31,7 +30,7 @@ public class xml_client {
 			OutputStreamWriter osw = new OutputStreamWriter(os);
 			XStream xstream = new XStream();
 			Annotations.configureAliases(xstream, client.class);
-
+                        
 			String header = "<?xml version=\"1.0\" encoding=\"" + ENCODING + "\"?>\n";
 			xstream.toXML(singleton.userclient, osw);
 			StringBuffer xml = new StringBuffer();
@@ -61,6 +60,9 @@ public class xml_client {
 		}
 	}
 
+        /**
+         * guarda un cliente en XML
+         */
         public static void saveClient2() {
 		String PATH = null;
 		try {
@@ -98,6 +100,9 @@ public class xml_client {
 		}
 	}
         
+        /**
+         * abre un archivo en XML
+         */
 	public static void openClient() {
 		String PATH = null;
 		try {
@@ -122,6 +127,9 @@ public class xml_client {
 		}
 	}
 
+        /**
+         * guarda automaticamente los clientes en XML
+         */
 	public static void autosaveclient() {
 		String PATH = null;
 
@@ -160,6 +168,9 @@ public class xml_client {
 		}
 	}
 
+        /**
+         * abre automaticamente un fichero XML
+         */
 	public static void OpenAutoClient() {
 		String PATH;
 

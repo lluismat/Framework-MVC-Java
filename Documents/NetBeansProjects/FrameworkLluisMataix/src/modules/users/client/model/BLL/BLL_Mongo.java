@@ -15,23 +15,35 @@ import modules.users.client.model.DAO.DAO_Mongo;
  */
 public class BLL_Mongo {
     
+    /**
+     * inserta un cliente en MongoDB
+     */
     public static void insert_Client(){
         singletonMongo.client=Mongo_DB.connect();
         DAO_Mongo.insert_Client();
         Mongo_DB.disconnect();
     }
     
+    /**
+     * lista los clientes que hay en la base de MongoDB
+     */
     public static void viewClient(){
         singletonMongo.client=Mongo_DB.connect();
         DAO_Mongo.viewTableClient();
         Mongo_DB.disconnect();
     }
     
+    /**
+     * modifica un cliente en MongoDB
+     */
     public static void updateClient(){
         singletonMongo.client=Mongo_DB.connect();
         DAO_Mongo.updateClient();
         Mongo_DB.disconnect();
     }
+    /**
+     * borra un cliente en mongoDB
+     */
     public static void deleteClient(){
         singletonMongo.client=Mongo_DB.connect();
         DAO_Mongo.deleteClient_by_dni();

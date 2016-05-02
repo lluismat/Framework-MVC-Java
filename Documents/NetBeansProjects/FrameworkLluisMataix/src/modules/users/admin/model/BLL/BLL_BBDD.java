@@ -19,7 +19,10 @@ import modules.users.admin.model.DAO.DAO_BBDD;
 public class BLL_BBDD {
     
     
-    //crear un administrador en la base de datos
+    /**
+     * Inserta un administrador en Bases de Datos
+     * @return 
+     */
     public static int NewAdmin() {
 
         int correct;
@@ -36,7 +39,9 @@ public class BLL_BBDD {
         return correct;
     }
     
-    //listar los administradores de la base de datos
+    /**
+     * lista los administradores de la base de datos
+     */
     public static void ViewAdmin() {
 
         Connection con = null;
@@ -55,7 +60,9 @@ public class BLL_BBDD {
 
     }
 
-    // modificar administrador de la base de datos
+   /**
+    * hace un update en la base de datos de un administrador
+    */
     public static void modifyAdminBLL() {
 
         Connection con;
@@ -72,7 +79,10 @@ public class BLL_BBDD {
 
     }
 
-    // eliminar administrador de la base de datos
+    /**
+     * eliminar un administrador en bases de datos
+     * @return 
+     */
     public static boolean DeleteAdminBLL() {
 
         Connection con;

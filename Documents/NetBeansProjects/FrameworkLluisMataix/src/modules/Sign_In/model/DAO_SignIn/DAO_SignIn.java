@@ -26,7 +26,10 @@ import utils.validate;
  */
 public class DAO_SignIn {
 
-    // pide dni
+   /**
+    * funcion para validar el DNI
+    * @return 
+    */
     public static boolean askdni() {
         String inserted_dni = "";
         boolean checker = false;
@@ -46,6 +49,10 @@ public class DAO_SignIn {
         return checker;
     }
 
+    /**
+     * funcion buscar admin en bases de datos
+     * @param con 
+     */
     public static void searchAdminDAO(Connection con) {
 
         ResultSet rs = null;
@@ -91,6 +98,9 @@ public class DAO_SignIn {
         }
     }
     
+    /**
+     * funcion para buscar un cliente por DNI en MongoDB
+     */
     public static void searchClientDAO(){
         DBCursor cursor = null;
         singleton.userclient.clear();

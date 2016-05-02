@@ -20,6 +20,9 @@ import modules.users.admin.view.Create_Admin;
  */
 public class avatar {
 
+    /**
+     * funcion para seleccionar el avatar desde el equipo y guarda la imagen en el proyecto
+     */
     public static void createAvatar() {
 
         JFileChooser fileChooser = new JFileChooser();
@@ -51,6 +54,9 @@ public class avatar {
         }
     }
     
+    /**
+     * funcion para seleccionar un avatar en la ventana de modificar
+     */
     public static void OpenAvatar() {
 
         JFileChooser fileChooser = new JFileChooser();

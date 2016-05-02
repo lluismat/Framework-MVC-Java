@@ -7,6 +7,7 @@ package modules.users.admin.model.DAO;
 
 import classes.date;
 import com.toedter.calendar.JTextFieldDateEditor;
+import modules.menu.model.Language;
 import modules.users.admin.model.classes.admin;
 import modules.users.users.singleton;
 import modules.users.admin.view.ChangeAdmin;
@@ -19,7 +20,9 @@ import utils.validate;
  */
 public class DAO_Admin {
 
-    // funcion crear admin
+    /**
+     * funcion para crear un administrador
+     */
     public static void pideAdmin() {
 
         String dni = "", name = "", surname = "", mobile = "", email = "", user = "", pass = "", avatar = "",
@@ -40,12 +43,14 @@ public class DAO_Admin {
         activity = Integer.parseInt(Create_Admin.activityField.getText());
         hiring_date = new date(((JTextFieldDateEditor) Create_Admin.HiringDateField.getDateEditor()).getText());
 
-       singleton.admin = new admin(dni, name, surname, mobile, email, user, pass, avatar, state, date_birthday, activity,
+        singleton.admin = new admin(dni, name, surname, mobile, email, user, pass, avatar, state, date_birthday, activity,
                 hiring_date);
 
     }
 
-    // funcion modificar admin
+    /**
+     * funcion para crear un administrador
+     */
     public static void changeAdmin() {
 
         String dni = "", name = "", surname = "", mobile = "", email = "", user = "", pass = "", avatar = "",
@@ -70,7 +75,11 @@ public class DAO_Admin {
                 hiring_date);
 
     }
-    // pide dni
+
+    /**
+     * funcion que valida un dni
+     * @return 
+     */
     public static boolean askdni() {
         String inserted_dni = "";
         boolean checker = false;
@@ -80,17 +89,23 @@ public class DAO_Admin {
         Create_Admin.dniField.setText(inserted_dni.toUpperCase());
         checker = validate.validate_dni(inserted_dni);
         if (inserted_dni.isEmpty()) {
-            Create_Admin.errorDni.setText("<html><font color=red>No ha introducido ningun dni</font></html>");
+            Create_Admin.errorDni.setForeground(java.awt.Color.red);
+            Create_Admin.errorDni.setText(Language.getInstance().getProperty("errordni1"));
             checker = false;
         } else if (checker == false) {
-            Create_Admin.errorDni.setText("<html><font color=red>El dni introducido no es valido</font></html>");
+            Create_Admin.errorDni.setForeground(java.awt.Color.red);
+            Create_Admin.errorDni.setText(Language.getInstance().getProperty("errordni2"));
         } else {
-            Create_Admin.errorDni.setText("<html><font color=green>DNI Valido</font></html>");
+            Create_Admin.errorDni.setForeground(java.awt.Color.green);
+            Create_Admin.errorDni.setText(Language.getInstance().getProperty("dniok"));
         }
         return checker;
     }
 
-    // pide nombre
+    /**
+     * funcion para validar el nombre
+     * @return 
+     */
     public static boolean askname() {
         String inserted_name = "";
         boolean checker = false;
@@ -98,17 +113,23 @@ public class DAO_Admin {
         inserted_name = Create_Admin.nameField.getText();
         checker = validate.validate_name(inserted_name);
         if (inserted_name.isEmpty()) {
-            Create_Admin.errorName.setText("<html><font color=red>No ha introducido ningun Nombre</font></html>");
+            Create_Admin.errorName.setForeground(java.awt.Color.red);
+            Create_Admin.errorName.setText(Language.getInstance().getProperty("errorname1"));
             checker = false;
         } else if (checker == false) {
-            Create_Admin.errorName.setText("<html><font color=red>El nombre introducido no es valido</font></html>");
+            Create_Admin.errorName.setForeground(java.awt.Color.red);
+            Create_Admin.errorName.setText(Language.getInstance().getProperty("errorname2"));
         } else {
-            Create_Admin.errorName.setText("<html><font color=green>El nombre es Valido</font></html>");
+            Create_Admin.errorName.setForeground(java.awt.Color.green);
+            Create_Admin.errorName.setText(Language.getInstance().getProperty("nameok"));
         }
         return checker;
     }
 
-    // pide apellidos
+    /**
+     * funcion par avalidar el apellido
+     * @return 
+     */
     public static boolean asksurname() {
         String inserted_surname = "";
         boolean checker = false;
@@ -116,17 +137,23 @@ public class DAO_Admin {
         inserted_surname = Create_Admin.surnameField.getText();
         checker = validate.validate_surname(inserted_surname);
         if (inserted_surname.isEmpty()) {
-            Create_Admin.errorSurname.setText("<html><font color=red>No ha introducido ningun Nombre</font></html>");
+            Create_Admin.errorSurname.setForeground(java.awt.Color.red);
+            Create_Admin.errorSurname.setText(Language.getInstance().getProperty("errorsurname1"));
             checker = false;
         } else if (checker == false) {
-            Create_Admin.errorSurname.setText("<html><font color=red>El apellido introducido no es valido</font></html>");
+            Create_Admin.errorSurname.setForeground(java.awt.Color.red);
+            Create_Admin.errorSurname.setText(Language.getInstance().getProperty("errorsurname2"));
         } else {
-            Create_Admin.errorSurname.setText("<html><font color=green>El apellido es Valido</font></html>");
+            Create_Admin.errorSurname.setForeground(java.awt.Color.green);
+            Create_Admin.errorSurname.setText(Language.getInstance().getProperty("surnameok"));
         }
         return checker;
     }
 
-    // pide mobil
+  /**
+   * funcion para validar el movil
+   * @return 
+   */
     public static boolean askmobile() {
         String inserted_mobile = "";
         boolean checker = false;
@@ -134,17 +161,23 @@ public class DAO_Admin {
         inserted_mobile = Create_Admin.mobileField.getText();
         checker = validate.validate_mobile(inserted_mobile);
         if (inserted_mobile.isEmpty()) {
-            Create_Admin.errorMobile.setText("<html><font color=red>No ha introducido ningun numero de telefono</font></html>");
+            Create_Admin.errorMobile.setForeground(java.awt.Color.red);
+            Create_Admin.errorMobile.setText(Language.getInstance().getProperty("errormobile1"));
             checker = false;
         } else if (checker == false) {
-            Create_Admin.errorMobile.setText("<html><font color=red>El telefono introducido no es valido</font></html>");
+            Create_Admin.errorMobile.setForeground(java.awt.Color.red);
+            Create_Admin.errorMobile.setText(Language.getInstance().getProperty("errormobile2"));
         } else {
-            Create_Admin.errorMobile.setText("<html><font color=green>El telefono es Valido</font></html>");
+            Create_Admin.errorMobile.setForeground(java.awt.Color.green);
+            Create_Admin.errorMobile.setText(Language.getInstance().getProperty("mobileok"));
         }
         return checker;
     }
 
-    // pide email
+    /**
+     * funcion para validar el email
+     * @return 
+     */
     public static boolean askemail() {
         String inserted_email = "";
         boolean checker = false;
@@ -152,17 +185,23 @@ public class DAO_Admin {
         inserted_email = Create_Admin.emailField.getText();
         checker = validate.validate_email(inserted_email);
         if (inserted_email.isEmpty()) {
-            Create_Admin.errorEmail.setText("<html><font color=red>No ha introducido ningun email</font></html>");
+            Create_Admin.errorEmail.setForeground(java.awt.Color.red);
+            Create_Admin.errorEmail.setText(Language.getInstance().getProperty("erroremail1"));
             checker = false;
         } else if (checker == false) {
-            Create_Admin.errorEmail.setText("<html><font color=red>El Email introducido no es valido</font></html>");
+            Create_Admin.errorEmail.setForeground(java.awt.Color.red);
+            Create_Admin.errorEmail.setText(Language.getInstance().getProperty("erroremail2"));
         } else {
-            Create_Admin.errorEmail.setText("<html><font color=green>El Email es Valido</font></html>");
+            Create_Admin.errorEmail.setForeground(java.awt.Color.green);
+            Create_Admin.errorEmail.setText(Language.getInstance().getProperty("emailok"));
         }
         return checker;
     }
 
-    // pide user
+    /**
+     * funcion para validar el nombre de usuario
+     * @return 
+     */
     public static boolean askuser() {
         String inserted_user = "";
         boolean checker = false;
@@ -170,17 +209,23 @@ public class DAO_Admin {
         inserted_user = Create_Admin.userField.getText();
         checker = validate.validate_user(inserted_user);
         if (inserted_user.isEmpty()) {
-            Create_Admin.errorUser.setText("<html><font color=red>No ha introducido ningun usuario</font></html>");
+            Create_Admin.errorUser.setForeground(java.awt.Color.red);
+            Create_Admin.errorUser.setText(Language.getInstance().getProperty("erroruser1")); 
             checker = false;
         } else if (checker == false) {
-            Create_Admin.errorUser.setText("<html><font color=red>El usuario introducido no es valido</font></html>");
+            Create_Admin.errorUser.setForeground(java.awt.Color.red);
+            Create_Admin.errorUser.setText(Language.getInstance().getProperty("erroruser2")); 
         } else {
-            Create_Admin.errorUser.setText("<html><font color=green>El usuario es Valido</font></html>");
+            Create_Admin.errorUser.setForeground(java.awt.Color.green);
+            Create_Admin.errorUser.setText(Language.getInstance().getProperty("userok")); 
         }
         return checker;
     }
 
-    // pide password
+    /**
+     * funcion para validar la contraseña
+     * @return 
+     */
     public static boolean askpassword() {
         String inserted_password = "";
         boolean checker = false;
@@ -188,17 +233,23 @@ public class DAO_Admin {
         inserted_password = Create_Admin.passField.getText();
         checker = validate.validate_password(inserted_password);
         if (inserted_password.isEmpty()) {
-            Create_Admin.errorPass.setText("<html><font color=red>No has introducido ninguna contraseña</font></html>");
+            Create_Admin.errorPass.setForeground(java.awt.Color.red);
+            Create_Admin.errorPass.setText(Language.getInstance().getProperty("errorpass1")); 
             checker = false;
         } else if (checker == false) {
-            Create_Admin.errorPass.setText("<html><font color=red>La contraseña introducida no es valida</font></html>");
+            Create_Admin.errorPass.setForeground(java.awt.Color.red);
+            Create_Admin.errorPass.setText(Language.getInstance().getProperty("errorpass2")); 
         } else {
-            Create_Admin.errorPass.setText("<html><font color=green>La contraseña es Valida</font></html>");
+            Create_Admin.errorPass.setForeground(java.awt.Color.green);
+            Create_Admin.errorPass.setText(Language.getInstance().getProperty("passok")); 
         }
         return checker;
     }
 
-    //pide date birthday
+    /**
+     * funcion para validar la fecha de nacimiento
+     * @return 
+     */
     public static boolean askdate() {
         String inserted_date_birthday = "";
         int age = 0;
@@ -212,14 +263,20 @@ public class DAO_Admin {
 
         age = date.substractdatesystem();
         if (age >= 18) {
-            Create_Admin.errorBirthday.setText("<html><font color=green>La fecha de nacimiento introducida es correcta</font></html>");
+            Create_Admin.errorBirthday.setForeground(java.awt.Color.green);
+            Create_Admin.errorBirthday.setText(Language.getInstance().getProperty("dateok"));   
 
         } else {
-            Create_Admin.errorBirthday.setText("<html><font color=red>La contraseña introducida no es valida</font></html>");
+            Create_Admin.errorBirthday.setForeground(java.awt.Color.red);
+            Create_Admin.errorBirthday.setText(Language.getInstance().getProperty("errordate1")); 
         }
         return checker;
     }
 
+    /**
+     * funcion para validar la fecha de contratacion
+     * @return 
+     */
     public static boolean askhiring_date() {
         boolean checker = false;
         date date = null;
@@ -235,26 +292,29 @@ public class DAO_Admin {
         difage = date.comparedate(date2);
         difage2 = date.comparedatesystem();
         if ((difage == 0) || (difage == 1)) {
-            Create_Admin.errorHiringDate.setText("<html><font color=red>La fecha de contratacion introducida es incorrecta,<br>"
-                    + "la fecha de contratacion debe ser posterior a la fecha de nacimiento</br></font></html>");
+            Create_Admin.errorHiringDate.setForeground(java.awt.Color.red);
+            Create_Admin.errorHiringDate.setText(Language.getInstance().getProperty("errorhiring1")); 
             checker = false;
         } else if (difage2 == 1) {
-            Create_Admin.errorHiringDate.setText("<html><font color=red>La fecha de contratacion introducida es incorrecta,<br> "
-                    + "la fecha de contratacion debe ser anterior a la fecha actual</br></font></html>");
+             Create_Admin.errorHiringDate.setForeground(java.awt.Color.red);
+            Create_Admin.errorHiringDate.setText(Language.getInstance().getProperty("errorhiring2")); 
             checker = false;
         } else if ((date2.substractdate(date) >= 16) && (date2.substractdate(date) <= 65)) {
-            Create_Admin.errorHiringDate.setText("<html><font color=green>La fecha de contratacion introducida es "
-                    + "correcta</font></html>");
+            Create_Admin.errorHiringDate.setForeground(java.awt.Color.green);
+            Create_Admin.errorHiringDate.setText(Language.getInstance().getProperty("hiringok")); 
             checker = true;
         } else {
-            Create_Admin.errorHiringDate.setText("<html><font color=red>La fecha de contratacion introducida "
-                    + "es incorrecta,<br> "
-                    + "debes tener al menos 16 años de edad y menos de 65</br></font></html>");
+             Create_Admin.errorHiringDate.setForeground(java.awt.Color.red);
+            Create_Admin.errorHiringDate.setText(Language.getInstance().getProperty("errorhiring3")); 
             checker = false;
         } // fi 3 else // fi 2 else // fi 1 else  
         return checker;
     }
 
+    /**
+     * funcion para validar la actividad
+     * @return 
+     */
     public static boolean askactivity() {
         String inserted_activity = "";
         boolean checker = false;
@@ -262,18 +322,24 @@ public class DAO_Admin {
 
         checker = validate.validate_activity(inserted_activity);
         if (inserted_activity.isEmpty()) {
-            Create_Admin.errorActivity.setText("<html><font color=red>No ha introducido ninguna actividad</font></html>");
+             Create_Admin.errorActivity.setForeground(java.awt.Color.red);
+            Create_Admin.errorActivity.setText(Language.getInstance().getProperty("erroractivity1")); 
             checker = false;
         } else if (checker == false) {
-            Create_Admin.errorActivity.setText("<html><font color=red>La Actividad introducida no es valida</font></html>");
+              Create_Admin.errorActivity.setForeground(java.awt.Color.red);
+            Create_Admin.errorActivity.setText(Language.getInstance().getProperty("erroractivity2"));
         } else {
-            Create_Admin.errorActivity.setText("<html><font color=green>La Actividad introducida es valida</font></html>");
+              Create_Admin.errorActivity.setForeground(java.awt.Color.green);
+            Create_Admin.errorActivity.setText(Language.getInstance().getProperty("activityok"));
             checker = true;
         }
         return checker;
     }
 
-    // pide nombre
+   /**
+    * valida el nombre en la ventana de modificar
+    * @return 
+    */
     public static boolean changeName() {
         String inserted_name = "";
         boolean checker = false;
@@ -281,15 +347,20 @@ public class DAO_Admin {
         inserted_name = ChangeAdmin.nameField.getText();
         checker = validate.validate_name(inserted_name);
         if (checker == false) {
-            ChangeAdmin.errorName.setText("<html><font color=red>El nombre introducido no es valido</font></html>");
+             ChangeAdmin.errorName.setForeground(java.awt.Color.red);
+            ChangeAdmin.errorName.setText(Language.getInstance().getProperty("errorname2"));
         } else {
-            ChangeAdmin.errorName.setText("<html><font color=green>El nombre es Valido</font></html>");
+            ChangeAdmin.errorName.setForeground(java.awt.Color.green);
+            ChangeAdmin.errorName.setText(Language.getInstance().getProperty("nameok"));
             checker = true;
         }
         return checker;
     }
 
-    // pide apellidos
+    /**
+     * funcion para validar un apellido de la ventana de modificar
+     * @return 
+     */
     public static boolean changeSurname() {
         String inserted_surname = "";
         boolean checker = false;
@@ -297,15 +368,20 @@ public class DAO_Admin {
         inserted_surname = ChangeAdmin.surnameField.getText();
         checker = validate.validate_surname(inserted_surname);
         if (checker == false) {
-            ChangeAdmin.errorSurname.setText("<html><font color=red>El apellido introducido no es valido</font></html>");
+            ChangeAdmin.errorSurname.setForeground(java.awt.Color.red);
+            ChangeAdmin.errorSurname.setText(Language.getInstance().getProperty("errorsurname2"));
         } else {
-            ChangeAdmin.errorSurname.setText("<html><font color=green>El apellido es Valido</font></html>");
+            ChangeAdmin.errorSurname.setForeground(java.awt.Color.green);
+            ChangeAdmin.errorSurname.setText(Language.getInstance().getProperty("surnameok"));
             checker = true;
         }
         return checker;
     }
 
-    // pide mobil
+    /**
+     * funcion para validar el movil de la ventana de modificar
+     * @return 
+     */
     public static boolean changeMobile() {
         String inserted_mobile = "";
         boolean checker = false;
@@ -313,15 +389,20 @@ public class DAO_Admin {
         inserted_mobile = ChangeAdmin.mobileField.getText();
         checker = validate.validate_mobile(inserted_mobile);
         if (checker == false) {
-            ChangeAdmin.errorMobile.setText("<html><font color=red>El telefono introducido no es valido</font></html>");
+            ChangeAdmin.errorMobile.setForeground(java.awt.Color.red);
+            ChangeAdmin.errorMobile.setText(Language.getInstance().getProperty("errormobile2"));
         } else {
-            ChangeAdmin.errorMobile.setText("<html><font color=green>El telefono es Valido</font></html>");
+            ChangeAdmin.errorMobile.setForeground(java.awt.Color.green);
+            ChangeAdmin.errorMobile.setText(Language.getInstance().getProperty("mobileok"));
             checker = true;
         }
         return checker;
     }
 
-    // pide email
+    /**
+     * funcion para validar el email en la ventana de modificar
+     * @return 
+     */
     public static boolean changeEmail() {
         String inserted_email = "";
         boolean checker = false;
@@ -329,15 +410,20 @@ public class DAO_Admin {
         inserted_email = ChangeAdmin.emailField.getText();
         checker = validate.validate_email(inserted_email);
         if (checker == false) {
-            ChangeAdmin.errorEmail.setText("<html><font color=red>El Email introducido no es valido</font></html>");
+            ChangeAdmin.errorEmail.setForeground(java.awt.Color.red);
+            ChangeAdmin.errorEmail.setText(Language.getInstance().getProperty("erroremail2"));
         } else {
-            ChangeAdmin.errorEmail.setText("<html><font color=green>El Email es Valido</font></html>");
+            ChangeAdmin.errorEmail.setForeground(java.awt.Color.green);
+            ChangeAdmin.errorEmail.setText(Language.getInstance().getProperty("emailok"));
             checker = true;
         }
         return checker;
     }
 
-    // pide user
+    /**
+     * funcion para validar el usuario en la ventana de modificar
+     * @return 
+     */
     public static boolean changeUser() {
         String inserted_user = "";
         boolean checker = false;
@@ -345,15 +431,20 @@ public class DAO_Admin {
         inserted_user = ChangeAdmin.userField.getText();
         checker = validate.validate_user(inserted_user);
         if (checker == false) {
-            ChangeAdmin.errorUser.setText("<html><font color=red>El usuario introducido no es valido</font></html>");
+            ChangeAdmin.errorUser.setForeground(java.awt.Color.red);
+            ChangeAdmin.errorUser.setText(Language.getInstance().getProperty("erroruser2"));
         } else {
-            ChangeAdmin.errorUser.setText("<html><font color=green>El usuario es Valido</font></html>");
+            ChangeAdmin.errorUser.setForeground(java.awt.Color.green);
+            ChangeAdmin.errorUser.setText(Language.getInstance().getProperty("userok"));
             checker = true;
         }
         return checker;
     }
 
-    // pide password
+    /**
+     * funcion para validar la contraseña en la ventana de modificar
+     * @return 
+     */
     public static boolean changePassword() {
         String inserted_password = "";
         boolean checker = false;
@@ -361,15 +452,20 @@ public class DAO_Admin {
         inserted_password = ChangeAdmin.passField.getText();
         checker = validate.validate_password(inserted_password);
         if (checker == false) {
-            ChangeAdmin.errorPass.setText("<html><font color=red>La contraseña introducida no es valida</font></html>");
+            ChangeAdmin.errorPass.setForeground(java.awt.Color.red);
+            ChangeAdmin.errorPass.setText(Language.getInstance().getProperty("errorpass2"));
         } else {
-            ChangeAdmin.errorPass.setText("<html><font color=green>La contraseña es Valida</font></html>");
+            ChangeAdmin.errorPass.setForeground(java.awt.Color.green);
+            ChangeAdmin.errorPass.setText(Language.getInstance().getProperty("passok"));
             checker = true;
         }
         return checker;
     }
 
-    //pide date birthday
+   /**
+    * funcion para validar la fecha de nacimiento en la ventana de modificar
+    * @return 
+    */
     public static boolean changeDate() {
         String inserted_date_birthday = "";
         int age = 0;
@@ -382,15 +478,21 @@ public class DAO_Admin {
 
         age = date.substractdatesystem();
         if (age >= 18) {
-            ChangeAdmin.errorBirthday.setText("<html><font color=green>La fecha de nacimiento introducida es correcta</font></html>");
+            ChangeAdmin.errorBirthday.setForeground(java.awt.Color.green);
+            ChangeAdmin.errorBirthday.setText(Language.getInstance().getProperty("dateok"));
 
         } else {
-            ChangeAdmin.errorBirthday.setText("<html><font color=red>La contraseña introducida no es valida</font></html>");
+            ChangeAdmin.errorBirthday.setForeground(java.awt.Color.red);
+            ChangeAdmin.errorBirthday.setText(Language.getInstance().getProperty("errordate1"));
 
         }
         return checker;
     }
 
+    /**
+     * funcion para validar la fecha de contratacion en la ventana de modificar
+     * @return 
+     */
     public static boolean changeHiring_date() {
         boolean checker = false;
         date hiringDate = null;
@@ -408,26 +510,29 @@ public class DAO_Admin {
         difage = hiringDate.comparedate(birthday);
         difage2 = hiringDate.comparedatesystem();
         if ((difage == 0) || (difage == 1)) {
-            ChangeAdmin.errorHiringDate.setText("<html><font color=red>La fecha de contratacion introducida es incorrecta,<br> "
-                    + "la fecha de contratacion debe ser posterior a la fecha de nacimiento<br></font></html>");
+            ChangeAdmin.errorHiringDate.setForeground(java.awt.Color.red);
+            ChangeAdmin.errorHiringDate.setText(Language.getInstance().getProperty("errorhiring1"));
             checker = false;
         } else if (difage2 == 1) {
-            ChangeAdmin.errorHiringDate.setText("<html><font color=red>La fecha de contratacion introducida es incorrecta,<br> "
-                    + "la fecha de contratacion debe ser anterior a la fecha actual</br></font></html>");
+            ChangeAdmin.errorHiringDate.setForeground(java.awt.Color.red);
+            ChangeAdmin.errorHiringDate.setText(Language.getInstance().getProperty("errorhiring2"));
             checker = false;
         } else if ((birthday.substractdate(hiringDate) >= 16) && (birthday.substractdate(hiringDate) <= 65)) {
-            ChangeAdmin.errorHiringDate.setText("<html><font color=green>La fecha de contratacion introducida es "
-                    + "correcta</font></html>");
+            ChangeAdmin.errorHiringDate.setForeground(java.awt.Color.green);
+            ChangeAdmin.errorHiringDate.setText(Language.getInstance().getProperty("hiringok"));
             checker = true;
         } else {
-            ChangeAdmin.errorHiringDate.setText("<html><font color=red>La fecha de contratacion introducida "
-                    + "es incorrecta,<br> "
-                    + "debes tener al menos 16 años de edad y menos de 65</br></font></html>");
+            ChangeAdmin.errorHiringDate.setForeground(java.awt.Color.red);
+            ChangeAdmin.errorHiringDate.setText(Language.getInstance().getProperty("errorhiring3"));
             checker = false;
         }
         return checker;
     }
 
+    /**
+     * funcion para validar la actividad en la ventana de modificar
+     * @return 
+     */
     public static boolean changeActivity() {
         String inserted_activity = "";
         boolean checker = false;
@@ -435,9 +540,11 @@ public class DAO_Admin {
 
         checker = validate.validate_activity(inserted_activity);
         if (checker == false) {
-            ChangeAdmin.errorActivity.setText("<html><font color=red>La Actividad introducida no es valida</font></html>");
+            ChangeAdmin.errorActivity.setForeground(java.awt.Color.red);
+            ChangeAdmin.errorActivity.setText(Language.getInstance().getProperty("erroractivity2"));
         } else {
-            ChangeAdmin.errorActivity.setText("<html><font color=green>La Actividad introducida es valida</font></html>");
+            ChangeAdmin.errorActivity.setForeground(java.awt.Color.green);
+            ChangeAdmin.errorActivity.setText(Language.getInstance().getProperty("activityok"));
             checker = true;
         }
         return checker;

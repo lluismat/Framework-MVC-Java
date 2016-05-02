@@ -22,8 +22,9 @@ import modules.users.users.singleton;
  */
 public class BLL_SignIn {
 
-    
-    //buscar admin por dni en la ventana de Sign In
+    /**
+     * funcion buscar admin por dni en bases de datos
+     */
     public static void searchAdminDB() {
 
         Connection con = null;
@@ -41,14 +42,21 @@ public class BLL_SignIn {
 
     }
 
-    
-    //buscar cliente por dni en la ventana de Sign In
-    public static void searchClientMongo(){
-        singletonMongo.client=Mongo_DB.connect();
+    /**
+     * buscar cliente por dni en la ventana de Sign In
+     *
+     */
+    public static void searchClientMongo() {
+        singletonMongo.client = Mongo_DB.connect();
         DAO_SignIn.searchClientDAO();
         Mongo_DB.disconnect();
     }
 
+    /**
+     * 
+     * @param userreg
+     * @return 
+     */
     public static int searchUserreg(registered_user userreg) {
 
         for (int i = 0; i <= (singleton.userreg.size() - 1); i++) {
@@ -59,7 +67,11 @@ public class BLL_SignIn {
         return -1;
     }
 
-    //buscar usuario registrado por dni en la ventana de Sign In
+    /**
+     * buscar usuario registrado por dni en la ventana de Sign In
+     *
+     * @return 
+     */
     public static int searchUserregDNI() {
         int location;
         singleton.DNI = Sign_In.dniField.getText();
@@ -68,11 +80,15 @@ public class BLL_SignIn {
         return location;
     }
 
+    /**
+     *funcion para buscar el usuario y saber si es admin, cliente o usuario registrado
+     * @return
+     */
     public static boolean searchUser() {
         boolean check = false;
-        boolean checkAdmin=false;
-        boolean checkClient=false;
-        boolean checkUserreg=false;
+        boolean checkAdmin = false;
+        boolean checkClient = false;
+        boolean checkUserreg = false;
         searchAdminDB();
         searchClientMongo();
         int locationUserreg = searchUserregDNI();
@@ -86,38 +102,42 @@ public class BLL_SignIn {
             } else {
                 checkAdmin = false;
             }
-            if(singleton.client!=null){
+            if (singleton.client != null) {
                 if (Sign_In.passField.getText().equals(singleton.client.getPass())) {
                     checkClient = true;
                     singleton.user = "Client";
                 }
-            }else {
+            } else {
                 checkClient = false;
             }
             if (locationUserreg != -1) {
-                singleton.registered_user = singleton.userreg.get(locationUserreg); 
+                singleton.registered_user = singleton.userreg.get(locationUserreg);
                 if (Sign_In.passField.getText().equals(singleton.registered_user.getPass())) {
                     checkUserreg = true;
-                    singleton.user="Userreg";
+                    singleton.user = "Userreg";
                 } else {
                     checkUserreg = false;
                 }
             }
-            
+
         } else {
             Sign_In.errorSignIn.setText("<html><font color=red>El DNI o la Contraseña introducida no son validas</font></html>");
         }
-        if (checkAdmin == true || checkClient==true || checkUserreg==true) {
+        if (checkAdmin == true || checkClient == true || checkUserreg == true) {
             Sign_In.errorSignIn.setText("<html><font color=green>DNI y Contraseña correcta, entrando...</font></html>");
-            check=true;
+            check = true;
         } else {
             Sign_In.errorSignIn.setText("<html><font color=red>El DNI o la Contraseña introducida no son validas</font></html>");
-            check=false;
+            check = false;
         }
 
         return check;
     }
-    
+
+    /**
+     * funcion para validar el DNI
+     * @return 
+     */
     public static boolean askDni() {
         boolean checker;
         checker = DAO_SignIn.askdni();

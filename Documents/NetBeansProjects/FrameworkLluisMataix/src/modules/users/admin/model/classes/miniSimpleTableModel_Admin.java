@@ -25,19 +25,30 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel {
         return columnas[col].toString();
     }
 
-    //Devuelve el numero de filas
+    /**
+     * Devuelve el numero de filas
+     * @return 
+     */
     @Override
     public int getRowCount() {
         return dates.size();
     }
 
-    //Devuelve el numero de columnas
+    /**
+     * Devuelve el numero de columnas
+     * @return 
+     */
     @Override
     public int getColumnCount() {
         return columnas.length;
     }
 
-    //Devuelve el valor del objeto en la fila y columna
+    /**
+     * Devuelve el valor del objeto en la fila y la columna
+     * @param row
+     * @param col
+     * @return 
+     */
     @Override
     public Object getValueAt(int row, int col) {
 
@@ -70,13 +81,23 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel {
         return dev;
     }
 
-    //Determina si una fila y columna ha de ser editable
+    /**
+     * determina si una fila y columna debe ser editable
+     * @param row
+     * @param col
+     * @return 
+     */
     @Override
     public boolean isCellEditable(int row, int col) {
         return false;
     }
 
-    //Actualiza un objeto de una fila y columna
+    /**
+     * Actualiza un objeto de una fila y una columna
+     * @param value
+     * @param row
+     * @param col 
+     */
     @Override
     public void setValueAt(Object value, int row, int col) {
         admin fila = (admin) dates.get(row);
@@ -106,11 +127,19 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel {
         fireTableCellUpdated(row, col);
     }
 
+    /**
+     * añade una fila
+     * @param usu 
+     */
     public void addRow(admin usu) {
         dates.add(usu);
         fireTableDataChanged();
     }
 
+    /**
+     * elimina una fila
+     * @param fila 
+     */
     public void removeRow(int fila) {
         dates.remove(fila);
         fireTableDataChanged();
@@ -119,6 +148,9 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel {
         
     }
 
+    /**
+     * carga los administradores a la tabla
+     */
     public void load() {
         dates.clear();
         auxdates.clear();
@@ -138,6 +170,9 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel {
         }
     }
 
+    /**
+     * filtra segun el nombre
+     */
     public void filtrar() {
         dates.clear();
         int cont = 0;
@@ -157,6 +192,11 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel {
         }
     }
 
+    /**
+     * 
+     * @param u
+     * @return 
+     */
     public admin buscar(String u) {
         dates.clear();
         load();
@@ -171,6 +211,11 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel {
         return null;
     }
 
+    /**
+     * 
+     * @param u
+     * @return 
+     */
     public int buscaUsuario(admin u) {
         dates.clear();
         load();

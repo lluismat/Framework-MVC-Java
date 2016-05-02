@@ -21,7 +21,22 @@ public class admin extends users implements Serializable {
 	@XStreamAlias("Hiring_date")
 	private date hiring_date;
 
-	// constructor
+	
+        /**
+         * constructor 
+         * @param dni
+         * @param name
+         * @param surname
+         * @param mobile
+         * @param email
+         * @param user
+         * @param pass
+         * @param avatar
+         * @param state
+         * @param date_birthday
+         * @param activity
+         * @param hiring_date 
+         */
 	public admin(String dni, String name, String surname, String mobile, String email, String user, String pass,
 			String avatar, String state, date date_birthday, int activity, date hiring_date) {
 
@@ -34,13 +49,31 @@ public class admin extends users implements Serializable {
 		this.setAntiquity(calculateantiquity());
 	}
 
-	// Constructor per defecte
+	/**
+         * constructor por defecto
+         * @param dni
+         * @param name
+         * @param surname
+         * @param mobile
+         * @param email
+         * @param user
+         * @param pass
+         * @param avatar
+         * @param state
+         * @param date_birthday
+         * @param antiquity
+         * @param activity
+         * @param hiring_date 
+         */
 	public admin(String dni, String name, String surname, String mobile, String email, String user, String pass,
 			String avatar, boolean state, date date_birthday, String antiquity, String activity, date hiring_date) {
 		super();
 	}
 
-	// Constructor clau primaria
+	/**
+         * constructor de llave primaria
+         * @param dni 
+         */
 	public admin(String dni) {
 		super(dni);
 	}
@@ -49,7 +82,11 @@ public class admin extends users implements Serializable {
             
         }
 
-	// Constructor a peticio del usuari
+	/**
+         * constructor a peticion de usuario
+         * @param election
+         * @param i 
+         */
 	public admin(Object election, int i) {
 
 		super(election, i);
@@ -70,8 +107,10 @@ public class admin extends users implements Serializable {
 		}
 	}
 
-	// getters and setters
-
+	/**
+         * getters y setters
+         * @return 
+         */
 	public int getAntiquity() {
 		return antiquity;
 	}
@@ -109,26 +148,38 @@ public class admin extends users implements Serializable {
 		this.setAntiquity(calculateantiquity());
 	}
 
-	// calculate_salary
+	/**
+         * funcion calcula el salario
+         * @return 
+         */
 	public float calculate_salary() {
 		float calculate = 1000 + this.calculate_benefits();
 		return calculate;
 	}
 
-	// calculate_benefits incentive
+	/**
+         * funcion para calcular los incentivos
+         * @return 
+         */
 	public float calculate_benefits() {
 		float calculate = 0.0f;
 		calculate = this.getActivity() * this.getAntiquity() + 100;
 		return calculate;
 	}
 
-	// calculate antiquity
+	/**
+         * funcion para calcular la antiguedad
+         * @return 
+         */
 	public int calculateantiquity() {
 		int calculateantiquity = this.getHiring_date().substractdatesystem();
 		return calculateantiquity;
 	}
 
-	// toString
+	/**
+         * toString admin
+         * @return 
+         */
 	public String toString() {
 		String cad = "";
 

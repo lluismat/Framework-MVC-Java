@@ -11,8 +11,6 @@ import java.io.FileOutputStream;
 import java.nio.channels.FileChannel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import modules.users.admin.view.ChangeAdmin;
-import modules.users.admin.view.Create_Admin;
 import modules.users.client.view.ChangeClient;
 import modules.users.client.view.CreateClient;
 
@@ -22,6 +20,9 @@ import modules.users.client.view.CreateClient;
  */
 public class avatar_client {
     
+    /**
+     * selecciona un avatar en la ventana de crear cliente
+     */
     public static void createAvatar() {
 
         JFileChooser fileChooser = new JFileChooser();
@@ -53,6 +54,9 @@ public class avatar_client {
         }
     }
     
+    /**
+     * selecciona un avatar en la ventana de modificar cliente
+     */
     public static void OpenAvatar() {
 
         JFileChooser fileChooser = new JFileChooser();

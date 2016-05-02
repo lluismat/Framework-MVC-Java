@@ -33,9 +33,12 @@ import utils.Themes;
  * @author lluis
  */
 public class controller_Sign_In implements ActionListener, KeyListener, MouseListener {
-    
+
     public static Sign_In signIn;
-    
+    /**
+     * Constructor del controlador del Sign In
+     * @param start 
+     */
     public controller_Sign_In(JFrame start) {
         
         signIn = (Sign_In) start;
@@ -76,6 +79,9 @@ public class controller_Sign_In implements ActionListener, KeyListener, MouseLis
         this.signIn.dniField.addKeyListener(this);
     }
     
+    /**
+     * funcion timer cuando el usuario entra correctamente
+     */
     private void timer() {
         
         Timer timer = new Timer(2000, new ActionListener() {

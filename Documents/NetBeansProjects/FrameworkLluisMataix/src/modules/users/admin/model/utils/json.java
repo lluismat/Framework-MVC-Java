@@ -24,6 +24,9 @@ import modules.users.users.singleton;
 
 public class json {
 
+    /**
+     * funcion para guardar un archivo JSON
+     */
     public static void SaveAdmin() {
         String PATH = null;
         try {
@@ -54,6 +57,9 @@ public class json {
         }
     }
 
+    /**
+     * funcion para abrir un archivo JSON
+     */
     public static void OpenAdmin() {
         String PATH = null;
         admin admin = new admin("");
@@ -92,6 +98,9 @@ public class json {
         }
     }
 
+    /**
+     * funcion para guardar automaticamente en JSON
+     */
     public static void SaveAutoAdmin() {
         String PATH = null;
         try {
@@ -115,6 +124,9 @@ public class json {
 
     }
 
+    /**
+     * guarda automaticamente en JSON
+     */
     public static void OpenAutoAdmin() {
         String PATH = null;
         admin admin = new admin("");

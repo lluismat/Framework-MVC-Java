@@ -289,7 +289,7 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
                 createAdmin.HiringDateField.setDateFormatString(Config.getInstance().getFormatDate());
                 Themes.themes();
 
-                this.createAdmin.btnAceptar.setText(Language.getInstance().getProperty("modify"));
+                this.createAdmin.btnAceptar.setText(Language.getInstance().getProperty("create"));
                 this.createAdmin.btnCancelar.setText(Language.getInstance().getProperty("cancel"));
                 this.createAdmin.dniField.setText(Language.getInstance().getProperty("dnim"));
                 this.createAdmin.nameField.setText(Language.getInstance().getProperty("namem"));
@@ -416,7 +416,7 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
                 this.changeAdmin.HiringDateField.setDateFormatString(Config.getInstance().getFormatDate());
                 Themes.themes();
 
-                this.changeAdmin.btnAceptar.setText(Language.getInstance().getProperty("create"));
+                this.changeAdmin.btnAceptar.setText(Language.getInstance().getProperty("modify"));
                 this.changeAdmin.btnCancelar.setText(Language.getInstance().getProperty("cancel"));
                 this.changeAdmin.dniField.setText(Language.getInstance().getProperty("dnim"));
                 this.changeAdmin.nameField.setText(Language.getInstance().getProperty("namem"));

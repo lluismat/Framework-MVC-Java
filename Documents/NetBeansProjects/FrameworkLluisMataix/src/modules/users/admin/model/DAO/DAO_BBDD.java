@@ -49,7 +49,6 @@ public class DAO_BBDD {
             stmt.setString(16, singleton.admin.getHiring_date().toString("dd/MM/yyyy"));
 
             correct = stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null, "El administrador ha sido dado de alta correctamente");
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un problema al insertar un nuevo administrador");

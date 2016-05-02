@@ -13,6 +13,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import modules.menu.model.Config;
 import modules.menu.model.files_Config;
 import modules.menu.view.Config_jFrame;
@@ -66,16 +67,14 @@ public class controller_menu implements ActionListener, MouseListener {
 
     public void start(int i) {
         if (i == 0) {
-            
+
             menu.setSize(660, 450);//ancho x alto
             menu.setResizable(false);
             menu.setTitle(Language.getInstance().getProperty("mainmenu"));
             menu.setVisible(true);
-            
-            Themes.themes();
-            
 
-            
+            Themes.themes();
+
             this.menu.etiAdmin.setText(Language.getInstance().getProperty("admin"));
             this.menu.etiClient.setText(Language.getInstance().getProperty("client"));
             this.menu.etiUserreg.setText(Language.getInstance().getProperty("userreg"));
@@ -93,31 +92,32 @@ public class controller_menu implements ActionListener, MouseListener {
             this.menu.addWindowListener(new WindowAdapter() {
                 @Override
                 public void windowClosing(WindowEvent e) {
-                    BLL_Admin.Exit();
+                    JOptionPane.showMessageDialog(null, "Saliendo de la aplicación");
+                    System.exit(0);
                 }
             });
         } else if (i == 1) {
 
-            this.config.optConfig.setTitleAt(0,Language.getInstance().getProperty("dateformat"));
-            this.config.optConfig.setTitleAt(1,Language.getInstance().getProperty("decimals"));
-            this.config.optConfig.setTitleAt(2,Language.getInstance().getProperty("currency"));
-            this.config.optConfig.setTitleAt(3,Language.getInstance().getProperty("language"));
-            this.config.optConfig.setTitleAt(4,Language.getInstance().getProperty("files"));
-            this.config.optConfig.setTitleAt(5,Language.getInstance().getProperty("themes"));
+            ///CONFIG
+            this.config.optConfig.setTitleAt(0, Language.getInstance().getProperty("dateformat"));
+            this.config.optConfig.setTitleAt(1, Language.getInstance().getProperty("decimals"));
+            this.config.optConfig.setTitleAt(2, Language.getInstance().getProperty("currency"));
+            this.config.optConfig.setTitleAt(3, Language.getInstance().getProperty("language"));
+            this.config.optConfig.setTitleAt(4, Language.getInstance().getProperty("files"));
+            this.config.optConfig.setTitleAt(5, Language.getInstance().getProperty("themes"));
             this.config.optEn.setText(Language.getInstance().getProperty("english"));
             this.config.optEsp.setText(Language.getInstance().getProperty("spanish"));
             this.config.optVal.setText(Language.getInstance().getProperty("valencian"));
             this.config.btnSave.setText(Language.getInstance().getProperty("saveconfig"));
             this.config.btnDefault.setText(Language.getInstance().getProperty("defaultconfig"));
             this.config.btnVolver.setText(Language.getInstance().getProperty("return"));
-            
+
             config.setSize(660, 450);
             config.setResizable(false);
             config.setTitle(Language.getInstance().getProperty("config"));
             config.setVisible(true);
             Themes.themes();
 
-            
             //FORMATO FECHA
             switch (Config.getInstance().getFormatDate()) {
                 case "dd/MM/yyyy":
@@ -133,20 +133,20 @@ public class controller_menu implements ActionListener, MouseListener {
                     config.optDate4.setSelected(true);
                     break;
             }
-            
+
             //DECIMALES
             switch (Config.getInstance().getDecimals()) {
                 case 1:
                     config.optDecimals1.setSelected(true);
                     break;
-                case 2:                    
+                case 2:
                     config.optDecimals2.setSelected(true);
                     break;
                 case 3:
                     config.optDecimals3.setSelected(true);
                     break;
             }
-            
+
             //FORMATO MONEDA
             switch (Config.getInstance().getCurrency()) {
                 case "€":
@@ -159,7 +159,7 @@ public class controller_menu implements ActionListener, MouseListener {
                     config.optLibras.setSelected(true);
                     break;
             }
-            
+
             //TEMAS
             switch (Config.getInstance().getTheme()) {
                 case "Metal":
@@ -189,7 +189,6 @@ public class controller_menu implements ActionListener, MouseListener {
             }
 
             //ARCHIVOS
-            
             switch (Config.getInstance().getFiles()) {
                 case "JSON":
                     config.optJson.setSelected(true);
@@ -201,13 +200,18 @@ public class controller_menu implements ActionListener, MouseListener {
                     config.optTxt.setSelected(true);
                     break;
             }
-            
 
             this.config.addWindowListener(new WindowAdapter() {
                 @Override
                 public void windowClosing(WindowEvent e) {
 
-                    new controller_menu(new Menu(), 0).start(0);
+                    if (singleton.user == "Admin") {
+                        new controller_menu(new Menu(), 0).start(0);
+                    } else if (singleton.user == "Client") {
+                        new controller_Client(new ClientMenu(), 3).start(3);
+                    } else {
+                        new controller_Userreg(new UserregMenu(), 3).start(3);
+                    }
                 }
             });
             this.config.btnSave.setActionCommand("btnSave");
@@ -228,12 +232,12 @@ public class controller_menu implements ActionListener, MouseListener {
                 BLL_Admin.changeConfig();
                 files_Config.SaveConfig();
                 config.dispose();
-                if(singleton.user=="Admin"){
-                new controller_menu(new Menu(), 0).start(0);
-                }else if(singleton.user=="Client"){
-                    new controller_Client(new ClientMenu(),3).start(3);
-                }else{
-                    new controller_Userreg(new UserregMenu(),3).start(3);
+                if (singleton.user == "Admin") {
+                    new controller_menu(new Menu(), 0).start(0);
+                } else if (singleton.user == "Client") {
+                    new controller_Client(new ClientMenu(), 3).start(3);
+                } else {
+                    new controller_Userreg(new UserregMenu(), 3).start(3);
                 }
                 break;
             case btnDefault:
@@ -245,16 +249,16 @@ public class controller_menu implements ActionListener, MouseListener {
                 Config.getInstance().setTheme("Windows");
                 files_Config.SaveConfig();
                 config.dispose();
-                new controller_menu(new Menu(),0).start(0);
+                new controller_menu(new Menu(), 0).start(0);
                 break;
             case btnVolver:
                 config.dispose();
-                if(singleton.user=="Admin"){
-                new controller_menu(new Menu(), 0).start(0);
-                }else if(singleton.user=="Client"){
-                    new controller_Client(new ClientMenu(),3).start(3);
-                }else{
-                    new controller_Userreg(new UserregMenu(),3).start(3);
+                if (singleton.user == "Admin") {
+                    new controller_menu(new Menu(), 0).start(0);
+                } else if (singleton.user == "Client") {
+                    new controller_Client(new ClientMenu(), 3).start(3);
+                } else {
+                    new controller_Userreg(new UserregMenu(), 3).start(3);
                 }
                 break;
         }
@@ -281,7 +285,8 @@ public class controller_menu implements ActionListener, MouseListener {
                 new controller_menu(new Config_jFrame(), 1).start(1);
                 break;
             case etiExit:
-                BLL_Admin.Exit();
+                JOptionPane.showMessageDialog(null, "Saliendo de la aplicación");
+                System.exit(0);
                 break;
 
         }

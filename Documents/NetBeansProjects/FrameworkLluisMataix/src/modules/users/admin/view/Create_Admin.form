@@ -158,7 +158,7 @@
                                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="errorActivity" max="32767" attributes="0"/>
-                                              <Component id="activityField" pref="230" max="32767" attributes="0"/>
+                                              <Component id="activityField" pref="232" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
@@ -184,19 +184,19 @@
                                       <Component id="passField" min="-2" pref="215" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="errorBirthday" min="-2" pref="214" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jLabel8" alignment="1" min="-2" pref="168" max="-2" attributes="0"/>
-                                          <Component id="jLabel9" alignment="1" min="-2" pref="168" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabel8" alignment="1" min="-2" pref="168" max="-2" attributes="0"/>
+                                      <Component id="jLabel9" alignment="1" min="-2" pref="168" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="errorBirthday" min="-2" pref="214" max="-2" attributes="0"/>
                                       <Component id="birthdayField" min="-2" pref="212" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="516" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -268,8 +268,6 @@
                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                               <Component id="birthdayField" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="errorBirthday" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -300,11 +298,13 @@
                               <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="HiringDateField" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="errorHiringDate" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="11" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="errorBirthday" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="16" max="32767" attributes="0"/>
                   <Component id="confirm" min="-2" pref="42" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">

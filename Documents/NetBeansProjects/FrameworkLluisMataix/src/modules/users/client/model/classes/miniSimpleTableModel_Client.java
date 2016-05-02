@@ -24,19 +24,31 @@ public class miniSimpleTableModel_Client extends AbstractTableModel {
         return columnas[col].toString();
     }
 
-    //Devuelve el numero de filas
+    /**
+     * devuelve el numero de fial
+     * @return 
+     */
     @Override
     public int getRowCount() {
         return dates1.size();
     }
 
-    //Devuelve el numero de columnas
+    /**
+     * devuelve el numero de columnas
+     * @return 
+     */
     @Override
     public int getColumnCount() {
         return columnas.length;
     }
 
-    //Devuelve el valor del objeto en la fila y columna
+
+    /**
+     * Devuelve el valor del objeto en la fila y columna
+     * @param row
+     * @param col
+     * @return 
+     */
     @Override
     public Object getValueAt(int row, int col) {
 
@@ -68,13 +80,25 @@ public class miniSimpleTableModel_Client extends AbstractTableModel {
         return dev;
     }
 
-    //Determina si una fila y columna ha de ser editable
+    
+    /**
+     * Determina si una fila y columna ha de ser editable
+     * @param row
+     * @param col
+     * @return 
+     */
     @Override
     public boolean isCellEditable(int row, int col) {
         return false;
     }
 
-    //Actualiza un objeto de una fila y columna
+    
+    /**
+     * Actualiza un objeto de una fila y columna
+     * @param value
+     * @param row
+     * @param col 
+     */
     @Override
     public void setValueAt(Object value, int row, int col) {
         client fila = (client) dates1.get(row);
@@ -104,16 +128,27 @@ public class miniSimpleTableModel_Client extends AbstractTableModel {
         fireTableCellUpdated(row, col);
     }
 
+    /**
+     * añade un fila
+     * @param usu 
+     */
     public void addRow(client usu) {
         dates1.add(usu);
         fireTableDataChanged();
     }
 
+    /**
+     * elimina una fila
+     * @param fila 
+     */
     public void removeRow(int fila) {
         dates1.remove(fila);
         fireTableDataChanged();
     }
 
+    /**
+     * carga en el jTable los clientes de mongoDB
+     */
     public void load() {
         dates1.clear();
         auxdates1.clear();
@@ -133,6 +168,10 @@ public class miniSimpleTableModel_Client extends AbstractTableModel {
         
     }
     
+    /**
+     * filtra los clientes por nombre
+     * 
+     */
     public void filtrar() {
         dates1.clear();
         int cont=0;
@@ -152,6 +191,11 @@ public class miniSimpleTableModel_Client extends AbstractTableModel {
         }
     }
 
+    /**
+     * 
+     * @param u
+     * @return 
+     */
     public client buscar(String u) {
         dates1.clear();
         load();
@@ -166,6 +210,11 @@ public class miniSimpleTableModel_Client extends AbstractTableModel {
         return null;
     }
 
+    /**
+     * 
+     * @param u
+     * @return 
+     */
     public int buscaUsuario(client u) {
         dates1.clear();
         load();

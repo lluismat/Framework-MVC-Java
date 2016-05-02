@@ -33,7 +33,10 @@ import utils.menus;
  */
 public class BLL_Userreg {
     
-    //Funcion validar y crear usuario registrado
+    /**
+     * comprueba que todos los campos son correctos y crea el usuario
+     * @return 
+     */
     public static boolean create_Userreg() {
         int location;
         boolean checker = false;

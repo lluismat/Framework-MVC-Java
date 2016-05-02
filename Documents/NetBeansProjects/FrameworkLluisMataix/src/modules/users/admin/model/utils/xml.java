@@ -8,14 +8,11 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.Annotations;
-import static java.util.Collections.singleton;
-import modules.menu.model.Config;
 import modules.menu.model.Language;
 import modules.users.admin.model.classes.admin;
 import modules.users.users.singleton;
@@ -23,6 +20,9 @@ import modules.users.users.singleton;
 public class xml {
 	private static final String ENCODING = "UTF-8";
 
+        /**
+         * guarda un admin en XML
+         */
 	public static void saveAdmin() {
 		String PATH = null;
 		try {
@@ -60,6 +60,9 @@ public class xml {
 		}
 	}
 
+        /**
+         * abre un XML 
+         */
 	public static void openAdmin() {
 		String PATH = null;
 		try {
@@ -84,6 +87,9 @@ public class xml {
 		}
 	}
 
+        /**
+         * guarda automaticamente un archivo XML 
+         */
 	public static void autosaveadmin() {
 		String PATH = null;
 
@@ -122,6 +128,9 @@ public class xml {
 		}
 	}
 
+        /**
+         * abre automaticamente un archivo XML
+         */
 	public static void OpenAutoAdmin() {
 		String PATH;
 

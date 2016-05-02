@@ -6,17 +6,18 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
 import modules.menu.model.Language;
 import modules.users.client.model.classes.client;
 import modules.users.users.singleton;
 
 public class txt_client {
 	
+    /**
+     * guarda los clientes en un TXT
+     */
 	public static void saveClient() {
 		String PATH = null;
 		try {
@@ -44,6 +45,9 @@ public class txt_client {
 		}
 	}
 
+        /**
+         * guarda un cliente en TXT
+         */
         public static void saveClient2() {
 		String PATH = null;
 		try {
@@ -71,6 +75,9 @@ public class txt_client {
 		}
 	}
         
+        /**
+         * abre los clientes en TXT
+         */
 	public static void openClient() {
 		String PATH = null;
 		try {
@@ -97,6 +104,9 @@ public class txt_client {
 		}
 	}
 
+        /**
+         * abre automaticamente un archvo en TXT
+         */
 	public static void openAutoClient() {
 		String PATH = null;
 		try {
@@ -115,6 +125,9 @@ public class txt_client {
 		}
 	}
 
+        /**
+         * guarda automaticamente un archivo TXT con los clientes
+         */
 	public static void saveAutoClient() {
 		String PATH = null;
 		try {

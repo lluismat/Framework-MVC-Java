@@ -18,6 +18,9 @@ import modules.users.users.singleton;
  */
 public class DAO_Mongo {
     
+    /**
+     * inserta un cliente en mongo
+     */
     public static void insert_Client() {
         
         singletonMongo.collection=Mongo_DB.getCollection();
@@ -34,6 +37,9 @@ public class DAO_Mongo {
     }
 */
     
+    /**
+     * lista los clientes que hay guardados en MongoDB
+     */
     public static void viewTableClient() {
         DBCursor cursor = null;
         singleton.userclient.clear();
@@ -57,11 +63,16 @@ public class DAO_Mongo {
 	}
     }
    
-    
+    /**
+     * elimina un cliente de MongoDB
+     */
     public static void deleteClient_by_dni() {
         singletonMongo.collection.remove(new BasicDBObject().append("dni",singleton.client.getDni()));
     }
    
+    /**
+     * modifica un usario de MongoDB
+     */
     public static void updateClient(){
         
 

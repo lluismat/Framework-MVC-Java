@@ -174,7 +174,7 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
                 } else {
                     new controller_Userreg(new UserregMenu(), 3).start(3);
                 }
-                
+
             }
         });
         timer.setRepeats(false);
@@ -402,8 +402,8 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
                 this.changeUserreg.dniField.setVisible(false);
                 this.changeUserreg.dniField.setEditable(false);
                 this.changeUserreg.birthdayField.setDateFormatString(Config.getInstance().getFormatDate());
-                if(singleton.user.equals("Userreg")){
-                     this.changeUserreg.activityField.setEnabled(false);
+                if (singleton.user.equals("Userreg")) {
+                    this.changeUserreg.activityField.setEnabled(false);
                 }
 
                 if (singleton.registered_user != null) {
@@ -423,8 +423,11 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
                 this.changeUserreg.comboDni.setModel(PlenaComboBox());
                 this.changeUserreg.addWindowListener(new WindowAdapter() {
                     public void windowClosing(WindowEvent e) {
-
-                        new controller_Userreg(new UserReg(), 0).start(0);
+                        if (singleton.user.equals("Admin")) {
+                            new controller_Userreg(new UserReg(), 0).start(0);
+                        } else {
+                            new controller_Userreg(new UserregMenu(), 3).start(3);
+                        }
                     }
                 });
 
@@ -601,7 +604,7 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
                 } else {
                     new controller_Userreg(new UserregMenu(), 3).start(3);
                 }
-                
+
                 break;
 
             case comboDni:
@@ -757,10 +760,10 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
                 this.changeUserreg.passField.setText("");
                 break;
             case activityField1:
-                if(singleton.user.equals("Admin")){
-                this.changeUserreg.activityField.setText("");
-                }else{
-                    
+                if (singleton.user.equals("Admin")) {
+                    this.changeUserreg.activityField.setText("");
+                } else {
+
                 }
                 break;
             case img1:
@@ -784,7 +787,7 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
                 userregMenu.dispose();
                 new controller_menu(new Config_jFrame(), 1).start(1);
                 break;
-                case etiExit:
+            case etiExit:
                 //BLL_Userreg.exitOption();
                 JOptionPane.showMessageDialog(null, "Saliendo de la Aplicación");
                 System.exit(0);

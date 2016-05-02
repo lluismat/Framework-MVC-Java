@@ -35,6 +35,10 @@ import utils.Themes;
  */
 public class BLL_Admin {
 
+    /**
+     * funcion que valida todos los campos estan bien y crea el administrador y lo inserta en BBDD y en el arraylist
+     * @return 
+     */
     public static boolean create_admin() {
         int location;
         boolean checker = false;
@@ -55,6 +59,9 @@ public class BLL_Admin {
         return checker;
     }
 
+    /**
+     * funcion para mostrar los datos del administrador
+     */
     public static void viewAdmin() {
         int location;
         location = searchAdminModifyDNI();
@@ -88,6 +95,10 @@ public class BLL_Admin {
 
     }
 
+    /**
+     * funcion para mostrar datos del administrador cuando seleccionas del pager
+     * @param dni 
+     */
     public static void viewJTableAdmin(String dni) {
         int location;
         singleton.admin = new admin(dni);
@@ -123,7 +134,11 @@ public class BLL_Admin {
 
     }
 
-    //funcion modificar admin
+    
+    /**
+     * funcion que valida los campos y modifica el administrador en BBDD
+     * @return 
+     */
     public static boolean update_admin() {
         int location;
         boolean checker = false;
@@ -142,6 +157,10 @@ public class BLL_Admin {
         return checker;
     }
 
+    /**
+     * funcion modificar si seleccionan un administrador desde el pager
+     * @return 
+     */
     public static boolean modify_row() {
         String dni;
         boolean correcto;
@@ -152,7 +171,7 @@ public class BLL_Admin {
             int selec1 = inicio + selec; //nos situamos en la fila correspondiente de esa página
 
             if (selec1 == -1) {
-                JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
+                JOptionPane.showMessageDialog(null, Language.getInstance().getProperty("errorpager1"), "Error!", 2);
                 correcto = false;
 
             } else {
@@ -168,22 +187,25 @@ public class BLL_Admin {
                 singleton.adminPager = null;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "lista vacía", "Error!", 2);
+            JOptionPane.showMessageDialog(null,Language.getInstance().getProperty("errorpager2"), "Error!", 2);
             correcto = false;
         }
         return correcto;
     }
 
-    //comprueba que todos los campos esten bien antes de crear el admin
+    /**
+     * funcion para mostrar al usuario si el admin se ha creado o no
+     * @return 
+     */
     public static boolean checkCreateAdmin() {
         boolean checker;
         checker = BLL_Admin.create_admin();
         if (checker == false) {
-            Create_Admin.confirm.setText("No se ha podido crear el Administrador");
+            Create_Admin.confirm.setText(Language.getInstance().getProperty("errorcreateadmin"));
             Create_Admin.confirm.setBackground(Color.red);
 
         } else {
-            Create_Admin.confirm.setText("El Administrador ha sido creado con exito");
+            Create_Admin.confirm.setText(Language.getInstance().getProperty("createadminok"));
             Create_Admin.confirm.setBackground(Color.green);
 
         }
@@ -191,7 +213,10 @@ public class BLL_Admin {
         return checker;
     }
 
-    //comprobar que todo este bien antes de modificar
+ /**
+  * funcion que muestra al usuario si se ha modificado con exito el administrador o no
+  * @return 
+  */
     public static boolean checkChangeAdmin() {
         boolean checker;
         boolean dispose = false;
@@ -199,11 +224,11 @@ public class BLL_Admin {
         checker = BLL_Admin.update_admin();
         if (checker == false) {
 
-            ChangeAdmin.confirm.setText("El Administrador no se ha podido modificar");
+            ChangeAdmin.confirm.setText(Language.getInstance().getProperty("errormodifyadmin"));
             ChangeAdmin.confirm.setBackground(Color.red);
         } else {
             dispose = true;
-            ChangeAdmin.confirm.setText("El Administrador se ha modificado con exito");
+            ChangeAdmin.confirm.setText(Language.getInstance().getProperty("modifyadminok"));
             ChangeAdmin.confirm.setBackground(Color.green);
 
         }
@@ -211,7 +236,9 @@ public class BLL_Admin {
         return dispose;
     }
 
-    //Eliminar admin
+    /**
+     * funcion para eliminar el administrador
+     */
     public static void deleteAdmin() {
 
         String dni;
@@ -225,13 +252,13 @@ public class BLL_Admin {
             int selec1 = inicio + selec; //nos situamos en la fila correspondiente de esa página
 
             if (selec1 == -1) {
-                JOptionPane.showMessageDialog(null, "No se ha seleccionado a ningun administrador", "Error!", 2);
+                JOptionPane.showMessageDialog(null, Language.getInstance().getProperty("errorpager1"), "Error!", 2);
             } else {
                 dni = (String) Admin.jTable.getModel().getValueAt(selec1, 0);
                 singleton.admin = new admin(dni);
                 location = searchAdmin(singleton.admin);
 
-                int opc = JOptionPane.showConfirmDialog(null, "Estas seguro que quieres eliminar al Admin: " + dni,
+                int opc = JOptionPane.showConfirmDialog(null, Language.getInstance().getProperty("deletemessage") + dni+"?",
                         "Info", JOptionPane.WARNING_MESSAGE);
                 if (opc == 0) {
 
@@ -240,8 +267,6 @@ public class BLL_Admin {
                     singleton.useradmin.remove(singleton.admin);
                     miniSimpleTableModel_Admin.auxdates.remove(singleton.admin);
                     BLL_BBDD.DeleteAdminBLL();
-
-                    //saveAutoAdmin();
                 }
                 if (((miniSimpleTableModel_Admin) Admin.jTable.getModel()).getRowCount() == 0) {
                     if (((miniSimpleTableModel_Admin) Admin.jTable.getModel()).getRowCount() != 0) {
@@ -250,11 +275,15 @@ public class BLL_Admin {
             }
 
         } else {
-            JOptionPane.showMessageDialog(null, "No hay administradores", "Error!", 2);
+            JOptionPane.showMessageDialog(null, Language.getInstance().getProperty("errordelete"), "Error!", 2);
         }
     }
 
-    //buscar admin
+    /**
+     * funcion para buscar el admin
+     * @param admin
+     * @return 
+     */
     public static int searchAdmin(admin admin) {
 
         for (int i = 0; i <= (singleton.useradmin.size() - 1); i++) {
@@ -265,7 +294,10 @@ public class BLL_Admin {
         return -1;
     }
 
-    //buscar admin por dni en la ventana de crear
+    /**
+     * funcion para buscar por dni un administrador en la ventana de crear
+     * @return 
+     */
     public static int searchAdminDNI() {
         int location;
         admin admin;
@@ -275,7 +307,10 @@ public class BLL_Admin {
         return location;
     }
 
-    //buscar admin por dni en la ventana de modificar
+    /**
+     * funcion para buscar por dni un administrador en la ventana de modificar
+     * @return 
+     */
     public static int searchAdminModifyDNI() {
         int location;
         admin admin;
@@ -290,6 +325,11 @@ public class BLL_Admin {
         return location;
     }
 
+    /**
+     * funcion que llama a las funciones del DAO para validar los campos al crear el administrador
+     * @param type
+     * @return 
+     */
     public static boolean askAdmin(String type) {
         boolean checker = false;
         switch (type) {
@@ -302,7 +342,8 @@ public class BLL_Admin {
                     } else {
                         location = searchAdminDNI();
                         if (location != -1) {
-                            Create_Admin.errorDni.setText("<html><font color=red>El dni introducido ya existe</font></html>");
+                            Create_Admin.errorDni.setForeground(Color.red);
+                            Create_Admin.errorDni.setText(Language.getInstance().getProperty("errordni3"));
                             checker = false;
                         } else {
                             checker = true;
@@ -341,7 +382,11 @@ public class BLL_Admin {
         return checker;
     }
 
-    //change admin
+   /**
+    * funcion que llama a las funciones del DAO para validar los campos de la ventana de modificar un administrador
+    * @param type
+    * @return 
+    */
     public static boolean changeAdmin(String type) {
         boolean checker = false;
         switch (type) {
@@ -376,6 +421,10 @@ public class BLL_Admin {
         return checker;
     }
 
+    /**
+     * funcion para guardar un administrador en JSON,XML o TXT 
+     * @param type 
+     */
     public static void SaveAdmin(String type) {
         if (singleton.useradmin.size() != 0) {
             switch (type) {
@@ -394,6 +443,10 @@ public class BLL_Admin {
         }
     }
 
+    /**
+     * funcion para abrir archivos de un administrador en JSON,XML o TXT
+     * @param type 
+     */
     public static void openAdmin(String type) {
         if (singleton.useradmin.isEmpty()) {
             switch (type) {
@@ -439,25 +492,40 @@ public class BLL_Admin {
         }
     }
 
+    /**
+     * funcion para salir
+     */
     public static void Exit() {
         JOptionPane.showMessageDialog(null, Language.getInstance().getProperty("exitmessage"));
         System.exit(0);
     }
 
+    /**
+     * funcion que guarda automaticamente un administrador
+     */
     public static void saveAutoAdmin() {
         xml.autosaveadmin();
         txt.saveAutoAdmin();
         json.SaveAutoAdmin();
     }
 
+    /**
+     * funcion para seleccionar un avatar
+     */
     public static void createAvatar() {
         avatar.createAvatar();
     }
 
+    /**
+     * funcion para cargar un avatar
+     */
     public static void loadAvatar() {
         avatar.OpenAvatar();
     }
 
+    /**
+     * funcion para abrir automaticamente ficheros de un administrador
+     */
     public static void openAuto() {
         // admin
         xml.OpenAutoAdmin();
@@ -468,6 +536,9 @@ public class BLL_Admin {
 
     }
 
+    /**
+     * funcion para cambiar la configuracion 
+     */
     public static void changeConfig() {
 
         String dateformat = "", themes = "", files = "", currency = "", language = "";
