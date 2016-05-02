@@ -85,12 +85,7 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
         modifyClient,
         deleteClient,
         iconMenu,
-        openJson,
-        openXml,
-        openTxt,
-        saveJson,
-        saveXml,
-        saveTxt,
+        save,
         //JTABLE
         jTable,
         primero,
@@ -257,29 +252,9 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
 
                 this.menuClient.iconMenu.addMouseListener(this);
 
-                this.menuClient.openJson.setName("openJson");
+                this.menuClient.Save.setName("save");
 
-                this.menuClient.openJson.addMouseListener(this);
-
-                this.menuClient.openXml.setName("openXml");
-
-                this.menuClient.openXml.addMouseListener(this);
-
-                this.menuClient.openTxt.setName("openTxt");
-
-                this.menuClient.openTxt.addMouseListener(this);
-
-                this.menuClient.saveJson.setName("saveJson");
-
-                this.menuClient.saveJson.addMouseListener(this);
-
-                this.menuClient.saveXml.setName("saveXml");
-
-                this.menuClient.saveXml.addMouseListener(this);
-
-                this.menuClient.saveTxt.setName("saveTxt");
-
-                this.menuClient.saveTxt.addMouseListener(this);
+                this.menuClient.Save.addMouseListener(this);
 
                 this.menuClient.primero.setActionCommand("primero");
 
@@ -865,29 +840,8 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
     @Override
     public void mousePressed(MouseEvent e) {
         switch (Action.valueOf(e.getComponent().getName())) {
-            case openJson:
-                BLL_Client.openClient("JSON");
-                menuClient.dispose();
-                new controller_Client(new Client(), 0).start(0);
-                break;
-            case openXml:
-                BLL_Client.openClient("XML");
-                menuClient.dispose();
-                new controller_Client(new Client(), 0).start(0);
-                break;
-            case openTxt:
-                BLL_Client.openClient("TXT");
-                menuClient.dispose();
-                new controller_Client(new Client(), 0).start(0);
-                break;
-            case saveJson:
-                BLL_Client.SaveClient("JSON");
-                break;
-            case saveXml:
-                BLL_Client.SaveClient("XML");
-                break;
-            case saveTxt:
-                BLL_Client.SaveClient("TXT");
+            case save:
+                BLL_Client.SaveClient(Config.getInstance().getFiles());
                 break;
         }
 

@@ -81,12 +81,7 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
         modifyUserreg,
         deleteUserreg,
         iconMenu,
-        openJson,
-        openXml,
-        openTxt,
-        saveJson,
-        saveXml,
-        saveTxt,
+        save,
         //JTABLE
         jTable,
         primero,
@@ -251,29 +246,9 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
 
                 this.menuUserreg.iconMenu.addMouseListener(this);
 
-                this.menuUserreg.openJson.setName("openJson");
+                this.menuUserreg.Save.setName("save");
 
-                this.menuUserreg.openJson.addMouseListener(this);
-
-                this.menuUserreg.openXml.setName("openXml");
-
-                this.menuUserreg.openXml.addMouseListener(this);
-
-                this.menuUserreg.openTxt.setName("openTxt");
-
-                this.menuUserreg.openTxt.addMouseListener(this);
-
-                this.menuUserreg.saveJson.setName("saveJson");
-
-                this.menuUserreg.saveJson.addMouseListener(this);
-
-                this.menuUserreg.saveXml.setName("saveXml");
-
-                this.menuUserreg.saveXml.addMouseListener(this);
-
-                this.menuUserreg.saveTxt.setName("saveTxt");
-
-                this.menuUserreg.saveTxt.addMouseListener(this);
+                this.menuUserreg.Save.addMouseListener(this);
 
                 this.menuUserreg.primero.setActionCommand("primero");
 
@@ -805,29 +780,9 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
     public void mousePressed(MouseEvent e) {
 
         switch (Action.valueOf(e.getComponent().getName())) {
-            case openJson:
-                BLL_Userreg.openUserreg("JSON");
-                menuUserreg.dispose();
-                new controller_Userreg(new UserReg(), 0).start(0);
-                break;
-            case openXml:
-                BLL_Userreg.openUserreg("XML");
-                menuUserreg.dispose();
-                new controller_Userreg(new UserReg(), 0).start(0);
-                break;
-            case openTxt:
-                BLL_Userreg.openUserreg("TXT");
-                menuUserreg.dispose();
-                new controller_Userreg(new UserReg(), 0).start(0);
-                break;
-            case saveJson:
-                BLL_Userreg.SaveUserreg("JSON");
-                break;
-            case saveXml:
-                BLL_Userreg.SaveUserreg("XML");
-                break;
-            case saveTxt:
-                BLL_Userreg.SaveUserreg("TXT");
+            
+            case save:
+                BLL_Userreg.SaveUserreg(Config.getInstance().getFiles());
                 break;
         }
     }

@@ -56,14 +56,8 @@ public class Client extends javax.swing.JFrame {
         primero = new javax.swing.JButton();
         ultimo = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        openAdmin = new javax.swing.JMenu();
-        openJson = new javax.swing.JMenuItem();
-        openXml = new javax.swing.JMenuItem();
-        openTxt = new javax.swing.JMenuItem();
         saveAdmin = new javax.swing.JMenu();
-        saveJson = new javax.swing.JMenuItem();
-        saveXml = new javax.swing.JMenuItem();
-        saveTxt = new javax.swing.JMenuItem();
+        Save = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -289,35 +283,11 @@ public class Client extends javax.swing.JFrame {
                     .addContainerGap()))
         );
 
-        openAdmin.setText("Abrir");
-
-        openJson.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_l.png"))); // NOI18N
-        openJson.setText("JSON");
-        openAdmin.add(openJson);
-
-        openXml.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/xml.png"))); // NOI18N
-        openXml.setText("XML");
-        openAdmin.add(openXml);
-
-        openTxt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Files-Txt-icon.png"))); // NOI18N
-        openTxt.setText("TXT");
-        openAdmin.add(openTxt);
-
-        jMenuBar1.add(openAdmin);
-
         saveAdmin.setText("Guardar");
 
-        saveJson.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_l.png"))); // NOI18N
-        saveJson.setText("JSON");
-        saveAdmin.add(saveJson);
-
-        saveXml.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/xml.png"))); // NOI18N
-        saveXml.setText("XML");
-        saveAdmin.add(saveXml);
-
-        saveTxt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Files-Txt-icon.png"))); // NOI18N
-        saveTxt.setText("TXT");
-        saveAdmin.add(saveTxt);
+        Save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save_32.png"))); // NOI18N
+        Save.setText("Guardar");
+        saveAdmin.add(Save);
 
         jMenuBar1.add(saveAdmin);
 
@@ -349,6 +319,7 @@ public class Client extends javax.swing.JFrame {
     public static javax.swing.JLabel CreateClient;
     private javax.swing.JPanel JpanelTable;
     public static javax.swing.JButton SIGUIENTE;
+    public static javax.swing.JMenuItem Save;
     public static javax.swing.JComboBox comboClient;
     public static javax.swing.JLabel deleteClient;
     private javax.swing.JLabel iconCreate;
@@ -368,15 +339,8 @@ public class Client extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable jTable_Client;
     public static javax.swing.JLabel modifyClient;
-    private javax.swing.JMenu openAdmin;
-    public static javax.swing.JMenuItem openJson;
-    public static javax.swing.JMenuItem openTxt;
-    public static javax.swing.JMenuItem openXml;
     public static javax.swing.JButton primero;
     public static javax.swing.JMenu saveAdmin;
-    public static javax.swing.JMenuItem saveJson;
-    public static javax.swing.JMenuItem saveTxt;
-    public static javax.swing.JMenuItem saveXml;
     public static javax.swing.JButton ultimo;
     // End of variables declaration//GEN-END:variables
 }

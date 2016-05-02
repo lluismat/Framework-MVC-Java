@@ -56,8 +56,6 @@ public class Admin extends javax.swing.JFrame {
         primero = new javax.swing.JButton();
         ultimo = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        openAdmin = new javax.swing.JMenu();
-        Open = new javax.swing.JMenuItem();
         saveAdmin = new javax.swing.JMenu();
         Save = new javax.swing.JMenuItem();
 
@@ -281,14 +279,6 @@ public class Admin extends javax.swing.JFrame {
                     .addContainerGap()))
         );
 
-        openAdmin.setText("Abrir");
-
-        Open.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/search_32.png"))); // NOI18N
-        Open.setText("Abrir");
-        openAdmin.add(Open);
-
-        jMenuBar1.add(openAdmin);
-
         saveAdmin.setText("Guardar");
 
         Save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save_32.png"))); // NOI18N
@@ -323,7 +313,6 @@ public class Admin extends javax.swing.JFrame {
     public static javax.swing.JTextField CAJA;
     public static javax.swing.JLabel CreateAdmin;
     private javax.swing.JPanel JpanelTable;
-    public static javax.swing.JMenuItem Open;
     public static javax.swing.JButton SIGUIENTE;
     public static javax.swing.JMenuItem Save;
     public static javax.swing.JComboBox comboAdmin;
@@ -345,7 +334,6 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable jTable;
     public static javax.swing.JLabel modifyAdmin;
-    public static javax.swing.JMenu openAdmin;
     public static javax.swing.JButton primero;
     public static javax.swing.JMenu saveAdmin;
     public static javax.swing.JButton ultimo;

@@ -77,7 +77,6 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
         modifyAdmin,
         deleteAdmin,
         iconMenu,
-        open,
         save,
         //JTABLE
         jTable,
@@ -177,8 +176,6 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
                 menuAdmin.CreateAdmin.setText(Language.getInstance().getProperty("createadmin"));
                 menuAdmin.modifyAdmin.setText(Language.getInstance().getProperty("modifyadmin"));
                 menuAdmin.deleteAdmin.setText(Language.getInstance().getProperty("deleteadmin"));
-                menuAdmin.openAdmin.setText(Language.getInstance().getProperty("open"));
-                menuAdmin.Open.setText(Language.getInstance().getProperty("open"));
                 menuAdmin.saveAdmin.setText(Language.getInstance().getProperty("save"));
                 menuAdmin.Save.setText(Language.getInstance().getProperty("save"));
                 menuAdmin.CreateAdmin.setText(Language.getInstance().getProperty("createadmin"));
@@ -244,10 +241,6 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
                 this.menuAdmin.iconMenu.setName("iconMenu");
 
                 this.menuAdmin.iconMenu.addMouseListener(this);
-
-                this.menuAdmin.Open.setName("open");
-
-                this.menuAdmin.Open.addMouseListener(this);
 
                 this.menuAdmin.Save.setName("save");
 
@@ -765,11 +758,6 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
     public void mousePressed(MouseEvent e) {
 
         switch (Action.valueOf(e.getComponent().getName())) {
-            case open:
-                BLL_Admin.openAdmin(Config.getInstance().getFiles());
-                menuAdmin.dispose();
-                new controller_Admin(new Admin(), 0).start(0);
-                break;
             case save:
                 BLL_Admin.SaveAdmin(Config.getInstance().getFiles());
                 break;
