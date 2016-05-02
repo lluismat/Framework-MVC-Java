@@ -5,7 +5,6 @@ import modules.users.users.singleton;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.table.AbstractTableModel;
-import modules.users.admin.model.utils.pagina;
 import static modules.users.userreg.controller.controller_Userreg.combo;
 import modules.users.userreg.model.BLL.BLL_Userreg;
 import modules.users.userreg.model.utils.pagina_Userreg;
@@ -23,19 +22,30 @@ public class miniSimpleTableModel_Userreg extends AbstractTableModel {
         return columnas[col].toString();
     }
 
-    //Devuelve el numero de filas
+    /**
+     * Devuelve el numero de filas
+     * @return 
+     */
     @Override
     public int getRowCount() {
         return dates.size();
     }
 
-    //Devuelve el numero de columnas
+   /**
+    *  Devuelve el numero de columnas
+    * @return 
+    */
     @Override
     public int getColumnCount() {
         return columnas.length;
     }
 
-    //Devuelve el valor del objeto en la fila y columna
+    /**
+     * Devuelve el valor del objeto en la fila y columna
+     * @param row
+     * @param col
+     * @return 
+     */
     @Override
     public Object getValueAt(int row, int col) {
 
@@ -67,13 +77,23 @@ public class miniSimpleTableModel_Userreg extends AbstractTableModel {
         return dev;
     }
 
-    //Determina si una fila y columna ha de ser editable
+    /**
+     * Determina si una fila y columna ha de ser editable
+     * @param row
+     * @param col
+     * @return 
+     */
     @Override
     public boolean isCellEditable(int row, int col) {
         return false;
     }
 
-    //Actualiza un objeto de una fila y columna
+    /**
+     * Actualiza un objeto de una fila y columna
+     * @param value
+     * @param row
+     * @param col 
+     */
     @Override
     public void setValueAt(Object value, int row, int col) {
         registered_user fila = (registered_user) dates.get(row);
@@ -103,11 +123,19 @@ public class miniSimpleTableModel_Userreg extends AbstractTableModel {
         fireTableCellUpdated(row, col);
     }
 
+    /**
+     * añade una fila
+     * @param usu 
+     */
     public void addRow(registered_user usu) {
         dates.add(usu);
         fireTableDataChanged();
     }
 
+    /**
+     * elimina una fila
+     * @param fila 
+     */
     public void removeRow(int fila) {
         dates.remove(fila);
         fireTableDataChanged();
@@ -117,6 +145,9 @@ public class miniSimpleTableModel_Userreg extends AbstractTableModel {
         
     }
 
+    /**
+     * carga el jTable
+     */
     public void load() {
         dates.clear();
         auxdates.clear();
@@ -136,6 +167,9 @@ public class miniSimpleTableModel_Userreg extends AbstractTableModel {
         }
     }
 
+    /**
+     * filtra por nombre los usuarios registrados
+     */
     public void filtrar() {
         dates.clear();
         int cont = 0;
@@ -155,6 +189,11 @@ public class miniSimpleTableModel_Userreg extends AbstractTableModel {
         }
     }
 
+    /**
+     * 
+     * @param u
+     * @return 
+     */
     public registered_user buscar(String u) {
         dates.clear();
         load();
@@ -169,6 +208,11 @@ public class miniSimpleTableModel_Userreg extends AbstractTableModel {
         return null;
     }
 
+    /**
+     * 
+     * @param u
+     * @return 
+     */
     public int buscaUsuario(registered_user u) {
         dates.clear();
         load();

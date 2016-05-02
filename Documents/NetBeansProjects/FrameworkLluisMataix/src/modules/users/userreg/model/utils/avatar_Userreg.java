@@ -20,6 +20,9 @@ import modules.users.userreg.view.createUserreg;
  */
 public class avatar_Userreg {
     
+    /**
+     * funcion para elegir el avatar y guardar la imagen en el proyecto en la ventana de crear
+     */
     public static void createAvatar() {
 
         JFileChooser fileChooser = new JFileChooser();
@@ -51,6 +54,9 @@ public class avatar_Userreg {
         }
     }
     
+    /**
+     * funcion para elegir el avatar y guardar la imagen en el proyecto en la ventana de modificar
+     */
     public static void OpenAvatar() {
 
         JFileChooser fileChooser = new JFileChooser();

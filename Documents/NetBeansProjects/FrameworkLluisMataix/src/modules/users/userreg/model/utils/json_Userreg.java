@@ -29,6 +29,9 @@ import modules.users.users.singleton;
  */
 public class json_Userreg {
     
+    /**
+     * guarda los usuarios registrados en JSON
+     */
     public static void SaveUserreg() {
         String PATH = null;
         try {
@@ -59,6 +62,9 @@ public class json_Userreg {
         }
     }
     
+    /**
+     * guarda un usuario registrado en JSON
+     */
     public static void SaveUserreg2() {
         String PATH = null;
         try {
@@ -89,6 +95,9 @@ public class json_Userreg {
         }
     }
 
+    /**
+     * abre un fichero con usuarios registrados en JSON
+     */
     public static void OpenUserreg() {
         String PATH = null;
         registered_user userreg = new registered_user("");
@@ -127,6 +136,9 @@ public class json_Userreg {
         }
     }
 
+    /**
+     * guarda automaticamente los usuarios registrados en JSON
+     */
     public static void SaveAutoUserreg() {
         String PATH = null;
         try {
@@ -152,6 +164,9 @@ public class json_Userreg {
 
     }
 
+    /**
+     * abre automaticamente un fichero en JSON que contenga los usuarios registrados
+     */
     public static void OpenAutoUserreg() {
         String PATH = null;
         registered_user userreg = new registered_user("");

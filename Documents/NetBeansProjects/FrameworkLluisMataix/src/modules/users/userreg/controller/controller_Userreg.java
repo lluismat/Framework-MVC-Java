@@ -696,7 +696,7 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
 
                 break;
             case deleteUserreg:
-                BLL_Userreg.deleteAdmin();
+                BLL_Userreg.deleteUserreg();
                 menuUserreg.dispose();
                 new controller_Userreg(new UserReg(), 0).start(0);
                 break;

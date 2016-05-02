@@ -30,6 +30,9 @@ import modules.users.users.singleton;
  */
 public class xml_Userreg {
     
+    /**
+     * guarda los usuarios registrados en XML
+     */
     public static void saveUserreg() {
 		String PATH = null;
 		try {
@@ -68,6 +71,9 @@ public class xml_Userreg {
 		}
 	}
     
+    /**
+     * guarda un usuario registrado en XML
+     */
     public static void saveUserreg2() {
 		String PATH = null;
 		try {
@@ -106,6 +112,9 @@ public class xml_Userreg {
 		}
 	}
 
+    /**
+     * abre un fichero en XML
+     */
 	public static void openUserreg() {
 		String PATH = null;
 		try {
@@ -130,6 +139,9 @@ public class xml_Userreg {
 		}
 	}
 
+        /**
+         * guarda automaticamente un fichero en XML con los usuarios registrados
+         */
 	public static void autosaveUserreg() {
 		String PATH = null;
 
@@ -169,6 +181,9 @@ public class xml_Userreg {
 		}
 	}
 
+        /**
+         * abre automaticamente un fichero en XML con usuarios registrados
+         */
 	public static void OpenAutoUserreg() {
 		String PATH;
 

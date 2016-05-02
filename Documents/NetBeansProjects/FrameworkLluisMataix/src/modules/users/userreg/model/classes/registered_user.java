@@ -10,99 +10,135 @@ import modules.users.users.users;
 
 @XStreamAlias("Registered_user")
 public class registered_user extends users implements Serializable {
-	@XStreamAlias("Activity")
-	private int activity;
-	@XStreamAlias("karma")
-	private String karma;
 
-	// Constructor
+    @XStreamAlias("Activity")
+    private int activity;
+    @XStreamAlias("karma")
+    private String karma;
 
-	public registered_user(String dni, String name, String surname, String mobile, String email, String user,
-			String pass, String avatar, String state, date date_birthday, int activity) {
+    /**
+     * constructor
+     *
+     * @param dni
+     * @param name
+     * @param surname
+     * @param mobile
+     * @param email
+     * @param user
+     * @param pass
+     * @param avatar
+     * @param state
+     * @param date_birthday
+     * @param activity
+     */
+    public registered_user(String dni, String name, String surname, String mobile, String email, String user,
+            String pass, String avatar, String state, date date_birthday, int activity) {
 
-		super(dni, name, surname, mobile, email, user, pass, avatar, state, date_birthday);
+        super(dni, name, surname, mobile, email, user, pass, avatar, state, date_birthday);
 
-		this.activity = activity;
-		super.setBenefits(calculate_benefits());
-		this.setKarma(calculate_karma());
+        this.activity = activity;
+        super.setBenefits(calculate_benefits());
+        this.setKarma(calculate_karma());
 
-	}
+    }
 
-	// Constructor per defecte
-	public registered_user() {
-		super();
-	}
-	// Constructor de clau primaria
+    /**
+     * constructor por defecto
+     */
+    public registered_user() {
+        super();
+    }
+    
+    
+/**
+ * constructor de llave primaria
+ * @param dni 
+ */
+    public registered_user(String dni) {
+        super(dni);
 
-	public registered_user(String dni) {
-		super(dni);
+    }
 
-	}
+    /**
+     * Constructor a peticion del usuario
+     * @param election
+     * @param i 
+     */
+    public registered_user(Object election, int i) {
+        super(election, i);
+        switch (i) {
+            case 11:
+                activity = (int) election;
+                break;
+        }
+    }
 
-	// Constructor a peticio del usuari
-	public registered_user(Object election, int i) {
-		super(election, i);
-		switch (i) {
-		case 11:
-			activity = (int) election;
-			break;
-		}
-	}
+    /**
+     * getters and setters
+     * @return 
+     */
+    public int getActivity() {
+        return activity;
+    }
 
-	// getters and setters
+    public void setActivity(int activity) {
+        this.activity = activity;
+        super.setBenefits(calculate_benefits());
+        this.setKarma(calculate_karma());
+    }
 
-	public int getActivity() {
-		return activity;
-	}
+    public String getKarma() {
+        return karma;
+    }
 
-	public void setActivity(int activity) {
-		this.activity = activity;
-		super.setBenefits(calculate_benefits());
-		this.setKarma(calculate_karma());
-	}
+    public void setKarma(String karma) {
+        this.karma = karma;
+    }
 
-	public String getKarma() {
-		return karma;
-	}
+    /**
+     * calcular beneficios points
+     * @return 
+     */
+    public float calculate_benefits() {
+        float calculate = 0.0f;
+        calculate = this.getActivity() + 100;
+        return calculate;
+    }
 
-	public void setKarma(String karma) {
-		this.karma = karma;
-	}
+   /**
+    * calcular karma
+    * @return 
+    */
+    public String calculate_karma() {
+        String karma = "";
+        if (this.getActivity() < 100) {
+            karma = "Low";
+        } else if ((this.getActivity() >= 100) && (this.getActivity() < 200)) {
+            karma = "Medium";
+        } else {
+            karma = "Hight";
+        }
+        return karma;
 
-	// calcular beneficios points
-	public float calculate_benefits() {
-		float calculate = 0.0f;
-		calculate = this.getActivity() + 100;
-		return calculate;
-	}
+    }
 
-	// calcular karma
-	public String calculate_karma() {
-		String karma = "";
-		if (this.getActivity() < 100) {
-			karma = "Low";
-		} else if ((this.getActivity() >= 100) && (this.getActivity() < 200)) {
-			karma = "Medium";
-		} else
-			karma = "Hight";
-		return karma;
+    /**
+     * toString
+     * @return 
+     */
+    public String toString() {
+        String cad = "";
 
-	}
+        cad = cad + super.toString() + "\n";
 
-	// toString
-	public String toString() {
-		String cad = "";
+        cad = cad + Language.getInstance().getProperty("activity") + ": " + this.getActivity() + "\n";
+        cad = cad + Language.getInstance().getProperty("karma") + ": " + this.getKarma() + "\n";
+        cad = cad + Language.getInstance().getProperty("points") + ": " + this.getBenefits() + "\n";
 
-		cad = cad + super.toString() + "\n";
+        return cad;
+    }
 
-		cad = cad + Language.getInstance().getProperty("activity") + ": " + this.getActivity() + "\n";
-		cad = cad + Language.getInstance().getProperty("karma") + ": " + this.getKarma() + "\n";
-		cad = cad + Language.getInstance().getProperty("points") + ": " + this.getBenefits() + "\n";
-
-		return cad;
-	}
-
-	/*
+    /*
 	 * // toString clau primaria
 	 * 
 	 * public String toString(String dni) { return super.toString(dni); }
@@ -115,5 +151,5 @@ public class registered_user extends users implements Serializable {
 	 * + "Activity: " + this.getActivity() + "\n"; break; } }
 	 * 
 	 * return cad; }
-	 */
+     */
 }

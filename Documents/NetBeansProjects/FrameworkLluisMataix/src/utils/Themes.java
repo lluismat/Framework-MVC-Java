@@ -7,6 +7,9 @@ import modules.menu.model.Config;
 
 public class Themes {
 
+    /**
+     * funcion para mostrar un tema segun el tema elegido
+     */
 	public static void themes() {
 
 		try {

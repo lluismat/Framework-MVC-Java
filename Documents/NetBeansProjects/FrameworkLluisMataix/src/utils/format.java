@@ -8,7 +8,13 @@ import modules.menu.model.Config;
 
 public class format {
 
-	// Elegir el numero de decimales
+	
+    /**
+     * Elegir el numero de decimales
+     * @param number
+     * @param option
+     * @return 
+     */
 	public static String formatdecimals(float number, int option) {
 		String format = "";
 		switch (option) {
@@ -33,7 +39,12 @@ public class format {
 		return format;
 	}
 
-	// Elegir formato de la moneda
+        /**
+         * Elegir formato de la moneda
+         * @param coin
+         * @param c
+         * @return 
+         */
 	public static String formatcurrency(float coin, Config c) {
 
 		String format = "";

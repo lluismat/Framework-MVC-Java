@@ -19,7 +19,11 @@ import utils.validate;
  */
 public class DAO_Userreg {
     
-    //funcion crear usuario registrado
+
+    /**
+     * crea un usuario registrado
+     * @return 
+     */
     public static registered_user pideUserreg() {
 
         String dni = "", name = "", surname = "", mobile = "", email = "", user = "", pass = "", avatar = "",
@@ -44,7 +48,10 @@ public class DAO_Userreg {
         return userreg;
     }
     
-    // funcion modificar usuario registrado
+  /**
+   * modifica un usario registrado
+   * @return 
+   */
     public static registered_user changeUserreg() {
 
         String dni = "", name = "", surname = "", mobile = "", email = "", user = "", pass = "", avatar = "",
@@ -69,7 +76,10 @@ public class DAO_Userreg {
         return userreg;
     }
     
-    // pide dni
+    /**
+     * valida un dni
+     * @return 
+     */
     public static boolean askdni() {
         String inserted_dni = "";
         boolean checker = false;
@@ -89,7 +99,10 @@ public class DAO_Userreg {
         return checker;
     }
 
-    // pide nombre
+    /**
+     * valida el nombre
+     * @return 
+     */
     public static boolean askname() {
         String inserted_name = "";
         boolean checker = false;
@@ -107,7 +120,10 @@ public class DAO_Userreg {
         return checker;
     }
 
-    // pide apellidos
+    /**
+     * valida el apellido
+     * @return 
+     */
     public static boolean asksurname() {
         String inserted_surname = "";
         boolean checker = false;
@@ -125,7 +141,10 @@ public class DAO_Userreg {
         return checker;
     }
 
-    // pide mobil
+    /**
+     * valida el mobil
+     * @return 
+     */
     public static boolean askmobile() {
         String inserted_mobile = "";
         boolean checker = false;
@@ -143,7 +162,10 @@ public class DAO_Userreg {
         return checker;
     }
 
-    // pide email
+    /**
+     * valida el email
+     * @return 
+     */
     public static boolean askemail() {
         String inserted_email = "";
         boolean checker = false;
@@ -161,7 +183,10 @@ public class DAO_Userreg {
         return checker;
     }
 
-    // pide user
+    /**
+     * valida el usuario
+     * @return 
+     */
     public static boolean askuser() {
         String inserted_user = "";
         boolean checker = false;
@@ -179,7 +204,10 @@ public class DAO_Userreg {
         return checker;
     }
 
-    // pide password
+    /**
+     * valida la contraseña
+     * @return 
+     */
     public static boolean askpassword() {
         String inserted_password = "";
         boolean checker = false;
@@ -197,7 +225,10 @@ public class DAO_Userreg {
         return checker;
     }
 
-    //pide date birthday
+    /**
+     * valida la fecha de nacimiento
+     * @return 
+     */
     public static boolean askdate() {
         String inserted_date_birthday = "";
         int age = 0;
@@ -219,6 +250,10 @@ public class DAO_Userreg {
         return checker;
     }
 
+    /**
+     * valida la actividad
+     * @return 
+     */
     public static boolean askactivity() {
         String inserted_activity = "";
         boolean checker = false;
@@ -237,7 +272,10 @@ public class DAO_Userreg {
         return checker;
     }
 
-    // pide nombre
+    /**
+     * valida el nombre en la ventana de modificar
+     * @return 
+     */
     public static boolean changeName() {
         String inserted_name = "";
         boolean checker = false;
@@ -253,7 +291,10 @@ public class DAO_Userreg {
         return checker;
     }
 
-    // pide apellidos
+    /**
+     * valida el apellido en la ventana de modificar
+     * @return 
+     */
     public static boolean changeSurname() {
         String inserted_surname = "";
         boolean checker = false;
@@ -269,7 +310,10 @@ public class DAO_Userreg {
         return checker;
     }
 
-    // pide mobil
+    /**
+     * valida el mobil en la ventana de modificar
+     * @return 
+     */
     public static boolean changeMobile() {
         String inserted_mobile = "";
         boolean checker = false;
@@ -285,7 +329,10 @@ public class DAO_Userreg {
         return checker;
     }
 
-    // pide email
+    /**
+     * valida el email en la ventana de modificar
+     * @return 
+     */
     public static boolean changeEmail() {
         String inserted_email = "";
         boolean checker = false;
@@ -301,7 +348,10 @@ public class DAO_Userreg {
         return checker;
     }
 
-    // pide user
+    /**
+     * valida el usuario en la ventana de modificar
+     * @return 
+     */
     public static boolean changeUser() {
         String inserted_user = "";
         boolean checker = false;
@@ -317,7 +367,10 @@ public class DAO_Userreg {
         return checker;
     }
 
-    // pide password
+    /**
+     * valida la contraseña en la ventana de modificar
+     * @return 
+     */
     public static boolean changePassword() {
         String inserted_password = "";
         boolean checker = false;
@@ -333,7 +386,10 @@ public class DAO_Userreg {
         return checker;
     }
 
-    //pide date birthday
+    /**
+     * valida la fecha de nacimiento
+     * @return 
+     */
     public static boolean changeDate() {
         String inserted_date_birthday = "";
         int age = 0;
@@ -355,6 +411,10 @@ public class DAO_Userreg {
         return checker;
     }
 
+    /**
+     * valida la actividad
+     * @return 
+     */
     public static boolean changeActivity() {
         String inserted_activity = "";
         boolean checker = false;

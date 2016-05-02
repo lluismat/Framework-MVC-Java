@@ -56,7 +56,9 @@ public class BLL_Userreg {
         return checker;
     }
     
-    
+    /**
+     * muestra los datos del usuario registrado
+     */
     public static void viewUserreg() {
         int location;
         registered_user userreg;
@@ -89,6 +91,10 @@ public class BLL_Userreg {
 
     }
 
+    /**
+     * muestra los datos del usuario registrado elegido en el pager
+     * @param dni 
+     */
     public static void viewJTableUserreg(String dni) {
         int location;
         registered_user userreg;
@@ -123,7 +129,10 @@ public class BLL_Userreg {
 
     }
 
-    //funcion modificar admin
+    /**
+     * comprueba que todos los campos esten bien y si lo estan modifica el usuario registrado
+     * @return 
+     */
     public static boolean update_Userreg() {
         int location;
         boolean checker = false;
@@ -141,6 +150,10 @@ public class BLL_Userreg {
         return checker;
     }
 
+    /**
+     * modifica un usuario seleccionado en el pager
+     * @return 
+     */
     public static boolean modify_row() {
         String dni;
         boolean correcto;
@@ -173,7 +186,11 @@ public class BLL_Userreg {
         return correcto;
     }
 
-    //comprueba que todos los campos esten bien antes de crear el admin
+    
+    /**
+     * Muestra si se ha creado el usuario registrado o no
+     * @return 
+     */
     public static boolean checkCreateUserreg() {
         boolean checker;
         checker = BLL_Userreg.create_Userreg();
@@ -190,7 +207,10 @@ public class BLL_Userreg {
         return checker;
     }
 
-    //comprobar que todo este bien antes de modificar
+    /**
+     * muestra si se ha modificado el usuario con exito o no
+     * @return 
+     */
     public static boolean checkChangeUserreg() {
         boolean checker;
         boolean dispose = false;
@@ -210,8 +230,10 @@ public class BLL_Userreg {
         return dispose;
     }
 
-    //Eliminar admin
-    public static void deleteAdmin() {
+    /**
+     * elimina un usuario registrado elegido del pager
+     */
+    public static void deleteUserreg() {
 
         String dni;
         int location;
@@ -256,7 +278,11 @@ public class BLL_Userreg {
 
     
     
-     //buscar usuario registrado
+     /**
+      * busca un usuario registrado
+      * @param userreg
+      * @return 
+      */
     public static int searchUserreg(registered_user userreg) {
 
         for (int i = 0; i <= (singleton.userreg.size() - 1); i++) {
@@ -267,7 +293,11 @@ public class BLL_Userreg {
         return -1;
     }
 
-    //buscar usuario registrado por dni en la ventana de crear
+    
+    /**
+     * buscar usuario registrado por dni en la ventana de crear
+     * @return 
+     */
     public static int searchUserregDNI() {
         int location;
         registered_user userreg;
@@ -277,7 +307,11 @@ public class BLL_Userreg {
         return location;
     }
 
-    //buscar usuario registrado por dni en la ventana de modificar
+
+    /**
+     * buscar usuario registrado por dni en la ventana de modificar
+     * @return 
+     */
     public static int searchUserregModifyDNI() {
         int location;
         registered_user userreg;
@@ -292,6 +326,11 @@ public class BLL_Userreg {
         return location;
     }
 
+    /**
+     * Llama al DAO que valida los campos
+     * @param type
+     * @return 
+     */
     public static boolean askUserreg(String type) {
         boolean checker = false;
         switch (type) {
@@ -340,7 +379,11 @@ public class BLL_Userreg {
         return checker;
     }
 
-    //change admin
+    /**
+     * llama al DAO que valida los campos en la ventana de modificar
+     * @param type
+     * @return 
+     */
     public static boolean changeUserreg(String type) {
         boolean checker = false;
         switch (type) {
@@ -372,6 +415,10 @@ public class BLL_Userreg {
         return checker;
     }
     
+    /**
+     * guarda los usuarios registrados en XML,TXT o JSON
+     * @param type 
+     */
     public static void SaveUserreg(String type) {
         if (singleton.userreg.size() != 0) {
             switch (type) {
@@ -389,6 +436,10 @@ public class BLL_Userreg {
             JOptionPane.showMessageDialog(null, Language.getInstance().getProperty("errormessage"));
         }
     }
+    /**
+     * guarda un usuario registrado en XML,JSON o TXT
+     * @param type 
+     */
     public static void SaveUserreg2(String type){
          switch (type) {
                 case "XML":
@@ -403,6 +454,10 @@ public class BLL_Userreg {
             }
     }
 
+    /**
+     * abre un fichero con los usuarios registrados en XML,TXT o JSON
+     * @param type 
+     */
     public static void openUserreg(String type) {
         if (singleton.useradmin.isEmpty()) {
             switch (type) {
@@ -448,25 +503,40 @@ public class BLL_Userreg {
         }
     }
 
+    /**
+     * funcion para salir
+     */
     public static void Exit() {
         JOptionPane.showMessageDialog(null, Language.getInstance().getProperty("exitmessage"));
         System.exit(0);
     }
 
+    /**
+     * guarda automaticamente los usuarios registrados
+     */
     public static void saveAutoUserreg() {
         xml_Userreg.autosaveUserreg();
         txt_Userreg.saveAutoUserreg();
         json_Userreg.SaveAutoUserreg();
     }
 
+    /**
+     * funcion para seleccinar un avatar en la ventana de crear
+     */
     public static void createAvatar() {
         avatar_Userreg.createAvatar();
     }
 
+    /**
+     * funcion para seleccionar un avatar en la ventana de modificar
+     */
     public static void loadAvatar() {
         avatar_Userreg.OpenAvatar();
     }
 
+    /**
+     * abre automaticamente los ficheros con los usuarios registrados
+     */
     public static void openAuto() {
         // admin
         xml_Userreg.OpenAutoUserreg();
@@ -477,6 +547,9 @@ public class BLL_Userreg {
 
     }
     
+    /**
+     * pregunta si quieres cerrar sesion o salir de la aplicacion
+     */
     public static void exitOption() {
         boolean selection = menus.menuS_N("Quieres salir de la aplicacion o cerrar sesion?", "Saliendo","Cerrar Sesión", "Salir de la Aplicación");
         if (selection == true) {

@@ -23,6 +23,10 @@ import modules.users.users.singleton;
  * @author lluis
  */
 public class txt_Userreg {
+    
+    /**
+     * guarda los usuarios registrados en un TXT
+     */
     public static void saveUserreg() {
 		String PATH = null;
 		try {
@@ -50,6 +54,9 @@ public class txt_Userreg {
 		}
 	}
 
+    /**
+     * guarda un usuario registrado en TXT
+     */
     public static void saveUserreg2() {
 		String PATH = null;
 		try {
@@ -77,6 +84,9 @@ public class txt_Userreg {
 		}
 	}
     
+    /**
+     * abre un fichero en TXT que contega usuarios registrados
+     */
 	public static void openUserreg() {
 		String PATH = null;
 		try {
@@ -103,6 +113,10 @@ public class txt_Userreg {
 		}
 	}
 
+        
+        /**
+         * abre automaticamente un fichero con usuarios registrados en TXT
+         */
 	public static void openAutoUserreg() {
 		String PATH = null;
 		try {
@@ -122,6 +136,9 @@ public class txt_Userreg {
 		}
 	}
 
+        /**
+         * guarda automaticamente los usuarios registrados en TXT
+         */
 	public static void saveAutoUserreg() {
 		String PATH = null;
 		try {

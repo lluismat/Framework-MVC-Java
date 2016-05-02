@@ -3,7 +3,14 @@ package utils;
 import javax.swing.JOptionPane;
 
 public class menus {
-	// funcion del menu
+
+    /**
+     * funcion menu
+     * @param mensaje
+     * @param titulo
+     * @param tipo
+     * @return 
+     */
 	public static int menu(String mensaje, String titulo, String[] tipo) {
 		int opcion = 0;
 		opcion = JOptionPane.showOptionDialog(null, mensaje, titulo, 0, JOptionPane.QUESTION_MESSAGE, null, tipo,
@@ -12,7 +19,13 @@ public class menus {
 
 	}
 
-	// funcion menu combobox
+	/**
+         * funcion menu combobox
+         * @param opciones
+         * @param titulo
+         * @param mensaje
+         * @return 
+         */
 	public static String combobox(String[] opciones, String titulo, String mensaje) {
 		String cadena = "";
 		Object seleccion = JOptionPane.showInputDialog(null, mensaje, titulo, JOptionPane.QUESTION_MESSAGE, null,
@@ -25,7 +38,14 @@ public class menus {
 		return cadena;
 	}
 
-	// funcion para pedir boolean
+	/**
+         * funcion pedir boolean
+         * @param mensaje
+         * @param titulo
+         * @param position
+         * @param position2
+         * @return 
+         */
 	public static boolean menuS_N(String mensaje, String titulo, String position, String position2) {
 		int option = 0;
 		boolean option2 = false;
@@ -41,7 +61,12 @@ public class menus {
 		return option2;
 	}
 
-	// funcion karma
+	/**
+         * funcion para pedir el karma
+         * @param mensaje
+         * @param titulo
+         * @return 
+         */
 	public static String menuString(String mensaje, String titulo) {
 		String karma = "";
 		int option = 0;
