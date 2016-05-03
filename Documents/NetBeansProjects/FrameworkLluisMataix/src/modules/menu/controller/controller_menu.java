@@ -155,7 +155,7 @@ public class controller_menu implements ActionListener, MouseListener {
                 case "$":
                     config.optDolars.setSelected(true);
                     break;
-                case "£":
+                case "₤":
                     config.optLibras.setSelected(true);
                     break;
             }

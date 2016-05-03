@@ -45,10 +45,10 @@ public class format {
          * @param c
          * @return 
          */
-	public static String formatcurrency(float coin, Config c) {
+	public static String formatcurrency(float coin) {
 
 		String format = "";
-		switch (c.getCurrency()) {
+		switch (Config.getInstance().getCurrency()) {
 		case "€":
 			// Euros
 			NumberFormat euro = NumberFormat.getCurrencyInstance(Locale.FRANCE);
@@ -60,7 +60,7 @@ public class format {
 			NumberFormat dolar = NumberFormat.getCurrencyInstance(Locale.US);
 			format = dolar.format(coin * 1.08);
 			break;
-		case "£":
+		case "₤":
 			// Pounds
 			NumberFormat libra = NumberFormat.getCurrencyInstance(Locale.UK);
 			format = libra.format(coin * 0.72);

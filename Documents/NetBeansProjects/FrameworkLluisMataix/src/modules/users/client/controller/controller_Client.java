@@ -536,7 +536,7 @@ public class controller_Client implements ActionListener, KeyListener, MouseList
                 this.clientMenu.passField.setText(singleton.client.getPass());
                 this.clientMenu.premiumField.setText(singleton.client.getPremium());
                 this.clientMenu.birthdayField.setText(singleton.client.getDate_birthday().toString(Config.getInstance().getFormatDate()));
-                this.clientMenu.purchaseField.setText(String.valueOf(format.formatcurrency(singleton.client.getPurchase(), Config.getInstance())));
+                this.clientMenu.purchaseField.setText(String.valueOf(format.formatcurrency(singleton.client.getPurchase())));
                 this.clientMenu.dischargedateField.setText(singleton.client.getDischarge_date().toString(Config.getInstance().getFormatDate()));
                 this.clientMenu.clientTypeField.setText(singleton.client.getClient_type());
                 this.clientMenu.antiquityField.setText(String.valueOf(singleton.client.getAntiquity()));

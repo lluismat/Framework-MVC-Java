@@ -488,7 +488,7 @@ public class controller_Userreg implements ActionListener, KeyListener, MouseLis
                 //MENU USUARIO REGISTRADO
                 this.userregMenu.setSize(680, 500);
                 this.userregMenu.setResizable(false);
-                this.userregMenu.setTitle("Menu Cliente");
+                this.userregMenu.setTitle("Menu usuario registrado");
                 this.userregMenu.setVisible(true);
 
                 ImageIcon avatar = new ImageIcon(singleton.registered_user.getAvatar());

@@ -234,14 +234,14 @@ public class client extends users implements Serializable {
 		cad = cad + super.toString();
 
 		cad = cad + Language.getInstance().getProperty("purchase") + ": "
-				+ format.formatcurrency(this.getPurchase(), Config.getInstance()) + "\n";
+				+ format.formatcurrency(this.getPurchase()) + "\n";
 		cad = cad + Language.getInstance().getProperty("clienttype") + ": " + this.getClient_type() + "\n";
 		cad = cad + Language.getInstance().getProperty("antiquity") + ": " + this.getAntiquity() + "\n";
 		cad = cad + Language.getInstance().getProperty("dischargedate") + ": "
 				+ this.getDischarge_date().toString(Config.getInstance().getFormatDate()) + "\n";
 		cad = cad + Language.getInstance().getProperty("premium") + ": " + this.getPremium() + "\n";
 		cad = cad + Language.getInstance().getProperty("discount") + ": "
-				+ format.formatcurrency(this.getBenefits(), Config.getInstance()) + "\n";
+				+ format.formatcurrency(this.getBenefits()) + "\n";
 
 		return cad;
 	}

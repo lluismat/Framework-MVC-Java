@@ -73,7 +73,7 @@ public class miniSimpleTableModel_Client extends AbstractTableModel {
                 break;
 
             case 4:
-                dev = format.formatcurrency(fila.getPurchase(),Config.getInstance());
+                dev = format.formatcurrency(fila.getPurchase());
                 break;
 
         }

@@ -585,7 +585,7 @@ public class BLL_Admin {
         } else if (Config_jFrame.optDolars.isSelected()) {
             currency = "$";
         } else if (Config_jFrame.optLibras.isSelected()) {
-            currency = "⁭£";
+            currency = "₤";
         }
         Config.getInstance().setCurrency(currency);
 

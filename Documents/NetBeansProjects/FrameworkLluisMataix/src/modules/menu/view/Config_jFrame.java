@@ -195,7 +195,7 @@ public class Config_jFrame extends javax.swing.JFrame {
 
         optLibras.setBackground(new java.awt.Color(255, 255, 255));
         optCurrency.add(optLibras);
-        optLibras.setText("⁭₤");
+        optLibras.setText("£");
 
         jLabel4.setText("Elige la moneda con la que quieres que trabaje la aplicacion");
 

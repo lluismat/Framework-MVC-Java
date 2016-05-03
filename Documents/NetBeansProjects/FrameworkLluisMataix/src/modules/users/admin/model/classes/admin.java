@@ -187,12 +187,12 @@ public class admin extends users implements Serializable {
 
 		cad = cad + Language.getInstance().getProperty("antiquity") + ": " + this.getAntiquity() + "\n";
 		cad = cad + Language.getInstance().getProperty("salary") + ": "
-				+ format.formatcurrency(this.getSalary(), Config.getInstance()) + "\n";
+				+ format.formatcurrency(this.getSalary()) + "\n";
 		cad = cad + Language.getInstance().getProperty("activity") + ": " + this.getActivity() + "\n";
 		cad = cad + Language.getInstance().getProperty("hiringdate") + ": "
 				+ this.getHiring_date().toString(Config.getInstance().getFormatDate()) + "\n";
 		cad = cad + Language.getInstance().getProperty("incentive") + ": "
-				+ format.formatcurrency(this.getBenefits(), Config.getInstance()) + "\n";
+				+ format.formatcurrency(this.getBenefits()) + "\n";
 		return cad;
 	}
 

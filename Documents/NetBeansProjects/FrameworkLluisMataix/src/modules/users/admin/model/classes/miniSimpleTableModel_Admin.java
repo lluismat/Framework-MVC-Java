@@ -74,7 +74,7 @@ public class miniSimpleTableModel_Admin extends AbstractTableModel {
                 break;
 
             case 4:
-                dev = format.formatcurrency(fila.getSalary(),Config.getInstance());
+                dev = format.formatcurrency(fila.getSalary());
                 break;
 
         }

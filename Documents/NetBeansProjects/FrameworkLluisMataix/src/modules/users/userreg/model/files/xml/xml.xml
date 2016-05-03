@@ -65,11 +65,11 @@
   </Registered__user>
   <Registered__user>
     <DNI>33430903N</DNI>
-    <Name>Quiet</Name>
-    <Surname>Franco</Surname>
+    <Name>Antonio</Name>
+    <Surname>Garcia</Surname>
     <Mobile>651317777</Mobile>
-    <Email>quiet@gmail.com</Email>
-    <User>quiet</User>
+    <Email>antonio@gmail.com</Email>
+    <User>antonio7</User>
     <Pass>quiet123</Pass>
     <Avatar>C:\Users\lluis\Documents\NetBeansProjects\FrameworkLluisMataix/src/modules/users/admin/model/utils/avatars/avatar_aa73b3258945_64.png</Avatar>
     <State>Si</State>
@@ -86,11 +86,11 @@
   </Registered__user>
   <Registered__user>
     <DNI>86949855B</DNI>
-    <Name>Snake</Name>
-    <Surname>Big Boss</Surname>
+    <Name>Jaime</Name>
+    <Surname>Tomas</Surname>
     <Mobile>651636548</Mobile>
-    <Email>SolidSnake@gmail.com</Email>
-    <User>SolidSnake</User>
+    <Email>jaime@gmail.com</Email>
+    <User>jaimeTo</User>
     <Pass>bigboss1</Pass>
     <Avatar>C:\Users\lluis\Documents\NetBeansProjects\FrameworkLluisMataix/src/modules/users/admin/model/utils/avatars/7685.gif</Avatar>
     <State>Si</State>

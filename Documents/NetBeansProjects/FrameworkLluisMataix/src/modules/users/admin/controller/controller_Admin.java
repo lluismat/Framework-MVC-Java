@@ -5,6 +5,8 @@
  */
 package modules.users.admin.controller;
 
+import static java.awt.Frame.MAXIMIZED_BOTH;
+import static java.awt.Frame.MAXIMIZED_VERT;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -275,12 +277,13 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
             //CREAR ADMINISRTRADOR
             case 1:
 
-                this.createAdmin.setSize(942, 720);
+                this.createAdmin.setSize(942, 740);
                 this.createAdmin.setResizable(false);
                 this.createAdmin.setTitle(Language.getInstance().getProperty("createadmin"));
                 createAdmin.birthdayField.setDateFormatString(Config.getInstance().getFormatDate());
                 createAdmin.HiringDateField.setDateFormatString(Config.getInstance().getFormatDate());
                 Themes.themes();
+                    
 
                 this.createAdmin.btnAceptar.setText(Language.getInstance().getProperty("create"));
                 this.createAdmin.btnCancelar.setText(Language.getInstance().getProperty("cancel"));
@@ -444,7 +447,7 @@ public class controller_Admin implements ActionListener, KeyListener, MouseListe
                     BLL_Admin.viewJTableAdmin(singleton.adminPager.getDni());
                 }
 
-                this.changeAdmin.setSize(942, 720);
+                this.changeAdmin.setSize(942, 740);
                 this.changeAdmin.setResizable(false);
                 this.changeAdmin.setTitle(Language.getInstance().getProperty("modifyadmin"));
                 this.changeAdmin.setVisible(true);
